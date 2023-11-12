@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Features index{% endblock %}
+
+{% block body %}
+    <h1>Features index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Width</th>
+                <th>Length</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Price_min</th>
+                <th>Price_max</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feature in features %}
+            <tr>
+                <td>{{ feature.id }}</td>
+                <td>{{ feature.width }}</td>
+                <td>{{ feature.length }}</td>
+                <td>{{ feature.height }}</td>
+                <td>{{ feature.weight }}</td>
+                <td>{{ feature.priceMin }}</td>
+                <td>{{ feature.priceMax }}</td>
+                <td>
+                    <a href="{{ path('app_features_show', {'id': feature.id}) }}">show</a>
+                    <a href="{{ path('app_features_edit', {'id': feature.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_features_new') }}">Create new</a>
+{% endblock %}

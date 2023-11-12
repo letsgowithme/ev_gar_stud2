@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}</div>
+		{% endfor %}
+
+		<div class="body_home w-100 text-center d-flex flex-column mb-4 px-sm-2 px-lg-4">
+			<div>
+				{% include "partials/_main_title.html.twig" %}
+			</div>
+			<div class="bg_services_block">
+			<div>
+				{% include "partials/_services_line.html.twig" %}
+				</div>
+				<div>
+				{% include "partials/_header_img.html.twig" %}
+				{% include "partials/_btn_rdv.html.twig" %}
+				</div>
+			</div>
+		
+		<div class="btn_block">
+			{% include "partials/_btn_up.html.twig" %}
+			{% include "partials/_btn_home.html.twig" %}
+		</div>
+
+</div>
+	{% endblock %}

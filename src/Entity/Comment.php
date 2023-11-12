@@ -22,11 +22,7 @@ class Comment
     #[ORM\Column]
     private ?bool $isApproved = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
-
    
-
     public function getId(): ?int
     {
         return $this->id;
@@ -68,17 +64,7 @@ class Comment
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
+   
     public function __toString(): string{
         return (string) $this->lastname;
     }

@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark text-light">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#"></a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav me-auto text-center">
+				<li class="nav-item">
+					<a class="nav-link nav-link-name active fw-bold" id="up" href="/">Accueil  
+						<span class="visually-hidden">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link nav-link-name fw-bold" href="{{ path('service.index') }}">Services</a>
+				</li>
+				<li class="nav-item">
+						<a class="nav-link nav-link-name fw-bold" href="{{ path('car.index') }}">Voitures d'occasion</a>
+					</li>
+				
+				{# {% if app.user %} #}
+					<li class="nav-item">
+						<a class="nav-link nav-link-name fw-bold" href="{{ path('car.new') }}">Mes annonces</a>
+					</li>
+				{# {% endif %} #}
+			</ul>
+			{# {% if not app.user %} #}
+			<ul class="navbar-nav lg-me-1 d-lg-flex align-items-lg-end text-center">
+				<li class="nav-item me-2 fw-bold">
+					<a class="nav-link nav-link-name" href="/connexion">Connexion</a>
+				</li>
+				<li class="nav-item lg-me-4 fw-bold">
+					<a class="nav-link nav-link-name" href="/inscription">Inscription</a>
+				</li>
+			</ul>
+			{# {% endif %} #}
+		</div>
+	</div>
+	<div class="d-flex">
+		<ul class="navbar-nav me-auto">
+			{# {% if app.user %} #}
+				<li class="nav-item dropdown" style="margin-right: 5rem;">
+					<a class="nav-link dropdown-toggle fs-5 fw-bold name_link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">
+					{# {{ app.user.lastname }} #}
+					</a>
+					<div class="dropdown-menu">
+						{# {% if 'ROLE_ADMIN' in app.user.roles %} #}
+							<a class="dropdown-item  fw-bold" href="/admin">Tableau de bord</a>
+						{# {% endif %} #}
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item fw-bold" href="{{ path('security.logout') }}">Déconnextion</a>
+										{# {% endif %} #}
+				</li>
+			</div>
+		</li>
+	</ul>
+</div></div></nav>

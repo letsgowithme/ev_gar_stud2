@@ -21,13 +21,14 @@ class CarRepository extends ServiceEntityRepository
         parent::__construct($registry, Car::class);
     }
 
+
 //    /**
 //     * @return Car[] Returns an array of Car objects
 //     */
 //    public function findByExampleField($value): array
 //    {
 //        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
+//            ->andWhere('c.color = :val')
 //            ->setParameter('val', $value)
 //            ->orderBy('c.id', 'ASC')
 //            ->setMaxResults(10)
@@ -35,6 +36,20 @@ class CarRepository extends ServiceEntityRepository
 //            ->getResult()
 //        ;
 //    }
+//       /**
+//      * Show cars
+//      * @param integer $carYear
+//      * @return array
+//      */
+//     public function findCarByYear() : array {
+//         return  $this->createQueryBuilder('c')
+//                 ->where('c.year LIKE :year')
+//                 ->setParameter('year', '%year%')
+//                 ->orderBy('c.title', 'ASC')
+//                 ->getQuery()
+//                 ->getResult();
+// } 
+
 
 //    public function findOneBySomeField($value): ?Car
 //    {

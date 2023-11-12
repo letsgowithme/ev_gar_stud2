@@ -1,0 +1,26 @@
+<div class="mt-4 d-flex flex-column  align-items-center  text-light text-center">
+	<h3 class="down_line_names py-3 fs-3 text-center" >Nos horaires</h3>
+<div class="table d-flex justify-content-center flex-wrap table_schedule">
+				{% for schedule in schedules %}
+				<div class="d-flex flex-column schedule_list">
+						 <div class="fs-5 fw-bold text-center text-capitalize text-light schedule_day">{{ schedule.day }}</div>
+						<div class="text-center text-light schedule_time" style="max-width: 250px; padding: 10px;">
+						{% if schedule.openingTimeMidday %}
+						{{ schedule.openingTimeMidday }}
+							{% endif %}
+							{% if schedule.closingTimeMidday %}
+								- {{ schedule.closingTimeMidday }}
+							{% endif %}
+							<br>
+							{% if schedule.openingTimeEvening %}
+							{{ schedule.openingTimeEvening }}
+			
+							{% endif %}
+							{% if schedule.openingTimeEvening %}
+							- {{ schedule.closingTimeEvening }}
+								{% endif %}
+							</div> 
+							</div>
+	 {% endfor %} 
+	</div>
+	</div>

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationType;
+use App\Repository\ScheduleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route('/connexion', name: 'security.login', methods: ['GET', 'POST'])]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, ScheduleRepository $scheduleRepository): Response
     { 
         /**
         * This controller allows us to login
@@ -26,7 +27,8 @@ class SecurityController extends AbstractController
 
         return $this->render('pages/security/login.html.twig', [
             'last_username' => $authenticationUtils->getLastUsername(),
-            'error' => $authenticationUtils->getLastAuthenticationError()
+            'error' => $authenticationUtils->getLastAuthenticationError(),
+            'schedules' => $scheduleRepository->findAll()
         ]);
     }
 
@@ -50,7 +52,7 @@ class SecurityController extends AbstractController
      */
 
      #[Route('/inscription', 'security.registration', methods: ['GET', 'POST'])]
-    public function registration(Request $request, EntityManagerInterface $manager): Response
+    public function registration(Request $request, EntityManagerInterface $manager, ScheduleRepository $scheduleRepository): Response
     {
         $user = new User();
         $user->setRoles(['ROLE_USER']);
@@ -73,7 +75,8 @@ class SecurityController extends AbstractController
         }
 
         return $this->render('pages/security/registration.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(), 
+            'schedules' => $scheduleRepository->findAll()
         ]);
     }
  }

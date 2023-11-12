@@ -1,47 +1,119 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Car index{% endblock %}
+{% block title %}
+	Cars 
+{% endblock %}
 
 {% block body %}
-    <h1>Car index</h1>
+	<div class="container mt-4 d-flex flex-xs-column justify-content-center" 
+	style="height: auto;"
+	>
+		<h1 class="text-center bg-light d-1 fw-bold" id="h1_car_index">Nos voitures d'occasion</h1>
+		{# {% if app.user %} #}
+         <button type="button" class="btn_create mb-3 mt-4" style="width: 240px; background: #d94350;" class="text-center fs-4 fw-bold rounded mb-3"><a href="{{ path('car.new') }}" >Créer une annonce</a></button>
+		{# {% endif %} #}
+		{# </div> #}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Year</th>
-                <th>Km</th>
-                <th>FuelType</th>
-                <th>Price</th>
-                <th>CreatedAt</th>
-                <th>Color</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for car in cars %}
-            <tr>
-                <td>{{ car.id }}</td>
-                <td>{{ car.title }}</td>
-                <td>{{ car.year }}</td>
-                <td>{{ car.km }}</td>
-                <td>{{ car.fuelType }}</td>
-                <td>{{ car.price }}</td>
-                <td>{{ car.createdAt ? car.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ car.color }}</td>
-                <td>
-                    <a href="{{ path('app_car_show', {'id': car.id}) }}">show</a>
-                    <a href="{{ path('app_car_edit', {'id': car.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		{# ******************range start****************** #}
+		<div class="range_block d-flex jsutlfy-content-between">
 
-    <a href="{{ path('app_car_new') }}">Create new</a>
+		<div class="px-4">
+		<label for="rangeKm" class="form-label">Kilométrage</label>
+<input type="range" class="form-range" min="0" max="250000" step="1000" id="rangeKm"  onChange="showKm()">
+<span id="rangeKmVal"></span>
+<br>
+<button type="button" class="btn_reload mb-4 fw-bold" id="kmReload">Réinitialiser</button>
+</div>
+
+<div class="px-4">
+<label for="rangePrice" class="form-label">Prix</label>
+<input type="range" class="form-range" min="0" max="25000" step="100" id="rangePrice"  onChange="showPrice()">
+<span id="rangePriceVal"></span>
+<br>
+<button type="button" class="btn_reload mb-4 fw-bold" id="priceReload">Réinitialiser</button>
+</div>
+
+<div class="px-4">
+<label for="rangeYear" class="form-label">Année</label>
+<input type="range" class="form-range" min="1950" max="2023" step="1" id="rangeYear"  onChange="showYear()">
+<span id="rangeYearVal"></span>
+<br>
+<button type="button" class="btn_reload mb-4 fw-bold" id="yearReload">Réinitialiser</button>
+</div>
+
+</div>
+{# ******************range end****************** #}
+		<div class="d-flex flex-wrap"  id="carPosts_block">
+			{% for car in cars %}
+			
+				<div class="card  mb-3 text-sm-center" 
+				
+				>
+					 <div class="card-body" id="card_body">
+						<div class="car__image card-image">
+						<p class="card-text text-light bg-dark rounded w-25"
+						 {# style="width: auto; position: absolute; top: 6%; left: 8%; padding:3px;" #}
+						 >{{ car.price|raw }} €</p>
+							<img class="mb-3"
+						 id="main_car_img"
+							src="{{ vich_uploader_asset(car, 'imageFile') }}">
+						</div>
+						<h4 class="card-title">
+						{{ car.title }}</h4>
+						
+						<p class="card-text fw-bold">Année : {{ car.year|raw }}</p>
+                        <p class="card-text fw-bold">{{ car.fuelType|raw }}</p>
+                        <p class="card-text fw-bold">{{ car.km|raw }} km</p>
+												<hr>
+												<p class="card-text text-black fw-bold">{{ car.price|raw }} €</p>
+												<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: none;" class="fs-5 fw-bold text-light mt-3">Details</a></p>
+					</div>
+				</div> 
+			
+			{% endfor %}
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+const rangeKm = document.getElementById("rangeKm");
+rangeKm.value = rangeKm.max;
+document.getElementById("rangeKmVal").innerHTML = rangeKm.value;
+function showKm(){
+	var x = document.getElementById("rangeKm").value;
+	document.getElementById("rangeKmVal").innerHTML = x;
+}
+$("#kmReload").on("click", function(){
+document.getElementById("rangeKmVal").innerHTML = rangeKm.value;
+});
+
+const rangePrice = document.getElementById("rangePrice");
+rangePrice.value = rangePrice.max;
+document.getElementById("rangePriceVal").innerHTML = rangePrice.value;
+function showPrice(){
+	var x = document.getElementById("rangePrice").value;
+	document.getElementById("rangePriceVal").innerHTML = x;
+}
+$("#priceReload").on("click", function(){
+document.getElementById("rangePriceVal").innerHTML = rangePrice.value;
+});
+const rangeYear = document.getElementById("rangeYear");
+rangeYear.value = rangeYear.max;
+document.getElementById("rangeYearVal").innerHTML = rangeYear.value;
+function showYear(){
+	var x = document.getElementById("rangeYear").value;
+	document.getElementById("rangeYearVal").innerHTML = x;
+}
+$("#yearReload").on("click", function(){
+document.getElementById("rangeYearVal").innerHTML = rangeYear.value;
+});
+</script>
+<script> 
+$(document).ready(function () {
+$(".btn_reload").click(function () {
+location.reload(true);
+});
+});
+
+{# $rangeKm = $("#rangeKm").val(); #}
+</script>
+
 {% endblock %}

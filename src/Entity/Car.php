@@ -42,17 +42,21 @@ class Car
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
-
+    
     #[ORM\Column(length: 255)]
     private ?string $color = null;
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'car',  orphanRemoval: true, cascade:['persist'])]
+    private Collection $images;
+
+
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
-        $this->createdAt = new \DateTimeImmutable();
+        $this->images = new ArrayCollection();
+       
+       
     }
 
     public function getId(): ?int
@@ -155,17 +159,6 @@ class Car
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): static
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
 
     public function getColor(): ?string
     {
@@ -198,4 +191,36 @@ class Car
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setCar($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getCars() === $this) {
+                $image->setCar(null);
+            }
+        }
+
+        return $this;
+    }
+  
+
 }
