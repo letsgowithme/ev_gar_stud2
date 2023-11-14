@@ -18,38 +18,39 @@
 						<a class="nav-link nav-link-name fw-bold" href="{{ path('car.index') }}">Voitures d'occasion</a>
 					</li>
 				
-				{# {% if app.user %} #}
+				{% if app.user %}
 					<li class="nav-item">
 						<a class="nav-link nav-link-name fw-bold" href="{{ path('car.new') }}">Mes annonces</a>
 					</li>
-				{# {% endif %} #}
+				{% endif %} 
 			</ul>
-			{# {% if not app.user %} #}
+			{% if not app.user %}
 			<ul class="navbar-nav lg-me-1 d-lg-flex align-items-lg-end text-center">
 				<li class="nav-item me-2 fw-bold">
 					<a class="nav-link nav-link-name" href="/connexion">Connexion</a>
 				</li>
-				<li class="nav-item lg-me-4 fw-bold">
+				{% endif %}
+				{# <li class="nav-item lg-me-4 fw-bold">
 					<a class="nav-link nav-link-name" href="/inscription">Inscription</a>
-				</li>
+				</li> #}
 			</ul>
-			{# {% endif %} #}
+			
 		</div>
 	</div>
 	<div class="d-flex">
 		<ul class="navbar-nav me-auto">
-			{# {% if app.user %} #}
-				<li class="nav-item dropdown" style="margin-right: 5rem;">
-					<a class="nav-link dropdown-toggle fs-5 fw-bold name_link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: white;">
-					{# {{ app.user.lastname }} #}
+			{% if app.user %}
+				<li class="nav-item dropdown drop_user">
+					<a class="nav-link dropdown-toggle fs-5 fw-bold name_link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					{{ app.user.lastname }}
 					</a>
 					<div class="dropdown-menu">
-						{# {% if 'ROLE_ADMIN' in app.user.roles %} #}
-							<a class="dropdown-item  fw-bold" href="/admin">Tableau de bord</a>
-						{# {% endif %} #}
+						{% if 'ROLE_ADMIN' in app.user.roles %}
+							<a class="dropdown-item  fw-bold fs-5" href="/admin">Tableau de bord</a>
+						{% endif %}
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item fw-bold" href="{{ path('security.logout') }}">Déconnextion</a>
-										{# {% endif %} #}
+						<a class="dropdown-item fw-bold  fs-5" href="{{ path('security.logout') }}">Déconnextion</a>
+										{% endif %}
 				</li>
 			</div>
 		</li>

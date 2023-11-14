@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Equipment;
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -19,7 +19,7 @@ class EquipmentType extends AbstractType
             'attr' => [
                 'class' => 'form-control'
             ],
-            'label' => 'Titre',
+            'label' => 'Équipement',
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5',
                 'minLength' => '2',

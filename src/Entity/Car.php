@@ -51,10 +51,23 @@ class Car
     #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'car',  orphanRemoval: true, cascade:['persist'])]
     private Collection $images;
 
+    #[ORM\ManyToMany(targetEntity: Equipment::class)]
+    private Collection $equipments;
+
+    #[ORM\ManyToOne(inversedBy: 'cars')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $author = null;
+
+   
+   
+
 
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
         $this->images = new ArrayCollection();
+        $this->equipments = new ArrayCollection();
+        // $this->ingredients = new ArrayCollection();
+        // $this->ingredients = new ArrayCollection();
        
        
     }
@@ -221,6 +234,36 @@ class Car
 
         return $this;
     }
+/**
+     * @return Collection<int, Equipment>
+     */
+    public function getEquipments(): Collection
+    {
+        return $this->equipments;
+    }
+
+    public function addEquipment(Equipment $equipment): self
+    {
+        if (!$this->equipments->contains($equipment)) {
+            $this->equipments->add($equipment);
+        }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): static
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+
   
 
 }

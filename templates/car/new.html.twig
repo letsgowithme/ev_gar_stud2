@@ -27,6 +27,12 @@
     {{ form_row(form.submit, { 'label': 'Créer' }) }}
 {{ form_end(form) }}
 
+{{ form_start(eq_form)}}
+{{ form_row(eq_form.name) }}
+
+{{ form_end(eq_form) }}
+
+
     <a href="{{ path('car.index') }}">back to list</a>
     </div>
 {% endblock %}

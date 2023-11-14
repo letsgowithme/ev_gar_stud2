@@ -52,7 +52,6 @@ font-size: 1.2em;
   #bg_homepage {
     width: 100%; 
     height: 30vh; 
-   
   }
 
   #main_title {
@@ -63,22 +62,33 @@ font-size: 1.2em;
     font-weight: 500;
     font-size: 2.2em;
     letter-spacing: 2px;
-    /* position: absolute; */
     width: 100%; 
     padding:  3px;
-    /* margin-top: -25px; */
-    /* margin-left: -2%; */
+  
   }
   #block_services{
-    background-color: var(--main_bg_color);
-    /* position: absolute; */
-    /* top: 40%; */
-     /* left: 0%; */
+    background-color: var(--main_bg_color);  
      background: none;
   }
-  .dropdown-toggle{
-    display: none;
+  .drop_user{
+    margin-right: 7rem;
+    font-style: 2em;
+    margin-top: -60%;
   }
+ 
+  .dropdown-menu{
+ 
+   background-color: var(--nav_bg_color);
+  }
+  .dropdown-item{
+    margin-top: 20%;
+    font-size: 1em!important;
+    padding: 0;
+   }
+   /* .dropdown-item {
+    font-size: 2em !important;
+  }  */
+  
   .body_homepage_base{
     display: flex; 
     flex-direction: column; 
@@ -124,14 +134,14 @@ font-size: 1.2em;
   }
     
   #btn_rdv:hover {
-    background-color: beige!important;
+    background-color: var(--rose)!important;
     border: 2px solid var(--main_bg_color);
     transition: ease-in;
     font-weight: 700;
-    color: var(--main_bg_color);
+    color: var(--light);
   } 
   #btn_rdv a:hover{
-   color: var(--nav_bg_color)!important;
+   color: var(--light)!important;
   }
   .down_link{
     color: var(--light);
@@ -187,9 +197,7 @@ font-size: 1.2em;
     font-size: 1.1em;
   }
 
-   .dropdown-item {
-    font-size: 3em !important;
-  } 
+  
   /* #username {
     font-size: 3em !important;
   }  
@@ -315,7 +323,34 @@ font-size: 1.2em;
     font-size: 2.3em !important;
   }
 } */
-/* ****************************768px************** */
+/* ********page car.show******* */
+.gallery_img{
+  position:relative;
+  /* left: 3%; */
+  width: 360px;
+  height: auto;
+}
+#carouselExampleIndicators{
+  display: flex;
+  justify-content: center;
+  /* position: relative; 
+  margin-top: 0%; 
+  margin-left: 40%; 
+  transform: translateX(-20%);
+  width: 100%;*/
+} 
+/* .carousel-item{
+  display: flex;
+  justify-content: center;
+} */
+.show_block_titles span{
+  /* margin-left: 20px; */
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+}
+/******************768px************** */
   @media screen and (min-width: 768px) {
   #line_sched_adr_liens{
     display: flex;
@@ -345,7 +380,7 @@ font-size: 1.2em;
     height: 50vh; 
    
   }
-  /* *****************page car.index**************** */
+  /* *****************page car.index 768px**************** */
 #main_car_img{
   width: 450px; 
   height:280px;
@@ -360,7 +395,10 @@ font-size: 1.2em;
 #card_body{
   min-width: 350px;
 }
-
+.visit_site_links {
+  display: flex;
+  flex-direction: column;
+}
   /*#carPosts_block {
     position: relative;
     margin-top: 20%;
@@ -371,19 +409,13 @@ font-size: 1.2em;
     margin-top: -25px;  */
     /* position: fixed;
   } */
-  /* .visit_site_links {
-    display: flex;
-    justify-content: space-around;
-  }
 
+/*
   .visit_site_links li {
     padding: 1.5em;
     list-style: none;
   }
 
-  .reserve_btn {
-    font-size: 1.5em;
-  }
   .btn_up {
     font-size: 1.4em;
   }
@@ -393,7 +425,19 @@ font-size: 1.2em;
   .visit_site_links li {
     font-size: 1.5em;
   }*/
- }   
+ /* }    */
+ /* **page car.show* 768px*** */
+ /* .gallery_img{
+  position:relative;
+ 
+  width: 650px;
+  height: auto; */
+  .drop_user{
+    margin-right: 7rem;
+    font-style: 2em;;
+  }
+}
+
 /* ************************1024px****************** */
   @media screen and (min-width: 1024px) {
     .bg_services_block{
@@ -402,27 +446,18 @@ font-size: 1.2em;
     #main_title {
       display: inline-block;
       background-color: var(--main_bg_color);
-      /* position: absolute; */
       text-shadow: -2px 2px 2px rgb(82, 80, 80);
       padding: 5px;
       z-index: 3;
-      /* margin-top: -5%; */
-      /* left: 33%; */
-     /* transform: translateX(-50%); */
      border-radius: 0 0 10px 0;
-     /* width: 700px; */
      font-size: 3em;
-     /* border-bottom: 5px solid darkgray; */
      box-shadow: 2px 5px 5px silver;
-  
     }
  
    #bg_homepage {
     width: 100%; 
-    height: 100vh!important;  
-  
+    height: 50vh!important;  
   }  
- 
  
     #block_services{
     width: 50%;
@@ -431,7 +466,7 @@ font-size: 1.2em;
     color: var(--light)!important;
     position: absolute;
      left: 0%;
-     margin-top: 5%;
+     margin-top: 0;
      border-radius: 0 0 0 0;
      
   } 
@@ -453,7 +488,20 @@ font-size: 1.2em;
     color: white;
   } 
   
-  
+  .drop_user{
+    margin-right: 7rem;
+    font-style: 2em;
+    margin-top: 0%;
+  }
+ 
+  .dropdown-menu{
+   background-color: var(--nav_bg_color);
+  }
+  .dropdown-item{
+    margin-top: 10%;
+    font-size: 1em!important;
+    padding: 10pxs;
+   }
   #navbarColor01{
     width: 100%!important;
     height: 80px;
@@ -529,42 +577,60 @@ font-size: 1.2em;
   #card_body{
     min-width: 350px;
   }
-  
+  /* ****page car.show *1024px** */
+  .gallery_img{
+    position:relative;
+    left: 7%;
+    margin: 0 1em;;
+    width: 765px;
+    height: auto;
+  }
+  .show_block_titles span{
+    /* margin-left: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+   width: 100px;
+  }
+  .car_info{
+    /* margin-left: 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+   /* width: 100px; */
+  }
   
  }  
 
- /* ************************1440px****************** */
+
+ /* ************************1440px***************************************** */
  @media screen and (min-width: 1440px) {
   #main_title {
     background-color: var(--main_bg_color);
-    position: absolute;
+    position: relative;
     text-shadow: -2px 2px 2px rgb(82, 80, 80);
-    padding: 15px 10px;
+    padding:  10px;
     z-index: 3;
     margin-top: -2%;
     left: 50%;
    transform: translateX(-50%);
    border-radius: 1px 1px 12px 12px;
    width: auto;
-   font-size: 4em;
+   font-size: 3em;
   }
 
 #bg_homepage {
   width: 100%; 
-  min-height: 140vh!important; 
-  margin-top: -20em; 
-  margin-left: 2%;
-  position: absolute;
+  height: 92vh!important; 
+  margin-top: -10em; 
+  /* margin-left: 42%; */
+  /* position: absolute; */
+  z-index: -1;
 } 
 
-  #block_services{
-    display: block;
-  background-color: var(--main_bg_color)!important;
-  color: var(--light)!important;
-  position: absolute;
-  top: 10%;
-   left: 0%;
-} 
 #services_title{
   margin-bottom: 10px;
   font-size: 2.5em;
@@ -578,24 +644,10 @@ font-size: 1.6em;
 padding: 10px;
 } 
 
-#bg_homepage {
-  width: 100%; 
-  height: 50vh; 
- 
-}
-
-
- /* #body_home{
-  display: flex; 
-  flex-direction: column; 
-  min-height: 100vh; 
-  width: 100%;
-} */
 .navbar-toggler-icon {
   font-size: 1.2em;
   color: white;
 } 
-
 
 #navbarColor01{
   width: 100%;
@@ -669,11 +721,25 @@ padding: 10px;
   min-width: 350px;
 }
 /* *****car.show ********/
-#car_show_img{
+/* #car_show_img{
  
-  
+  left: 10%;
   width: 600px!important;
   height: 400px!important;
+} */
+.gallery_img{
+  position:relative;
+  left: 17%;
+  margin: 0 1em;;
+  width: 765px;
+  height: auto;
+}
+.show_block_titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+ width: 300px;
 }
 
 }  

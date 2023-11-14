@@ -3,13 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\Equipment;
 use App\Entity\Images;
 use App\Form\CarType;
+use App\Form\EquipmentType;
 use App\Repository\CarRepository;
 use App\Repository\ScheduleRepository;
 use App\Service\PictureService;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,13 +23,48 @@ class CarController extends AbstractController
 {
     #[Route('/', name: 'car.index', methods: ['GET'])]
     public function index(CarRepository $carRepository,
-    ScheduleRepository $scheduleRepository
+    ScheduleRepository $scheduleRepository, 
+    PaginatorInterface $paginator,
+    Request $request
     ): Response
     { 
+        // $filters = $request->get("cars");
+        //dd($filters);
+        $pagination = $paginator->paginate(
+            $carRepository->paginationQuery('page', 1, 
+            // $filters
+        ),
+            $request->query->get('page', 1),
+            5
+        );
+        
+        //dd($pagination);
+
+    //  on recup les filtres
+        
+
+        // $carsByYear = $carRepository->findByYear($request->query->get('year'));
+        // $carsByPrice = $carRepository->findByPrice($request->query->get('price'));
+        // $carsByKm = $carRepository->findByKm($request->query->get('km'));
+
+        // $cars_filtres = $carRepository->findAllCars($filters);
+        // // on verifie si on a une equete ajax
+        // if($request->get('ajax')){
+        //     return new JsonResponse([
+        //         'content' => $this->renderView('car/index.html.twig', compact('cars','schedules','pagination','carsByYear','carsByPrice','carsByKm'))
+        //     ]);
+        // }
+
+       
+        // dd($cars_filtres);
         $cars = $carRepository->findAll();
         return $this->render('car/index.html.twig', [
-            'cars' => $carRepository->findAll(),
-            'schedules' => $scheduleRepository->findAll()
+            'cars' => $cars,
+            'schedules' => $scheduleRepository->findAll(),
+            'pagination' => $pagination,
+            // 'carsByYear' => $carsByYear,
+            // 'carsByPrice' => $carsByPrice,
+            // 'carsByKm' => $carsByKm
         ]);
     }
 
@@ -33,7 +72,8 @@ class CarController extends AbstractController
     public function new(Request $request, 
     EntityManagerInterface $entityManager, 
     ScheduleRepository $scheduleRepository,
-    PictureService $pictureService
+    PictureService $pictureService,
+    // $id
     ): Response
     {
         $car = new Car();
@@ -48,11 +88,10 @@ class CarController extends AbstractController
                 $folder = "carPosts";
                 // on appele le service d'ajout
               $fichier = $pictureService->add($image, $folder, 600, 440);
-                
               $img = new Images();
               $img->setName($fichier);
               $car->addImage($img);
-
+         
 
             }
             // dd($images);
@@ -67,6 +106,7 @@ class CarController extends AbstractController
         return $this->render('car/new.html.twig', [
             'car' => $car,
             'form' => $form,
+            'eq_form' => $eq_form,
             'schedules' => $scheduleRepository->findAll()
         ]);
     }

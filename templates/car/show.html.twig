@@ -16,11 +16,14 @@
 
 	<main class="container bg-dark text-center">
     <section class="row" >
-    <div class="col-12" >
+    <div class="col-12 text-center">
 		<h1 class="mt-4 mb-4 text-light">{{ car.title }}</h1>
         </div>
-		 <div class="col-6">
-			<div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+		 <div class="col-12">
+			<div id="carouselExampleIndicators" class="carousel slide " 
+			data-bs-ride="carousel"   
+			
+			>
                     <div class="carousel-indicators">
                         {% for iteration in 1..car.images|length %}
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ iteration - 1 }}" {{ (loop.first ) ?'class="active" aria-current="true"' : '' }} aria-label="Slide {{ iteration }}"></button>
@@ -29,7 +32,7 @@
                     <div class="carousel-inner">
                         {% for image in car.images %}
                             <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}  text-center">
-                                <img src="{{ asset('assets/uploads/carPosts/mini/600x440-') ~ image.name }}" class="d-block w-100" alt="{{ car.title }}">
+                                <img src="{{ asset('assets/uploads/carPosts/mini/600x440-') ~ image.name }}" class="d-block gallery_img" alt="{{ car.title }}">
                             </div>
                         {% endfor %}
                     </div>
@@ -42,25 +45,30 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
-
+          
+<div class="car_info">
 		<h5 class="mt-3 text-light show_block_titles">Année:
-			<span class="badge bg-primary mt-1">{{ car.year |raw }}</span>
+			<span class="badge bg-primary">{{ car.year |raw }}</span>
 		</h5>
 
-		<h5 class="mt-3 text-light">Kilométrage
+		<h5 class="mt-3 text-light show_block_titles">Kilométrage
 			<span class="badge bg-primary mt-1">{{ car.km }}
 				km</span>
 		</h5>
 
 
-		<h5 class="mt-3 text-light">Type de carburant
+		<h5 class="mt-3 text-light show_block_titles">Carburant
 			<span class="badge bg-primary mt-1">
 				{{ car.fuelType  }}</span>
 		</h5>
 
+	<h5 class="mt-3 text-light show_block_titles">Couleur
+			<span class="badge bg-primary mt-1">
+				{{ car.color }}
+			</span>
+		</h5>
 
-		<h5 class="mt-3 text-light">Prix
+		<h5 class="mt-3 text-light show_block_titles">Prix
 			<span class="badge bg-primary mt-1">
 				{{ car.price }}
 				€</span>
@@ -73,12 +81,23 @@
 				
 				<div style="background-color:  #87dbed; padding: 10px;" class="rounded">
 		        {% endfor %} #}
-		<h5 class="mt-3 text-light">Couleur
-			<span class="badge bg-primary mt-1">
-				{{ car.color }}
-			</span>
-		</h5>
+						<div class="suppl_info_block">
 
+						<div class="func">
+						<button type="button">Caractéristiques</button>
+						<div id="caracter"></div>
+						</div>
+						<div class="func">
+						<button type="button">Options</button>
+						<div id="opt"></div>
+						</div>
+						<div class="func">
+						<button type="button">Équipement</button>
+						<div id="equip"></div>
+						</div>
+						</div>
+	
+</div>
 		<button type="button" class="btn">
 			<a href="{{ path('car.edit', {'id': car.id}) }}" class="fs-4 py-2 fw-bold">Modifier</a>
 		</button>
@@ -87,6 +106,7 @@
 	<button type="button" class="btn">
 		<a href="{{ path('car.index') }}" class="fs-4 py-2">Vers les annonces</a>
 	</button>
+	  </div>
     </section>
 </main>
 

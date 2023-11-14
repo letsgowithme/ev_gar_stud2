@@ -80,7 +80,7 @@ class AppFixtures extends Fixture
            // Contact
            for ($j = 0; $j < 5; $j++) {
             $contact = new Contact();
-            $contact->setLastname($this->faker->name())
+            $contact->setFullname($this->faker->fullname())
                 ->setEmail($this->faker->email())
                 ->setSubject($this->faker->word())
                 ->setMessage($this->faker->text())
@@ -168,19 +168,21 @@ class AppFixtures extends Fixture
         //     $recipes[] = $recipe;
         //     $manager->persist($recipe);
         // }
-        //Comments
-        // $comments = [];
-        // foreach ($recipes as $recipe) {
-        // for ($n = 0; $n < 5; $n++) {
-        //     $comment = new Comment();
-        //     $comment->setContent($this->faker->text())
-        //             ->setisApproved(mt_rand(0, 3) === 0 ? false : true)
-        //             ->setAuthor($users[mt_rand(0, count($users) - 1)])
-        //             ->setRecipe($recipe);
+        // Comments
+        $comments = [];
+        foreach ($comments as $comment) {
+        for ($n = 0; $n < 5; $n++) {
+            $comment = new Comment();
+            $comment->setSubject($this->faker->title())
+                     ->setContent($this->faker->text())
+                    ->setAuthor($this->faker->fullName())
+                    ->setMark(mt_rand(1, 5))
+                    ->setisApproved(mt_rand(0, 1) === 0 ? false : true)
+                    ;
 
-        //     $manager->persist($comment);
-        // }
-        // }
+            $manager->persist($comment);
+        }
+        }
 
         //  // Marks
         //  foreach ($recipes as $recipe) {

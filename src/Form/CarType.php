@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Car;
+use App\Entity\Equipment;
 use App\Entity\Modele;
 use App\Entity\Modeles;
+use App\Repository\EquipmentRepository;
 use App\Repository\ModeleRepository;
 use App\Repository\ModelesRepository;
 use PhpParser\Parser\Multiple;
@@ -158,7 +160,7 @@ class CarType extends AbstractType
         ])
         ->add('images', FileType::class, [
             'attr' => [
-                'class' => 'form-control'
+                'class' => 'form-control mb-4'
             ],
             'label' => 'Vous pouvez rajouter 3 photos',
             'label_attr' => [
@@ -167,6 +169,25 @@ class CarType extends AbstractType
             'multiple' => true,
             'required' => false,
             'mapped' => false
+            
+        ])
+        ->add('equipment', EntityType::class, [
+            'class' => Equipment::class,
+            'query_builder' => function (EquipmentRepository $r) {
+                return $r->createQueryBuilder('i')
+                    ->orderBy('i.title', 'ASC');
+            },
+            'attr' => [
+                'class' => 'mb-4'
+            ],
+            'label' => 'Équipement',
+            'label_attr' => [
+                'class' => 'form-label mt-4 mb-4 text-dark fs-5'
+            ],
+
+            'choice_label' => 'name',
+            'multiple' => true,
+            'expanded' => true
         ])
             
             ->add('submit', SubmitType::class, [
@@ -174,7 +195,8 @@ class CarType extends AbstractType
                     'class' => 'btn btn-primary mt-4 fs-4'
                 ],
                 'label' => 'Sauvegarder',
-            ]);
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

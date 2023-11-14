@@ -13,20 +13,25 @@
 			<div>
 				{% include "partials/_main_title.html.twig" %}
 			</div>
-			<div class="bg_services_block">
-			<div>
+			<div class="row mb-4" style="height: 90vh;">
+			{# <div class="bg_services_block"> #}
+			<div class="col-xs-12 col-lg-6">
 				{% include "partials/_services_line.html.twig" %}
 				</div>
-				<div>
+				<div class="col-xs-12 col-lg-6 mb-4 d-flex flex-column">
 				{% include "partials/_header_img.html.twig" %}
 				{% include "partials/_btn_rdv.html.twig" %}
 				</div>
 			</div>
-		
-		<div class="btn_block">
+			<br>
+			
+		<div class="row mt-4">
+		{# <div class="btn_block"> #}
+		<div class="col-12">
 			{% include "partials/_btn_up.html.twig" %}
 			{% include "partials/_btn_home.html.twig" %}
-		</div>
+			{# </div> #}
+		</div></div>
 
-</div>
+</div></div>
 	{% endblock %}

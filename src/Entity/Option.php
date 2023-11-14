@@ -33,4 +33,10 @@ class Option
 
         return $this;
     }
+    public function __toString()
+    {
+        return (string) $this->name;
+        
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CommentRepository;
 use App\Repository\ScheduleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,12 +11,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'home', methods: ['GET'])]
-    public function index(ScheduleRepository $scheduleRepository
+    public function index(ScheduleRepository $scheduleRepository,
+    CommentRepository $commentRepository
     ): Response
     {
         $schedules = $scheduleRepository->findAll(); 
+        $comments = $commentRepository->findAll(); 
         return $this->render('home/index.html.twig', [
             'schedules' => $schedules,
+            'comments' => $comments,
         ]);
     }
     #[Route('/legal_notice', name: 'footer.legal_notice', methods: ['GET'])]

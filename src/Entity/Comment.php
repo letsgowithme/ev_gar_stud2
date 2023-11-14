@@ -14,10 +14,18 @@ class Comment
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $lastname = null;
+    private ?string $subject = null;
 
+   
     #[ORM\Column(length: 255)]
     private ?string $content = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $author = null;
+
+    #[ORM\Column(length: 255)]
+    private ?int $mark = null;
+
 
     #[ORM\Column]
     private ?bool $isApproved = null;
@@ -28,14 +36,23 @@ class Comment
         return $this->id;
     }
 
-    public function getLastname(): ?string
+ 
+    /**
+     * Get the value of subject
+     */ 
+    public function getSubject()
     {
-        return $this->lastname;
+        return $this->subject;
     }
 
-    public function setLastname(string $lastname): static
+    /**
+     * Set the value of subject
+     *
+     * @return  self
+     */ 
+    public function setSubject($subject)
     {
-        $this->lastname = $lastname;
+        $this->subject = $subject;
 
         return $this;
     }
@@ -63,9 +80,51 @@ class Comment
 
         return $this;
     }
-
-   
-    public function __toString(): string{
-        return (string) $this->lastname;
+   /**
+     * Get the value of author
+     */ 
+    public function getAuthor()
+    {
+        return $this->author;
     }
+
+    /**
+     * Set the value of author
+     *
+     * @return  self
+     */ 
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+   
+   
+
+    /**
+     * Get the value of mark
+     */ 
+    public function getMark()
+    {
+        return $this->mark;
+    }
+
+    /**
+     * Set the value of mark
+     *
+     * @return  self
+     */ 
+    public function setMark($mark)
+    {
+        $this->mark = $mark;
+
+        return $this;
+    }
+
+    public function __toString(): string{
+        return (string) $this->subject;
+    }
+
+ 
 }

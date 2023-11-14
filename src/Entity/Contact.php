@@ -14,7 +14,7 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $lastname = null;
+    private ?string $fullname = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
@@ -36,14 +36,19 @@ class Contact
         return $this->id;
     }
 
-    public function getLastname(): ?string
+    public function getFullname()
     {
-        return $this->lastname;
+        return $this->fullname;
     }
 
-    public function setLastname(string $lastname): static
+    /**
+     * Set the value of fullname
+     *
+     * @return  self
+     */ 
+    public function setFullname($fullname)
     {
-        $this->lastname = $lastname;
+        $this->fullname = $fullname;
 
         return $this;
     }
@@ -107,4 +112,9 @@ class Contact
 
     //     return $this;
     // }
+
+    /**
+     * Get the value of fullname
+     */ 
+
 }
