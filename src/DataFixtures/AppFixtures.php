@@ -59,7 +59,16 @@ class AppFixtures extends Fixture
                 $users[] = $user;
             $manager->persist($user);
         }
-        
+        //Equipment
+        $equipments = [];
+        for ($n = 0; $n < 5; $n++) {
+            $equipment = new Equipment();
+            $equipment->setName($this->faker->word());
+            // $car->addCar($cars[mt_rand(0, count($cars) - 1)]);
+            $equipments[] = $equipment;
+            $manager->persist($equipment);
+        }
+
         //Car
         $cars = [];
         for ($i = 0; $i < 5; $i++) {
@@ -72,15 +81,19 @@ class AppFixtures extends Fixture
             ->setKm($this->faker->numberBetween(10000, 250000))
             ->setPrice($this->faker->numberBetween(1, 100000))
             ->setUpdatedAt($updatedAt)
-            ->setColor($this->faker->colorName());
-            
+            ->setColor($this->faker->colorName())
+            ->setAuthor($users[mt_rand(0, count($users) - 1)]);
+                
+            for ($b = 0; $b < mt_rand(0, 5); $b++) {
+                    $car->addEquipment($equipments[mt_rand(0, count($equipments) - 1)]);
+                 }
             $cars[] = $car;
             $manager->persist($car);
         }
            // Contact
            for ($j = 0; $j < 5; $j++) {
             $contact = new Contact();
-            $contact->setFullname($this->faker->fullname())
+            $contact->setFullname($this->faker->name())
                 ->setEmail($this->faker->email())
                 ->setSubject($this->faker->word())
                 ->setMessage($this->faker->text())
@@ -89,16 +102,7 @@ class AppFixtures extends Fixture
             $manager->persist($contact);
         }
 
-        //Equipment
-        $equipments = [];
-        for ($n = 0; $n < 5; $n++) {
-            $equipment = new Equipment();
-            $equipment->setName($this->faker->word());
-            // $car->addCar($cars[mt_rand(0, count($cars) - 1)]);
-            $equipments[] = $equipment;
-            $manager->persist($equipment);
-        }
-
+        
         //Features
         $features = [];
         for ($n = 0; $n < 5; $n++) {
@@ -175,7 +179,7 @@ class AppFixtures extends Fixture
             $comment = new Comment();
             $comment->setSubject($this->faker->title())
                      ->setContent($this->faker->text())
-                    ->setAuthor($this->faker->fullName())
+                    ->setAuthor($this->faker->name())
                     ->setMark(mt_rand(1, 5))
                     ->setisApproved(mt_rand(0, 1) === 0 ? false : true)
                     ;

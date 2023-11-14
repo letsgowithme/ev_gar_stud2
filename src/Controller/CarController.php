@@ -106,7 +106,6 @@ class CarController extends AbstractController
         return $this->render('car/new.html.twig', [
             'car' => $car,
             'form' => $form,
-            'eq_form' => $eq_form,
             'schedules' => $scheduleRepository->findAll()
         ]);
     }

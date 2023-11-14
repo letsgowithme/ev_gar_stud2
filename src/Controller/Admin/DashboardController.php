@@ -8,6 +8,7 @@ use App\Entity\Contact;
 use App\Entity\Equipment;
 use App\Entity\Features;
 use App\Entity\Option;
+use App\Entity\Service;
 use App\Entity\User;
 use App\Repository\CarRepository;
 use App\Repository\UserRepository;
@@ -59,6 +60,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Équipement', 'fas fa-hand-dots', Equipment::class);
         yield MenuItem::linkToCrud('Option', 'fas fa-bowl-food', Option::class);
         yield MenuItem::linkToCrud('Caractéristiques', 'fas fa-list', Features::class);
+        yield MenuItem::linkToCrud('Service', 'fas fa-hand-dots', Service::class);
     }
    
 }

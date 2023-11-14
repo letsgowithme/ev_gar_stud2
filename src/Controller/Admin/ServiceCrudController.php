@@ -3,10 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Service;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class ServiceCrudController extends AbstractCrudController
 {
@@ -14,15 +16,30 @@ class ServiceCrudController extends AbstractCrudController
     {
         return Service::class;
     }
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
+            ->setEntityLabelInSingular('Service')
+            ->setEntityLabelInPlural('Services')
+            ->setPageTitle(pageName: Crud::PAGE_INDEX, title: 'Services')
+            ->setPageTitle(pageName: Crud::PAGE_NEW, title: 'Créer une service')
+            ->setPageTitle(pageName: Crud::PAGE_EDIT, title: 'Modifier le service');
+    }
 
-    /*
+
+    
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            IdField::new('id')
+            ->hideOnForm(),
+            TextField::new('name')
+            ->setLabel('Titre'),
+            TextEditorField::new('description')
+            ->setFormType(CKEditorType::class)
+            ->hideOnIndex(),
         ];
     }
-    */
+    
 }
