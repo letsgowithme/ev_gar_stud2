@@ -1,0 +1,25 @@
+
+			{% for comment in comments %}
+				{% if comment.isApproved %}
+					<div class="comment flex justify-start mb-4 border-bottom w-50">
+						<div>
+							<div class="block p-6 mx-4">
+								<div class="md-ml-6">
+                <h5>{{ comment.subject|raw }}</h5>
+                  <p class="text-dark fs-5 mb-3">
+										{{ comment.content|raw }}
+									</p>
+                  <p class=" mb-3">{{ comment.mark }}</p>
+									<p>{{ comment.author }}</p>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				
+					{# <hr class="mx-4"> #}
+				{% endif %}
+			{% endfor %}
+            
+
+

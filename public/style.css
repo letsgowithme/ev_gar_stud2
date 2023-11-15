@@ -56,8 +56,8 @@ font-size: 1.2em;
 
   #main_title {
     font-family: 'Rajdhani', sans-serif;
-    color: var(--light);
-    background-color: #D92332;
+    color: var(--main_bg_color);
+    background-color: var(--light);
     text-shadow: -2px 1px 1px rgb(75, 68, 68);
     font-weight: 500;
     font-size: 2.2em;
@@ -67,7 +67,7 @@ font-size: 1.2em;
   
   }
   #block_services{
-    background-color: var(--main_bg_color);  
+    background-color: var(--nav_bg_color)!important; 
      background: none;
   }
   .drop_user{
@@ -143,6 +143,25 @@ font-size: 1.2em;
   #btn_rdv a:hover{
    color: var(--light)!important;
   }
+
+  #btn_contact {
+    background-color: var(--main_bg_color);
+    z-index: -1;
+    font-weight: bold;
+  }
+  #btn_contact a{
+    text-decoration: none;
+  }
+  #btn_contact:hover {
+    background-color: var(--rose)!important;
+    border: 2px solid var(--main_bg_color);
+    transition: ease-in;
+    font-weight: 700;
+    color: var(--light);
+  } 
+  #btn_contact a:hover{
+   color: var(--light)!important;
+  }
   .down_link{
     color: var(--light);
     padding: 10px;
@@ -196,7 +215,9 @@ font-size: 1.2em;
   .address_line p{
     font-size: 1.1em;
   }
-
+#bestComments{
+  background: var(--nav_bg_color);
+}
   
   /* #username {
     font-size: 3em !important;
@@ -445,7 +466,7 @@ font-size: 1.2em;
     }
     #main_title {
       display: inline-block;
-      background-color: var(--main_bg_color);
+      /* background-color: var(--main_bg_color); */
       text-shadow: -2px 2px 2px rgb(82, 80, 80);
       padding: 5px;
       z-index: 3;
@@ -462,7 +483,7 @@ font-size: 1.2em;
     #block_services{
     width: 50%;
     display: block;
-    background-color: var(--main_bg_color)!important; 
+    /* background-color: var(--main_bg_color)!important;  */
     color: var(--light)!important;
     position: absolute;
      left: 0%;
@@ -609,7 +630,7 @@ font-size: 1.2em;
  /* ************************1440px***************************************** */
  @media screen and (min-width: 1440px) {
   #main_title {
-    background-color: var(--main_bg_color);
+    /* background-color: var(--main_bg_color); */
     position: relative;
     text-shadow: -2px 2px 2px rgb(82, 80, 80);
     padding:  10px;

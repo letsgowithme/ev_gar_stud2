@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New contact{% endblock %}
+
+{% block body %}
+<div class="w-50">
+    <h1>Demande de contact</h1>
+
+    {{ include('contact/_form.html.twig') }}
+</div>
+    <a href="{{ path('car/index') }}">Vers la liste d'annonces</a>
+{% endblock %}

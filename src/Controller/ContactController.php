@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\ScheduleRepository;
 use App\Service\MailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -16,21 +17,17 @@ use Symfony\Component\Mailer\MailerInterface;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'contact.index')]
+    #[Route('/contact', name: 'contact.new')]
     public function index(
         Request $request,
         EntityManagerInterface $manager,
-        MailService $mailService
+        MailService $mailService,
+        ScheduleRepository $scheduleRepository,
         ): Response
     {
         $contact = new Contact();
 
-        if($this->getUser()) {
-            $contact->setFullName($this->getUser()->getFullName())
-                     ->setEmail($this->getUser()->getEmail());
-                    
-        }
-
+        
         $form=$this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
@@ -54,13 +51,14 @@ class ContactController extends AbstractController
                 'Votre message a été envoyé avec succès !'
             );
     
-            return $this->redirectToRoute('contact.index');
+            return $this->redirectToRoute('home');
         
         }
 
        
-        return $this->render('pages/contact/index.html.twig', [
+        return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
+            'schedules' => $scheduleRepository->findAll()
 
         ]);
     

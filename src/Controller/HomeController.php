@@ -2,24 +2,53 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
+use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use App\Repository\ScheduleRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home', methods: ['GET'])]
+    #[Route('/', name: 'home', methods: ['GET', 'POST'])]
     public function index(ScheduleRepository $scheduleRepository,
-    CommentRepository $commentRepository
+    CommentRepository $commentRepository,
+    Request $request,
+    EntityManagerInterface $manager
     ): Response
     {
         $schedules = $scheduleRepository->findAll(); 
         $comments = $commentRepository->findAll(); 
+       
+
+        $comment = new Comment();
+        
+        $commentForm = $this->createForm(CommentType::class, $comment);
+        $commentForm->handleRequest($request);
+       
+        /* form comments */
+
+        if ($commentForm->isSubmitted() && $commentForm->isValid()) {
+         $comment = $commentForm->getData();
+            $manager->persist($comment);
+            $manager->flush();
+            $this->addFlash(
+                'success',
+                'Votre commentaire a bien été prise en compte'
+            );
+            return $this->redirectToRoute('home.index', ['id' => $comment->getId()]);
+        }
+
         return $this->render('home/index.html.twig', [
             'schedules' => $schedules,
             'comments' => $comments,
+            'commentForm' => $commentForm,
+            'bestComments' => $commentRepository->findBestComments(3)
+            
         ]);
     }
     #[Route('/legal_notice', name: 'footer.legal_notice', methods: ['GET'])]

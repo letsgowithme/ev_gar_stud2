@@ -21,6 +21,19 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
+     /**
+     * Show public recipes
+     * @param integer $nbComments
+     * @return array
+     */
+    public function findBestComments(?int $nbComments) : array {
+        return  $this->createQueryBuilder('r')
+                ->where('r.isApproved = 1')
+                ->orderBy('r.mark', 'DESC')
+                ->setMaxResults($nbComments)
+                ->getQuery()
+                ->getResult();
+} 
 //    /**
 //     * @return Comment[] Returns an array of Comment objects
 //     */

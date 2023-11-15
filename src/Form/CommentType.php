@@ -23,9 +23,9 @@ class CommentType extends AbstractType
             'attr' => [
                 'class' => 'form-control'
             ],
-            'label' => 'Titre',
+            'label' => 'Sujet',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5',
+                'class' => 'form-label mt-4 text-dark fs-5 fw-bold',
                 'minLength' => '2',
                 'maxLength' => '255'
             ],
@@ -34,16 +34,13 @@ class CommentType extends AbstractType
                 new Assert\NotBlank()
             ]
         ])
-            ->add(
-                'content',
-                TextareaType::class,
-                [
+            ->add('content', TextareaType::class, [
                     'attr' => [
-                        'class' => 'form-control block w-full px-3 py-1.5 text-base font-normal bg-white bg-clip border border-solid text-gray-700 focus:border-blue-600 focus-outline-none'
+                        'class' => 'form-control block w-full px-3 text-base font-normal bg-white bg-clip border border-solid text-gray-700 focus:border-blue-600 focus-outline-none'
                     ],
-                    'label' => 'Poster un nouveau commentaire',
+                    'label' => 'Contenu',
                     'label_attr' => [
-                        'class' => 'form-label inline-block mb-2 text-light-700'
+                        'class' => 'form-label inline-block mb-2 fs-5 text-dark fw-bold'
                     ],
                     'constraints' => [
                         new Assert\NotBlank()
@@ -52,11 +49,11 @@ class CommentType extends AbstractType
             )
             ->add('author', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control mb-4'
                 ],
                 'label' => 'Nom/Prénom',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5',
+                    'class' => 'form-label mt-4 text-dark fs-5  fw-bold',
                     'minLength' => '3',
                     'maxLength' => '50'
                 ],
@@ -66,21 +63,22 @@ class CommentType extends AbstractType
                 ]
             ])
             ->add('mark', ChoiceType::class, [
+                'attr' => [
+                    'class' => 'form-select mb-4 fs-5'
+                ],
                 'choices' => [
                     'Choisir' => "",
-                    '1' => '1',
-                    '2' => '2',
-                    '3' => '3',
-                    '4'=> '4',
-                    '5'=> '5'
+                    '5 - Très bien'=> '5',
+                    '4 - Bien'=> '4',
+                    '3 - Moyen' => '3',
+                    '2 - Pas bien' => '2',
+                    '1 - Pas bien du tout' => '1',  
    
                 ],
-                'attr' => [
-                    'class' => 'form-select mb-4 fs-4'
-                ],
-                'label' => 'Note: 5-Très bien, 4-Bien, 3-Moyen, 2-Pas bien, 1- Pas bien du tout',
+                
+                'label' => 'Note:',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5'
+                    'class' => 'form-label mt-4 text-dark fs-5 fw-bold'
                 ],
                 'multiple' => false,
                 'required' => true,

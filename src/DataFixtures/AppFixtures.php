@@ -38,14 +38,15 @@ class AppFixtures extends Fixture
          // Users
          $users = [];
 
-        //  $admin = new User();
-        //  $admin->setLastname('Administrateur')
-        //         ->setEmail('v_parrot@garage.fr')
-        //         ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
-        //         ->setPlainPassword('password');
+         $admin = new User();
+         $admin->setLastname('Parrot')
+         ->setFirstname('Vincent')
+                ->setEmail('v_parrot@garage.fr')
+                ->setRoles(['ROLE_USER', 'ROLE_ADMIN'])
+                ->setPlainPassword('password');
              
-        //         $users[] = $admin;
-        //     $manager->persist($admin);
+                $users[] = $admin;
+            $manager->persist($admin);
 
 
          for ($j = 0; $j < 10; $j++) {
