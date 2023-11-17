@@ -17,31 +17,35 @@
 		{# </div> #}
 
 		{# ******************range start****************** #}
-		<div class="range_block d-flex jsutlfy-content-between">
+		<div class="range_block d-flex justify-content-between">
 
 		<div class="px-4">
-		<label for="rangeKm" class="form-label">Kilométrage</label>
-<input type="range" class="form-range" min="10000" max="250000" step="1000" id="rangeKm" name="rangeKm" onChange="showKm()">
+		<label for="rangeKm" class="form-label fw-bold">Kilométrage</label>
+<input type="range" class="form-range" min="10000" max="250000" step="1000" id="rangeKm" name="rangeKm"  onChange="showKm()">
+<div class="fw-bold">
 <span id="rangeKmMin"></span><span id="rangeKmVal"></span>
+</div>
 
 <br>
 <button type="button" class="mb-4 fw-bold" id="kmReload">Réinitialiser</button>
 </div>
 
 <div class="px-4">
-<label for="rangePrice" class="form-label">Prix</label>
+<label for="rangePrice" class="form-label fw-bold">Prix</label>
 <input type="range" class="form-range" min="500" max="100000" step="100" id="rangePrice"  onChange="showPrice()">
+<div class="fw-bold">
 <span id="rangePriceMin"></span><span id="rangePriceVal"></span>
-
+</div>
 <br>
 <button type="button" class="mb-4 fw-bold" id="priceReload">Réinitialiser</button>
 </div>
 
 <div class="px-4">
-<label for="rangeYear" class="form-label">Année</label>
+<label for="rangeYear" class="form-label fw-bold">Année</label>
 <input type="range" class="form-range" min="1950" max="2023" step="1" id="rangeYear"  onChange="showYear()">
+<div class="fw-bold">
 <span id="rangeYearMin"></span><span id="rangeYearVal"></span>
-
+</div>
 <br>
 <button type="button" class="mb-4 fw-bold" id="yearReload">Réinitialiser</button>
 </div>
@@ -77,6 +81,12 @@
       {# <div class="text-center fs-5" style="margin-left: 16%;">
 {{ knp_pagination_render(pagination) }}
 </div> #}
+</div></div>
+<div class="row mt-4">
+			<div class="col-12">
+				{% include "partials/_liens_schedule_address.html.twig" %}
+			</div>
+		</div>
 		{# *************************************** #}
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>

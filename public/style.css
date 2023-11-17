@@ -20,6 +20,7 @@
   width: 100%;
 }
 
+
 #bnt_contact{
   background: var(--nav_bg_color);
 }
@@ -315,6 +316,27 @@ font-size: 1.2em;
   min-width: 350px;
   height:250px;
 }
+/* range */
+/* input[type="range"] {
+  position: relative;
+  margin-left: 1em;
+}
+input[type="range"]:after,
+input[type="range"]:before {
+  position: absolute;
+  top: 1em;
+  color: 
+#aaa;
+}
+input[type="range"]:before {
+  left:0em;
+  content: attr(min);
+}
+input[type="range"]:after {
+  right: 0em;
+  content: attr(max);
+} */
+/* range end */
 .card_body{
   background-color: var(--rose)!important;
   min-width: 370px;

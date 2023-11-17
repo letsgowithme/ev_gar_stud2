@@ -22,6 +22,7 @@ class UserController extends AbstractController
         ]);
     }
 
+
     #[Route('/new', name: 'user.new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

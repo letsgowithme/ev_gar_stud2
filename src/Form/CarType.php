@@ -34,7 +34,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Titre',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5',
+                'class' => 'form-label mt-4 fw-bold text-dark fs-4',
                 'minLength' => '2',
                 'maxLength' => '255'
             ],
@@ -51,7 +51,7 @@ class CarType extends AbstractType
         //     },
         //     'label' => 'Modele',
         //     'label_attr' => [
-        //         'class' => 'form-label mt-4 mb-4 text-dark fs-5'
+        //         'class' => 'form-label mt-4 mb-4 text-dark fs-4'
         //     ],
 
         //     'choice_label' => 'marque',
@@ -64,7 +64,7 @@ class CarType extends AbstractType
             ],
             'label' => 'L\'année de mise en circulation',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5',
+                'class' => 'form-label mt-4  fw-bold  text-dark fs-4',
                 'minLength' => '4',
                 'maxLength' => '4'
             ],
@@ -81,7 +81,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Kilometrage',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'constraints' => [
                 new Assert\Positive(),
@@ -101,7 +101,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Type de carburant',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'multiple' => false,
             'required' => true,
@@ -116,7 +116,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Prix',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'constraints' => [
                 new Assert\Positive(),
@@ -142,7 +142,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Couleur',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => true,
 
@@ -153,7 +153,7 @@ class CarType extends AbstractType
             ],
             'label' => "Photo principale",
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => false,
            
@@ -164,7 +164,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Vous pouvez rajouter 3 photos',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'multiple' => true,
             'required' => false,
@@ -182,7 +182,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Équipement',
             'label_attr' => [
-                'class' => 'form-label mt-4 mb-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  mb-4 text-dark fs-4'
             ],
 
             'choice_label' => 'name',
@@ -198,9 +198,9 @@ class CarType extends AbstractType
             'attr' => [
                 'class' => 'mb-4'
             ],
-            'label' => 'Option',
+            'label' => 'Options',
             'label_attr' => [
-                'class' => 'form-label mt-4 mb-4 text-dark fs-5'
+                'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4'
             ],
 
             'choice_label' => 'name',
@@ -211,96 +211,96 @@ class CarType extends AbstractType
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1440
+               
             ], 
             'label' => 'Largeur',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => false,
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1440)
+               
             ]
         ])
         ->add('length', IntegerType::class, [
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1440
+               
             ],
             'label' => 'Longueur',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => false,
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1440)
+               
             ]
         ])
         ->add('height', IntegerType::class, [
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1440
+               
             ],
             'label' => 'Hauteur',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => false,
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1440)
+               
             ]
         ])
         ->add('weight', IntegerType::class, [
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1440
+               
             ],
             'label' => 'Poids',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => false,
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1440)
+               
             ]
         ])
         ->add('priceMin', IntegerType::class, [
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1440
+               
             ],
             'label' => 'Prix minimal',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'required' => false,
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1440)
+               
             ]
         ])
         ->add('priceMax', IntegerType::class, [
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1440
+               
             ],
             'required' => false,
             'label' => 'Prix maximal',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5'
+                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1440)
+               
             ]
         ])
             

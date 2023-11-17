@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\Comment;
 use App\Entity\Contact;
 use App\Entity\Equipment;
 use App\Entity\Images;
 use App\Form\CarType;
+use App\Form\CommentType;
 use App\Form\ContactType;
 use App\Form\EquipmentType;
 use App\Repository\CarRepository;
@@ -54,10 +56,28 @@ class CarController extends AbstractController
     public function user_index(CarRepository $carRepository,
     ScheduleRepository $scheduleRepository, 
     PaginatorInterface $paginator,
-    Request $request
+    Request $request,
+    EntityManagerInterface $manager,
     ): Response
     { 
-        
+        $comment = new Comment();
+        if($this->getUser()) {
+            $comment->setAuthor($this->getUser());
+        }
+        $commentForm = $this->createForm(CommentType::class, $comment);
+        $commentForm->handleRequest($request);
+       
+        /* form comments */
+
+        if ($commentForm->isSubmitted() && $commentForm->isValid()) {
+         $comment = $commentForm->getData();
+            $manager->persist($comment);
+            $manager->flush();
+            $this->addFlash(
+                'success',
+                'Votre commentaire a bien été prise en compte'
+            );
+        }
         $pagination = $paginator->paginate(
             $carRepository->paginationQuery('page', 1, 
            
@@ -73,6 +93,7 @@ class CarController extends AbstractController
             'cars' => $cars,
             'schedules' => $scheduleRepository->findAll(),
             'pagination' => $pagination,
+            'commentForm' => $commentForm,
         
         ]);
     }
