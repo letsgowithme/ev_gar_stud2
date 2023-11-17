@@ -30,43 +30,50 @@ class CarController extends AbstractController
     Request $request
     ): Response
     { 
-        // $filters = $request->get("cars");
-        //dd($filters);
+        
         $pagination = $paginator->paginate(
             $carRepository->paginationQuery('page', 1, 
-            // $filters
+           
         ),
             $request->query->get('page', 1),
             5
         );
         
-        //dd($pagination);
-
-    //  on recup les filtres
-        
-
-        // $carsByYear = $carRepository->findByYear($request->query->get('year'));
-        // $carsByPrice = $carRepository->findByPrice($request->query->get('price'));
-        // $carsByKm = $carRepository->findByKm($request->query->get('km'));
-
-        // $cars_filtres = $carRepository->findAllCars($filters);
-        // // on verifie si on a une equete ajax
-        // if($request->get('ajax')){
-        //     return new JsonResponse([
-        //         'content' => $this->renderView('car/index.html.twig', compact('cars','schedules','pagination','carsByYear','carsByPrice','carsByKm'))
-        //     ]);
-        // }
-
-       
-        // dd($cars_filtres);
+      
+     
         $cars = $carRepository->findAll();
         return $this->render('car/index.html.twig', [
             'cars' => $cars,
             'schedules' => $scheduleRepository->findAll(),
             'pagination' => $pagination,
-            // 'carsByYear' => $carsByYear,
-            // 'carsByPrice' => $carsByPrice,
-            // 'carsByKm' => $carsByKm
+        
+        ]);
+    }
+
+    #[Route('/userCars', name: 'car.user_index', methods: ['GET'])]
+    public function user_index(CarRepository $carRepository,
+    ScheduleRepository $scheduleRepository, 
+    PaginatorInterface $paginator,
+    Request $request
+    ): Response
+    { 
+        
+        $pagination = $paginator->paginate(
+            $carRepository->paginationQuery('page', 1, 
+           
+        ),
+            $request->query->get('page', 1),
+            5
+        );
+        
+      
+     
+        $cars = $carRepository->findAll();
+        return $this->render('car/user_index.html.twig', [
+            'cars' => $cars,
+            'schedules' => $scheduleRepository->findAll(),
+            'pagination' => $pagination,
+        
         ]);
     }
 
@@ -133,7 +140,7 @@ class CarController extends AbstractController
          $formContact->handleRequest($request);
          if ($formContact->isSubmitted() && $formContact->isValid()) {
             // $contact->setContacter($this->getUser());
-            $contact->setCarPost($car);
+            $contact->setCar($car);
             $manager->persist($contact);
             $manager->flush();
          }

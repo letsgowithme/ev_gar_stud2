@@ -4,11 +4,9 @@ namespace App\Form;
 
 use App\Entity\Car;
 use App\Entity\Equipment;
-use App\Entity\Features;
 use App\Entity\Option;
 use App\Entity\Modeles;
 use App\Repository\EquipmentRepository;
-use App\Repository\FeaturesRepository;
 use App\Repository\OptionRepository;
 use App\Repository\ModelesRepository;
 use PhpParser\Parser\Multiple;
@@ -219,6 +217,7 @@ class CarType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5'
             ],
+            'required' => false,
             'constraints' => [
                 new Assert\Positive(),
                 new Assert\LessThan(1440)
@@ -234,6 +233,7 @@ class CarType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5'
             ],
+            'required' => false,
             'constraints' => [
                 new Assert\Positive(),
                 new Assert\LessThan(1440)
@@ -249,6 +249,7 @@ class CarType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5'
             ],
+            'required' => false,
             'constraints' => [
                 new Assert\Positive(),
                 new Assert\LessThan(1440)
@@ -264,6 +265,7 @@ class CarType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5'
             ],
+            'required' => false,
             'constraints' => [
                 new Assert\Positive(),
                 new Assert\LessThan(1440)
@@ -279,6 +281,7 @@ class CarType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5'
             ],
+            'required' => false,
             'constraints' => [
                 new Assert\Positive(),
                 new Assert\LessThan(1440)
@@ -290,6 +293,7 @@ class CarType extends AbstractType
                 'min' => 1,
                 'max' => 1440
             ],
+            'required' => false,
             'label' => 'Prix maximal',
             'label_attr' => [
                 'class' => 'form-label mt-4 text-dark fs-5'

@@ -6,7 +6,6 @@ use App\Entity\Car;
 use App\Entity\User;
 use App\Entity\Contact;
 use App\Entity\Equipment;
-use App\Entity\Features;
 use App\Entity\Mark;
 use App\Entity\Option;
 use App\Entity\Schedule;
@@ -115,23 +114,6 @@ class AppFixtures extends Fixture
         // }
 
         
-        //Features
-        // $features = [];
-        // for ($n = 0; $n < 5; $n++) {
-        //     $feature = new Features();
-        //     $feature->setWidth($this->faker->numberBetween(100, 150))
-        //     ->setLength($this->faker->numberBetween(200, 350))
-        //     ->setHeight($this->faker->numberBetween(150, 250))
-        //     ->setWeight($this->faker->numberBetween(1500, 3500))
-        //     ->setPriceMin($this->faker->numberBetween(1000, 15000))
-
-        //     ->setPriceMax($this->faker->numberBetween(10000, 50000));
-
-
-        //      // $car->addCar($cars[mt_rand(0, count($cars) - 1)]);
-        //     $features[] = $feature;
-        //     $manager->persist($feature);
-        // }
            //Option
         //    $options = [];
         //    for ($n = 0; $n < 5; $n++) {

@@ -3,35 +3,31 @@
 {% block title %}Service index{% endblock %}
 
 {% block body %}
-    <h1>Service index</h1>
+<div class="text-center">
+<h1 id="services_title_page" class="fw-bold" style="text-shadow: 2px 2px black; color: #D92332;">Nos services</h1>
+</div>
+<div class="d-flex flex-column  align-items-center" 
+style="padding: 15px; background: #D92332;"  id="block_services_page">
 
-    <table class="table">
-        <thead>
-            <tr>
-                {# <th>Id</th> #}
-                <th>Title</th>
-                {# <th>Description</th> #}
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for service in services %}
-            <tr>
-                {# <td>{{ service.id }}</td> #}
-                <td>{{ service.title }}</td>
-                {# <td>{{ service.description }}</td> #}
-                <td>
-                    <a href="{{ path('app_service_show', {'id': service.id}) }}">show</a>
-                    <a href="{{ path('app_service_edit', {'id': service.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="d-flex flex-column align-items-center flex-center" id="services_list_page">
+ {% for service in services %}
+ <p class="fs-4 text-light mb-4 mt-4"> {{ service.title }}</p>
+{% endfor %}
+{% include "partials/_btn_contact.html.twig" %}
+</div>
+</div>
+	<div class="row mt-4 mb-4">
+			<div class="col-12">
+				{% include "partials/_btn_up.html.twig" %}
+				{% include "partials/_btn_home.html.twig" %}
+			</div>
+		</div>
+			</div>
+</div>
 
-    <a href="{{ path('app_service_new') }}">Create new</a>
+<div class="row mt-4">
+			<div class="col-12">
+				{% include "partials/_liens_schedule_address.html.twig" %}
+			</div>
+		</div>
 {% endblock %}

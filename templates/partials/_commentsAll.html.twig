@@ -1,15 +1,17 @@
-
+	<hr class="text-light fs-4">
+	<div class="text-center d-flex flex-wrap justify-content-between ">
 			{% for comment in comments %}
 				{% if comment.isApproved %}
-					<div class="comment flex justify-start mb-4 border-bottom w-50">
+			
+					<div class="comment bg-light mb-4 pt-3 rounded border-bottom w-25 ms-4">
 						<div>
-							<div class="block p-6 mx-4">
-								<div class="md-ml-6">
-                <h5>{{ comment.subject|raw }}</h5>
+							<div class="block p-6">
+								<div class="col-md-12">
+                <h5  class="text-dark">{{ comment.subject|raw }}</h5>
                   <p class="text-dark fs-5 mb-3">
 										{{ comment.content|raw }}
 									</p>
-                  <p class=" mb-3">{{ comment.mark }}</p>
+                  <p class="text-dark mb-3">Note : {{ comment.mark }}/5</p>
 									<p>{{ comment.author }}</p>
 									
 								</div>
@@ -20,6 +22,8 @@
 					{# <hr class="mx-4"> #}
 				{% endif %}
 			{% endfor %}
+				</div>
+			<hr class="text-light fs-4">
             
 
 
