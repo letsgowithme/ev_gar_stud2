@@ -13,7 +13,7 @@ class PictureService
   {
     $this->params = $params;
   }
-  public function add(UploadedFile $picture, ?string $folder = "", ?int $width = 600, ?int $height = 440)
+  public function add(UploadedFile $picture, ?string $folder = "", ?int $width = 640, ?int $height = 440)
   {
 
     // on donne un nouveau nom à l'image
@@ -80,7 +80,7 @@ class PictureService
     return $fichier;
     
   }
-  public function delete(string $fichier, ?string $folder = '', ?int $width = 600, ?int $height = 440){
+  public function delete(string $fichier, ?string $folder = '', ?int $width = 640, ?int $height = 440){
     if($fichier !== 'default.jpeg'){
       $success = false;
       $path = $this->params->get('images_directory') . $folder;

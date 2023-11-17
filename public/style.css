@@ -492,8 +492,8 @@ input[type="range"]:after {
  .gallery_img{
   position:relative;
   left: 13%;
-  width: 500px;
-  height: auto;
+  width: 500px!important;
+  height: 450px!important;
 }
   .drop_user{
     margin-right: 7rem;
@@ -647,8 +647,8 @@ input[type="range"]:after {
     position:relative;
     left: 7%;
     margin: 0 1em;;
-    width: 765px;
-    height: 650;
+    width: 765px!important;
+    height: 650px!important;
   }
   .show_block_titles span{
     /* margin-left: 20px; */
@@ -785,7 +785,7 @@ padding: 10px;
 .card_body{
   min-width: 350px;
 }
-/* *****car.show ********/
+/* *****car.show 1440********/
 /* #car_show_img{
  
   left: 10%;
@@ -796,8 +796,8 @@ padding: 10px;
   position:relative;
   left: 17%;
   margin: 0 1em;;
-  width: 765px;
-  height: auto;
+  width: 850px!important;
+  height: 650px!important;
 }
 .show_block_titles {
   display: flex;

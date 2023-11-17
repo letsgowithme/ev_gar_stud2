@@ -48,8 +48,6 @@ class Car
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'car',  orphanRemoval: true, cascade:['persist'])]
-    private Collection $images;
 
     #[ORM\ManyToMany(targetEntity: Equipment::class)]
     private Collection $equipments;
@@ -83,14 +81,21 @@ class Car
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Contact::class)]
     private Collection $contacts;
 
+    #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist'])]
+    private Collection $images;
+
+   
+
+   
   
 
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
-        $this->images = new ArrayCollection();
+       
         $this->equipments = new ArrayCollection();
         $this->options = new ArrayCollection();
         $this->contacts = new ArrayCollection();
+        $this->images = new ArrayCollection();
        
     }
 
@@ -227,35 +232,7 @@ class Car
         return $this;
     }
 
-    /**
-     * @return Collection<int, Images>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Images $image): static
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setCar($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Images $image): static
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getCars() === $this) {
-                $image->setCar(null);
-            }
-        }
-
-        return $this;
-    }
+    
 /**
      * @return Collection<int, Equipment>
      */
@@ -411,10 +388,38 @@ class Car
         return $this;
     }
 
-   
+    /**
+     * @return Collection<int, Images>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
 
+    public function addImage(Images $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setCar($this);
+        }
 
+        return $this;
+    }
+
+    public function removeImage(Images $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getCar() === $this) {
+                $image->setCar(null);
+            }
+        }
+
+        return $this;
+    }
 
   
+
+     
 
 }

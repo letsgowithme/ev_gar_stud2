@@ -120,14 +120,14 @@ class CarController extends AbstractController
                 // on deifnit le dossier de destination
                 $folder = "carPosts";
                 // on appele le service d'ajout
-              $fichier = $pictureService->add($image, $folder, 600, 440);
+              $fichier = $pictureService->add($image, $folder, 640, 440);
               $img = new Images();
               $img->setName($fichier);
               $car->addImage($img);
          
 
             }
-            // dd($images);
+            //  dd($images);
             $entityManager->persist($car);
             $entityManager->flush();
 
@@ -195,7 +195,7 @@ class CarController extends AbstractController
                 $folder = 'carPosts';
 
                 // On appelle le service d'ajout
-                $fichier = $pictureService->add($image, $folder, 600, 440);
+                $fichier = $pictureService->add($image, $folder, 640, 440);
 
                 $img = new Images();
                 $img->setName($fichier);

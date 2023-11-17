@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ImagesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ImagesRepository::class)]
@@ -16,12 +18,11 @@ class Images
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(targetEntity: Car::class, inversedBy: 'images')]
-    #[ORM\JoinColumn(nullable: false)]
-    // #[ORM\JoinColumn(name: "car", referencedColumnName: "car", nullable: false)]
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    private ?Car $car = null;
 
-    private $car;
-
+   
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -39,7 +40,13 @@ class Images
         return $this;
     }
 
-    public function getCars(): ?Car
+    public function __toString()
+    {
+        return (string) $this->name;
+        
+    }
+
+    public function getCar(): ?Car
     {
         return $this->car;
     }
@@ -50,10 +57,9 @@ class Images
 
         return $this;
     }
-    public function __toString()
-    {
-        return (string) $this->name;
-        
-    }
+
+   
+
+   
 
 }
