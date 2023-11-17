@@ -14,7 +14,7 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $fullname = null;
+    private ?string $contacter = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
@@ -28,6 +28,10 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $phoneNumber = null;
 
+    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    private ?Car $car = null;
+
+
     // #[ORM\Column]
     // private ?\DateTimeImmutable $createdAt = null;
 
@@ -36,19 +40,23 @@ class Contact
         return $this->id;
     }
 
-    public function getFullname()
+
+    /**
+     * Get the value of contacter
+     */ 
+    public function getContacter()
     {
-        return $this->fullname;
+        return $this->contacter;
     }
 
     /**
-     * Set the value of fullname
+     * Set the value of contacter
      *
      * @return  self
      */ 
-    public function setFullname($fullname)
+    public function setContacter($contacter)
     {
-        $this->fullname = $fullname;
+        $this->contacter = $contacter;
 
         return $this;
     }
@@ -113,8 +121,22 @@ class Contact
     //     return $this;
     // }
 
-    /**
-     * Get the value of fullname
-     */ 
+    public function getCar(): ?Car
+    {
+        return $this->car;
+    }
+
+    public function setCar(?Car $car): static
+    {
+        $this->car = $car;
+
+        return $this;
+    }
+
+
+
+   
+
+  
 
 }

@@ -34,9 +34,9 @@ class ScheduleCrudController extends AbstractCrudController
             ->hideOnForm(),  
             TextField::new('day')
                ->setLabel('Jour'),
-               TextField::new('openingTimeMidday')
+               TextField::new('openingTimeMorning')
                ->setLabel('S\'ouvre à midi'),
-               TextField::new('closingTimeMidday')
+               TextField::new('closingTimeMorning')
                ->setLabel('Se ferme à midi'),
                TextField::new('openingTimeEvening')
                ->setLabel('S\'ouvre le soir'),

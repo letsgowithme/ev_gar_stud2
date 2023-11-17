@@ -17,7 +17,7 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fullname', TextType::class, [
+            ->add('contacter', TextType::class, [
                 'attr' => [
                     'class' => 'form-control',
                     'minlenght' => '2',
@@ -25,7 +25,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Nom',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5'
+                    'class' => 'form-label mt-4 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -41,7 +41,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Email',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5'
+                    'class' => 'form-label mt-4 text-light fs-5'
 
                 ],
                 'constraints' => [
@@ -57,7 +57,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Sujet',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5'
+                    'class' => 'form-label mt-4 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -71,7 +71,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Message',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5'
+                    'class' => 'form-label mt-4 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank()
@@ -83,7 +83,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Numéro de téléphone',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5'
+                    'class' => 'form-label mt-4 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank()

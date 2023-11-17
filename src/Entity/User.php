@@ -45,13 +45,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
    
 
-    public function __construct()
-    {
-        $this->carPosts = new ArrayCollection();
-        $this->cars = new ArrayCollection();
-    }
-
-   
+    
 
     public function getId(): ?int
     {
@@ -197,6 +191,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function __toString()
+    {
+        return (string) $this->lastname;
+        
+    }
+
 
    
 

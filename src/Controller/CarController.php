@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\Contact;
 use App\Entity\Equipment;
 use App\Entity\Images;
 use App\Form\CarType;
+use App\Form\ContactType;
 use App\Form\EquipmentType;
 use App\Repository\CarRepository;
 use App\Repository\ScheduleRepository;
@@ -77,6 +79,9 @@ class CarController extends AbstractController
     ): Response
     {
         $car = new Car();
+        if ($this->getUser()) {
+            $car->setAuthor($this->getUser());
+        }
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
        
@@ -111,13 +116,32 @@ class CarController extends AbstractController
     }
 
     #[Route('/{id}', name: 'car.show', methods: ['GET'])]
-    public function show(Car $car, ScheduleRepository $scheduleRepository): Response
+    public function show(
+    Car $car, 
+    ScheduleRepository $scheduleRepository,
+    Request $request,
+    EntityManagerInterface $manager, 
+    Contact $contact
+    ): Response
     {
         $images = $car->getImages();
+        $contact = new Contact();
+        if($this->getUser()){
+            $contact->setContacter($this->getUser());
+        }
+         $formContact = $this->createForm(ContactType::class, $contact);
+         $formContact->handleRequest($request);
+         if ($formContact->isSubmitted() && $formContact->isValid()) {
+            // $contact->setContacter($this->getUser());
+            $contact->setCarPost($car);
+            $manager->persist($contact);
+            $manager->flush();
+         }
             //    dd($images);
         return $this->render('car/show.html.twig', [
             'car' => $car,
-            'schedules' => $scheduleRepository->findAll()
+            'schedules' => $scheduleRepository->findAll(),
+             'formContact' => $formContact->createView()
         ]);
     }
 
@@ -125,16 +149,19 @@ class CarController extends AbstractController
     public function edit(Request $request, Car $car, 
     EntityManagerInterface $entityManager,
     ScheduleRepository $scheduleRepository,
-    PictureService $pictureService
+    PictureService $pictureService,
+    
     ): Response
     {
         // $this->denyAccessUnlessGranted('ROLE_ADMIN', $car);
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
 
+       
+
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-
+            // $author = $form->getAuthor();
             foreach($images as $image){
                 // On définit le dossier de destination
                 $folder = 'carPosts';
@@ -146,6 +173,7 @@ class CarController extends AbstractController
                 $img->setName($fichier);
                 $car->addImage($img);
             }
+
             $entityManager->persist($car);
             $entityManager->flush();
             // dd($images);
@@ -155,6 +183,7 @@ class CarController extends AbstractController
         return $this->render('car/edit.html.twig', [
             'car' => $car,
             'form' => $form,
+           
             'schedules' => $scheduleRepository->findAll()
             
         ]);

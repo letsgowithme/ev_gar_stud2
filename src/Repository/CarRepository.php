@@ -24,8 +24,6 @@ class CarRepository extends ServiceEntityRepository
     public function paginationQuery($page, $limit, $filters = null)
     {
         $query = $this->createQueryBuilder('c');
-            //->where('c.active = 1');
-         //    ->setParameter('val', $value)
          if($filters != null){
             $query->andWhere('c.cars IN(:cars)')
                   ->setParameter(':cars', array_values($filters));
@@ -37,6 +35,7 @@ class CarRepository extends ServiceEntityRepository
          
          return $query->getQuery()->getResult();
     }
+   
     public function findAllCars($filters = null){
         $query = $this->createQueryBuilder('c')
                ->select('COUNT(c)');

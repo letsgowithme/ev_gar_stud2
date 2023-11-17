@@ -17,7 +17,7 @@ use Symfony\Component\Mailer\MailerInterface;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'contact.new')]
+    #[Route('/contact', name: 'contact.index')]
     public function index(
         Request $request,
         EntityManagerInterface $manager,
@@ -28,12 +28,12 @@ class ContactController extends AbstractController
         $contact = new Contact();
 
         
-        $form=$this->createForm(ContactType::class, $contact);
+        $formContact=$this->createForm(ContactType::class, $contact);
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
+        $formContact->handleRequest($request);
+        if ($formContact->isSubmitted() && $formContact->isValid()) {
 
-             $contact = $form->getData();
+             $contact = $formContact->getData();
              $manager->persist($contact);
              $manager->flush();
 
@@ -57,7 +57,7 @@ class ContactController extends AbstractController
 
        
         return $this->render('contact/index.html.twig', [
-            'form' => $form->createView(),
+            'formContact' => $formContact->createView(),
             'schedules' => $scheduleRepository->findAll()
 
         ]);

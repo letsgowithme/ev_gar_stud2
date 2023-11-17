@@ -4,10 +4,12 @@ namespace App\Form;
 
 use App\Entity\Car;
 use App\Entity\Equipment;
-use App\Entity\Modele;
+use App\Entity\Features;
+use App\Entity\Option;
 use App\Entity\Modeles;
 use App\Repository\EquipmentRepository;
-use App\Repository\ModeleRepository;
+use App\Repository\FeaturesRepository;
+use App\Repository\OptionRepository;
 use App\Repository\ModelesRepository;
 use PhpParser\Parser\Multiple;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -171,11 +173,11 @@ class CarType extends AbstractType
             'mapped' => false
             
         ])
-        ->add('equipment', EntityType::class, [
+        ->add('equipments', EntityType::class, [
             'class' => Equipment::class,
             'query_builder' => function (EquipmentRepository $r) {
                 return $r->createQueryBuilder('i')
-                    ->orderBy('i.title', 'ASC');
+                    ->orderBy('i.name', 'ASC');
             },
             'attr' => [
                 'class' => 'mb-4'
@@ -188,6 +190,114 @@ class CarType extends AbstractType
             'choice_label' => 'name',
             'multiple' => true,
             'expanded' => true
+        ])
+        ->add('options', EntityType::class, [
+            'class' => Option::class,
+            'query_builder' => function (OptionRepository $r) {
+                return $r->createQueryBuilder('i')
+                    ->orderBy('i.name', 'ASC');
+            },
+            'attr' => [
+                'class' => 'mb-4'
+            ],
+            'label' => 'Option',
+            'label_attr' => [
+                'class' => 'form-label mt-4 mb-4 text-dark fs-5'
+            ],
+
+            'choice_label' => 'name',
+            'multiple' => true,
+            'expanded' => true
+        ])
+        ->add('width', IntegerType::class, [
+            'attr' => [
+                'class' => 'form-control',
+                'min' => 1,
+                'max' => 1440
+            ], 
+            'label' => 'Largeur',
+            'label_attr' => [
+                'class' => 'form-label mt-4 text-dark fs-5'
+            ],
+            'constraints' => [
+                new Assert\Positive(),
+                new Assert\LessThan(1440)
+            ]
+        ])
+        ->add('length', IntegerType::class, [
+            'attr' => [
+                'class' => 'form-control',
+                'min' => 1,
+                'max' => 1440
+            ],
+            'label' => 'Longueur',
+            'label_attr' => [
+                'class' => 'form-label mt-4 text-dark fs-5'
+            ],
+            'constraints' => [
+                new Assert\Positive(),
+                new Assert\LessThan(1440)
+            ]
+        ])
+        ->add('height', IntegerType::class, [
+            'attr' => [
+                'class' => 'form-control',
+                'min' => 1,
+                'max' => 1440
+            ],
+            'label' => 'Hauteur',
+            'label_attr' => [
+                'class' => 'form-label mt-4 text-dark fs-5'
+            ],
+            'constraints' => [
+                new Assert\Positive(),
+                new Assert\LessThan(1440)
+            ]
+        ])
+        ->add('weight', IntegerType::class, [
+            'attr' => [
+                'class' => 'form-control',
+                'min' => 1,
+                'max' => 1440
+            ],
+            'label' => 'Poids',
+            'label_attr' => [
+                'class' => 'form-label mt-4 text-dark fs-5'
+            ],
+            'constraints' => [
+                new Assert\Positive(),
+                new Assert\LessThan(1440)
+            ]
+        ])
+        ->add('priceMin', IntegerType::class, [
+            'attr' => [
+                'class' => 'form-control',
+                'min' => 1,
+                'max' => 1440
+            ],
+            'label' => 'Prix minimal',
+            'label_attr' => [
+                'class' => 'form-label mt-4 text-dark fs-5'
+            ],
+            'constraints' => [
+                new Assert\Positive(),
+                new Assert\LessThan(1440)
+            ]
+        ])
+        ->add('priceMax', IntegerType::class, [
+            'attr' => [
+                'class' => 'form-control',
+                'min' => 1,
+                'max' => 1440
+            ],
+            'label' => 'Prix maximal',
+            'label_attr' => [
+                'class' => 'form-label mt-4 text-dark fs-5'
+            ],
+            'constraints' => [
+                new Assert\Positive(),
+                new Assert\LessThan(1440)
+            ]
         ])
             
             ->add('submit', SubmitType::class, [

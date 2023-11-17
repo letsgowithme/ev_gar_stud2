@@ -17,10 +17,10 @@ class Schedule
     private ?string $day = null;
 
     #[ORM\Column(nullable: true)]
-    private ?string $openingTimeMidday = null;
+    private ?string $openingTimeMorning = null;
 
     #[ORM\Column(nullable: true)]
-    private ?string $closingTimeMidday = null;
+    private ?string $closingTimeMorning = null;
 
     #[ORM\Column(nullable: true)]
     private ?string $openingTimeEvening = null;
@@ -47,41 +47,41 @@ class Schedule
     }
 
     /**
-     * Get the value of openingTimeMidday
+     * Get the value of openingTimeMorning
      */
-    public function getOpeningTimeMidday()
+    public function getopeningTimeMorning()
     {
-        return $this->openingTimeMidday;
+        return $this->openingTimeMorning;
     }
 
     /**
-     * Set the value of openingTimeMidday
+     * Set the value of openingTimeMorning
      *
      * @return  self
      */
-    public function setOpeningTimeMidday($openingTimeMidday)
+    public function setopeningTimeMorning($openingTimeMorning)
     {
-        $this->openingTimeMidday = $openingTimeMidday;
+        $this->openingTimeMorning = $openingTimeMorning;
 
         return $this;
     }
 
     /**
-     * Get the value of closingTimeMidday
+     * Get the value of closingTimeMorning
      */
-    public function getClosingTimeMidday()
+    public function getclosingTimeMorning()
     {
-        return $this->closingTimeMidday;
+        return $this->closingTimeMorning;
     }
 
     /**
-     * Set the value of closingTimeMidday
+     * Set the value of closingTimeMorning
      *
      * @return  self
      */
-    public function setClosingTimeMidday($closingTimeMidday)
+    public function setclosingTimeMorning($closingTimeMorning)
     {
-        $this->closingTimeMidday = $closingTimeMidday;
+        $this->closingTimeMorning = $closingTimeMorning;
 
         return $this;
     }

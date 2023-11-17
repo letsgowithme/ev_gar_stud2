@@ -36,9 +36,9 @@ class ScheduleType extends AbstractType
 
         ])
           
-            ->add('openingTimeMidday', TextType::class, [
+            ->add('openingTimeMorning', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control openingTimeMidday',
+                    'class' => 'form-control openingTimeMorning',
                     'value' => '12:00',
                 ],
                 'label' => 'S\'ouvre à midi',
@@ -47,9 +47,9 @@ class ScheduleType extends AbstractType
                    
                 ]
             ])
-            ->add('closingTimeMidday', TextType::class, [
+            ->add('closingTimeMorning', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control  closingTimeMidday',
+                    'class' => 'form-control  closingTimeMorning',
                     'value' => '14:00'
                 ],
                 'label' => 'Se ferme',

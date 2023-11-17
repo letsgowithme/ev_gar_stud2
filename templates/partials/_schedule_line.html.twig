@@ -5,11 +5,11 @@
 				<div class="d-flex flex-column schedule_list">
 						 <div class="fs-5 fw-bold text-center text-capitalize text-light schedule_day">{{ schedule.day }}</div>
 						<div class="text-center text-light schedule_time" style="max-width: 250px; padding: 10px;">
-						{% if schedule.openingTimeMidday %}
-						{{ schedule.openingTimeMidday }}
+						{% if schedule.openingTimeMorning %}
+						{{ schedule.openingTimeMorning }}
 							{% endif %}
-							{% if schedule.closingTimeMidday %}
-								- {{ schedule.closingTimeMidday }}
+							{% if schedule.closingTimeMorning %}
+								- {{ schedule.closingTimeMorning }}
 							{% endif %}
 							<br>
 							{% if schedule.openingTimeEvening %}

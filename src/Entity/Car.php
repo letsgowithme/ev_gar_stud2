@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-#[UniqueEntity('title')]
+// #[UniqueEntity('title')]
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 #[Vich\Uploadable]
 class Car
@@ -58,17 +58,39 @@ class Car
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
-   
-   
+    #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'cars')]
+    private Collection $options;
 
+    
+    #[ORM\Column(nullable: true)]
+    private ?int $length = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $width = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $height = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $weight = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $priceMin = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $priceMax = null;
+
+    #[ORM\OneToMany(mappedBy: 'car', targetEntity: Contact::class)]
+    private Collection $contacts;
+
+  
 
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
         $this->images = new ArrayCollection();
         $this->equipments = new ArrayCollection();
-        // $this->ingredients = new ArrayCollection();
-        // $this->ingredients = new ArrayCollection();
-       
+        $this->options = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
        
     }
 
@@ -262,6 +284,135 @@ class Car
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Option>
+     */
+    public function getOptions(): Collection
+    {
+        return $this->options;
+    }
+
+    public function addOption(Option $option): static
+    {
+        if (!$this->options->contains($option)) {
+            $this->options->add($option);
+        }
+
+        return $this;
+    }
+
+    public function removeOption(Option $option): static
+    {
+        $this->options->removeElement($option);
+
+        return $this;
+    }
+   
+    public function getLength(): ?int
+    {
+        return $this->length;
+    }
+
+    public function setLength(?int $length): static
+    {
+        $this->length = $length;
+
+        return $this;
+    }
+
+    public function getWidth(): ?int
+    {
+        return $this->width;
+    }
+
+    public function setWidth(?int $width): static
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    public function getHeight(): ?int
+    {
+        return $this->height;
+    }
+
+    public function setHeight(?int $height): static
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(?int $weight): static
+    {
+        $this->weight = $weight;
+
+        return $this;
+    }
+
+    public function getPriceMin(): ?int
+    {
+        return $this->priceMin;
+    }
+
+    public function setPriceMin(?int $priceMin): static
+    {
+        $this->priceMin = $priceMin;
+
+        return $this;
+    }
+
+    public function getPriceMax(): ?int
+    {
+        return $this->priceMax;
+    }
+
+    public function setPriceMax(?int $priceMax): static
+    {
+        $this->priceMax = $priceMax;
+
+        return $this;
+    }
+
+
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+    public function addContact(Contact $contact): self
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setCar($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContact(Contact $contact): self
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getCar() === $this) {
+                $contact->setCar(null);
+            }
+        }
+
+        return $this;
+    }
+
+   
+
 
 
   

@@ -25,7 +25,7 @@ class CommentType extends AbstractType
             ],
             'label' => 'Sujet',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-dark fs-5 fw-bold',
+                'class' => 'form-label mt-4 text-light fs-5 fw-bold',
                 'minLength' => '2',
                 'maxLength' => '255'
             ],
@@ -40,7 +40,7 @@ class CommentType extends AbstractType
                     ],
                     'label' => 'Contenu',
                     'label_attr' => [
-                        'class' => 'form-label inline-block mb-2 fs-5 text-dark fw-bold'
+                        'class' => 'form-label inline-block mb-2 fs-5 text-light fw-bold'
                     ],
                     'constraints' => [
                         new Assert\NotBlank()
@@ -53,7 +53,7 @@ class CommentType extends AbstractType
                 ],
                 'label' => 'Nom/Prénom',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5  fw-bold',
+                    'class' => 'form-label mt-4 text-light fs-5  fw-bold',
                     'minLength' => '3',
                     'maxLength' => '50'
                 ],
@@ -78,7 +78,7 @@ class CommentType extends AbstractType
                 
                 'label' => 'Note:',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-dark fs-5 fw-bold'
+                    'class' => 'form-label mt-4 text-light fs-5 fw-bold'
                 ],
                 'multiple' => false,
                 'required' => true,

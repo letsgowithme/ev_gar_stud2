@@ -6,6 +6,7 @@ use App\Entity\Comment;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use App\Repository\ScheduleRepository;
+use App\Repository\ServiceRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +19,8 @@ class HomeController extends AbstractController
     public function index(ScheduleRepository $scheduleRepository,
     CommentRepository $commentRepository,
     Request $request,
-    EntityManagerInterface $manager
+    EntityManagerInterface $manager,
+    ServiceRepository $serviceRepository
     ): Response
     {
         $schedules = $scheduleRepository->findAll(); 
@@ -47,7 +49,8 @@ class HomeController extends AbstractController
             'schedules' => $schedules,
             'comments' => $comments,
             'commentForm' => $commentForm,
-            'bestComments' => $commentRepository->findBestComments(3)
+            'bestComments' => $commentRepository->findBestComments(3),
+            'services' => $serviceRepository->findAll()
             
         ]);
     }

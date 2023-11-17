@@ -34,7 +34,7 @@ class ServiceCrudController extends AbstractCrudController
         return [
             IdField::new('id')
             ->hideOnForm(),
-            TextField::new('name')
+            TextField::new('title')
             ->setLabel('Titre'),
             TextEditorField::new('description')
             ->setFormType(CKEditorType::class)

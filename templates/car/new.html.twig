@@ -22,15 +22,24 @@
 {{ form_row(form.imageFile) }}
 {{ form_row(form.images) }}
 
-
+{{ form_label(form.equipments) }}
+					<br>
+					<div class="choiceList-wrapper" style="border: none;">
+						{% for field in form.equipments %}
+							<div class="d-flex text-center slot mt-4 fs-5" type="button" style="min-width: 15%; background-color: gray;margin-right: 20px; color: white; margin-bottom: 10px; box-shadow: 1px 5px 7px; cursor: pointer;">
+								<div class="">{{ form_widget(field) }}</div>
+								<div class="">{{ form_label(field) }}</div>
+							</div>
+						{% endfor %}
+                        </div>
 
     {{ form_row(form.submit, { 'label': 'Créer' }) }}
 {{ form_end(form) }}
 
-{{ form_start(eq_form)}}
+{# {{ form_start(eq_form)}}
 {{ form_row(eq_form.name) }}
 
-{{ form_end(eq_form) }}
+{{ form_end(eq_form) }} #}
 
 
     <a href="{{ path('car.index') }}">back to list</a>

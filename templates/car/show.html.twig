@@ -74,40 +74,148 @@
 				€</span>
 		</h5>
 
-		{# <h5 class="mt-3 text-light">Modele:
-				</h5>
-				{% for modele in car.modele %}
-					<span class="badge bg-primary mb-4 fs-6">{{ modele.marque }}</span>
-				
-				<div style="background-color:  #87dbed; padding: 10px;" class="rounded">
-		        {% endfor %} #}
-						<div class="suppl_info_block">
+		<h5 class="mt-3 text-light show_block_titles">Vendeur
+			<span class="badge bg-primary mt-1">
+				{{ car.author }}
+				</span>
+		</h5>
+								<div class="suppl_info_block">
 
-						<div class="func">
-						<button type="button">Caractéristiques</button>
-						<div id="caracter"></div>
+			<div class="func mt-4">
+			<button type="button rounded mb-4" id="caracter_btn">Caractéristiques</button>
+			<div id="caracter" class="d-flex flex-column align-items-center justify-content-between">
+			<div class="d-flex mt-4">
+						<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Largeur : 
+				{{ car.width }} </p>
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Longueur : 
+				{{ car.length }} </p>
+				</div>
+				<div class="d-flex">
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Hauteur : 
+				{{ car.height }} </p>
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Poids : 
+				{{ car.weight }} </p>
+				</div>
+				<div class="d-flex">
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Prix minimal : 
+				{{ car.priceMin }} </p>
+					<p class="border  mt-1 px-2 mx-2 text-light caract hidden">Prix maximal : 
+				{{ car.priceMax }} </p>
+				</div>
 						</div>
-						<div class="func">
-						<button type="button">Options</button>
-						<div id="opt"></div>
 						</div>
-						<div class="func">
-						<button type="button">Équipement</button>
-						<div id="equip"></div>
+			<div class="func mt-4">
+			<button type="button rounded mb-4" id="opt_btn">Options</button>
+			<div id="opt_block" class="d-flex flex-column ">
+							{% for option in car.options %}
+						<p class="border mt-1 p-3 text-light opt hidden">
+				{{ option.name }} </p>
+				{% endfor %}
+				</div>
+				</div>
+
+			<div class="func mt-4">
+			<button type="button rounded" id="equip_btn">Équipement</button>
+			<div id="equip_block" class="d-flex flex-column">
+							{% for equipment in car.equipments %}
+						<p class="border mt-1 p-3 text-light equip hidden">
+				{{ equipment.name }} </p>
+				{% endfor %}
+				</div>
+				</div>
+				</div>
+
+		<div class="func mt-4">
+			<button type="button rounded" id="contact_btn">Contacter le vendeur</button>
+				<div class="hidden text-light border w-100" id="contactForm">
+
+							{{ form_start(formContact) }}
+
+							{{ form_row(formContact.contacter) }}
+							{{ form_row(formContact.email) }}
+							{{ form_row(formContact.subject) }}
+							{{ form_row(formContact.message) }}
+							{{ form_row(formContact.phoneNumber) }}
+							{{ form_row(formContact.submit) }}
+							{{ form_end(formContact) }}
+						
+				
+			</div>
+			</div>
+			{% if app.user %}
+			{% for contact in car.contact %}
+						<div class="comment flex justify-start mb-4">
+							<div>
+								<div class="block p-6 mx-4">
+									<div class="md-ml-6">
+										<p>{{ contact.contacter }}</p>
+										<p class="text-light fs-5">
+											{{ contact.email|raw }}
+										</p>
+										<p class="text-light fs-5">
+											{{ contact.subject|raw }}
+										</p>
+										<p class="text-light fs-5">
+											{{ contact.message|raw }}
+										</p>
+										<p class="text-light fs-5">
+											{{ contact.phoneNumber|raw }}
+										</p>
+									</div>
+								</div>
+							</div>
 						</div>
-						</div>
-	
-</div>
+						<hr class="mx-4">
+				
+				{% endfor %}
+					{% endif %}
+			 </section>
+			{% if app.user %}
 		<button type="button" class="btn">
 			<a href="{{ path('car.edit', {'id': car.id}) }}" class="fs-4 py-2 fw-bold">Modifier</a>
 		</button>
+		{% endif %}
 	</div>
-
 	<button type="button" class="btn">
 		<a href="{{ path('car.index') }}" class="fs-4 py-2">Vers les annonces</a>
 	</button>
 	  </div>
-    </section>
 </main>
+<div class="row mt-4">
+			<div class="col-12">
+				{% include "partials/_liens_schedule_address.html.twig" %}
+			</div>
+		
+		</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+$(document).ready(function () {
+	$("#equip_btn").click(function(){
+		$("#equip_btn").css('background', '#d94350');
+		$("#equip_btn").css('color', 'white');
+		$(".equip").removeClass("hidden");
+		
+			});
+				$("#caracter_btn").click(function(){
+		$("#caracter_btn").css('background', '#d94350');
+		$("#caracter_btn").css('color', 'white');
+		$(".caract").removeClass("hidden");
+		
+			});
+				$("#opt_btn").click(function(){
+		$("#opt_btn").css('background', '#d94350');
+		$("#opt_btn").css('color', 'white');
+		$(".opt").removeClass("hidden");
+		
+			});
 
+				$("#contact_btn").click(function(){
+		$("#contact_btn").css('background', '#d94350');
+			$("#contact_btn").css('color', 'white');
+		$("#contactForm").removeClass("hidden");
+		
+			});
+});
+
+</script>
 {% endblock %}
