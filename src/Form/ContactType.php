@@ -23,7 +23,7 @@ class ContactType extends AbstractType
                     'minlenght' => '2',
                     'maxlenght' => '50',
                 ],
-                'label' => 'Nom',
+                'label' => 'Nom/Prénom',
                 'label_attr' => [
                     'class' => 'form-label mt-4 text-light fs-5'
                 ],

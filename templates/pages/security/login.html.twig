@@ -3,7 +3,7 @@
 {% endblock %}
 {% block body %}
 	<div class="container">
-		<h1 class="mt-4">Formulaire de connexion</h1>
+		<h1 class="mt-4">Page de connexion</h1>
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success">
 				{{ message }}
@@ -18,7 +18,7 @@
 			<div class="form-group">
 				<label for="username" class="form-label mt-4">Adresse email</label>
 				<input type="email" class="form-control" id="username" name="_username" placeholder="exemple@boom.fr" value="{{ last_username }}">
-				<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				<small id="emailHelp" class="form-text text-muted">Nous ne partageons pas votre adresse mail</small>
 			</div>
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">Mot de passe</label>
@@ -26,10 +26,14 @@
 			</div>
 			<button type="submit" class="btn btn-primary mt-4">Se connecter</button>
 		</form>
-		<p class="mt-4">Pas de compte? Inscrivez-vous</p>
-		<button type="submit" class="btn btn-primary mt-4">
-			<a class="nav-link" href="/inscription">Inscription</a>
-		</button>
+		
 	</div>
+	
+</div></div>
+<div class="row mt-4">
+			<div class="col-12">
+				{% include "partials/_liens_schedule_address.html.twig" %}
+			</div>
+		</div>
 {% endblock %}
 

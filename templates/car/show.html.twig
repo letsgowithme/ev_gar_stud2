@@ -21,9 +21,7 @@
         </div>
 		 <div class="col-12">
 			<div id="carouselExampleIndicators" class="carousel slide " 
-			data-bs-ride="carousel"   
-			
-			>
+			data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         {% for iteration in 1..car.images|length %}
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ iteration - 1 }}" {{ (loop.first ) ?'class="active" aria-current="true"' : '' }} aria-label="Slide {{ iteration }}"></button>
@@ -46,7 +44,7 @@
                     </button>
                 </div>
           
-<div class="car_info">
+<div class="car_info_show text-center">
 		<h5 class="mt-3 text-light show_block_titles">Année:
 			<span class="badge bg-primary">{{ car.year |raw }}</span>
 		</h5>
@@ -125,32 +123,33 @@
 				</div>
 				</div>
 				{# ********************************************* #}
-	{# {% if app.user %}
-			{% for contacts in car.contacts %}
+	{% if app.user %}
+	<h3 class="text-light mt-4">Demandes de contact</h3>
+			 {% for contact in car.contacts %}
 						<div class="comment flex justify-start mb-4">
 							<div>
-								<div class="block p-6 mx-4">
-									<div class="md-ml-6">
-										<p>{{ contact.contacter }}</p>
-										<p class="text-light fs-5">
+								<div class="block p-6 mx-4 border">
+									
+										<p class="text-light fs-5">Author : {{ contact.contacter }}</p>
+										<p class="text-light fs-5">E-mail : 
 											{{ contact.email|raw }}
 										</p>
-										<p class="text-light fs-5">
+										<p class="text-light fs-5">Sujet : 
 											{{ contact.subject|raw }}
 										</p>
-										<p class="text-light fs-5">
+										<p class="text-light fs-5">Message : 
 											{{ contact.message|raw }}
 										</p>
-										<p class="text-light fs-5">
+										<p class="text-light fs-5">Téléphone : 
 											{{ contact.phoneNumber|raw }}
 										</p>
 									</div>
 								</div>
 							</div>
-						</div>
+						{# </div> #}
 						<hr class="mx-4">
 				{% endfor %}
-		{% endif %}  #}
+		{% endif %}  
 				{#********************Formulaire de contact*******************  #}
 		<div class="func mt-4">
 			<button type="button rounded" id="contact_btn">Contacter le vendeur</button>

@@ -53,11 +53,10 @@
 </div>
 
 {# ******************range end****************** #}
-<div class="d-flex flex-wrap text-center"  id="carPosts_block">
+<div class="d-flex flex-wrap"  id="carPosts_block">
 		{# {% for car in pagination %} #}
 			{% for car in cars %}
-				<div class="card-body mb-3 text-xs-center car_info border rounded mx-3"
-				style="display: block;">
+				<div class="card-body mb-3 text-xs-center car_info border rounded mx-3">
 						<div class="car__image card-image">
 						<p class="card-text text-light bg-dark rounded w-25 car_price_span"
 						 >{{ car.price|raw }} €</p>
@@ -77,8 +76,8 @@
 					</div>
 			
 				<br>
-					{% endfor %}
-			{# {% endfor %} #}
+					{# {% endfor %} #}
+			{% endfor %}
       {# <div class="text-center fs-5" style="margin-left: 16%;">
 {{ knp_pagination_render(pagination) }}
 </div> #}
@@ -142,11 +141,9 @@ var rangeKm = parseInt($("#rangeKm").val());
 						//si oui on choisi le prix
 			priceChoice();
 			yearChoice();
-				}else if(car_km > rangeKm){	
+				}else if(car_km > rangeKm){
 					$(this).parent().css("display", "none");
-					$(this).parent().css("background-color", "green");
-					$(this).parent().addClass("hidden");
-					console.log( car_km + " est plus grqnd que " + rangeKm);
+					
 							$("#rangeKm").on("change", function(){
 								$(".car_km").css("display", "block");
 								$(".car_info").css("display", "block");
@@ -175,7 +172,6 @@ $("#rangePrice").on("click", function(){
 						$(".car_price").each(function(){
 						var car_price = parseInt($(this).text());
 								if(car_price <= rangePrice){ 
-									
 										console.log("car_price:" + car_price + ", rangePrice:" + rangePrice);
 								}else if(car_price > rangePrice){
 									$(this).parent().css("display", "none");

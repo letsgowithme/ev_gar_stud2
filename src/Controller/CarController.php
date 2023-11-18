@@ -160,6 +160,7 @@ class CarController extends AbstractController
         $contactForm->handleRequest($request);
     if ($contactForm->isSubmitted() && $contactForm->isValid()) {
          $contact = $contactForm->getData();
+         $contact->setCar($car);
             $manager->persist($contact);
             $manager->flush();
             $this->addFlash(
@@ -170,14 +171,18 @@ class CarController extends AbstractController
         $sellerEmail = $car->getAuthor()->getEmail();
         $subject = $contact->getSubject();
         $message = $contact->getMessage();
+        $author = $contact->getContacter();
         $email = (new Email())
         ->from('admin@exemple.com')
         ->to($sellerEmail)
         ->subject($subject)
-        ->text($message);
+        ->text("De: ". $author, "Message: ". $message);
 
         $mailer->send($email);
       
+        return $this->redirectToRoute('car.show', [
+            'id' => $car->getId()
+        ]);
     }
    
 
@@ -223,7 +228,9 @@ class CarController extends AbstractController
             $entityManager->persist($car);
             $entityManager->flush();
             // dd($images);
-            return $this->redirectToRoute('car.index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('car.show', [
+                'id' => $car->getId()
+            ]);
         }
       
         return $this->render('car/edit.html.twig', [

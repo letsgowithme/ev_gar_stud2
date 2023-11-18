@@ -1,11 +1,13 @@
 
 			{% for comment in bestComments %}
 				{% if comment.isApproved %}
-					<div class="comment mb-4" style="margin-left: 10%;">
+					<div class="comment mb-4"
+					 {# style="margin-left: 10%;" #}
+					 >
 						<div>
 							<div class="block p-6">
 								<div class="ms-6">
-                <h5 class="text-light disabled rounded">{{ comment.subject|raw }}</h5>
+                <h5 class="text-light rounded">{{ comment.subject|raw }}</h5>
                   <p class="text-light fs-6 mb-3">
 										{{ comment.content|raw }}
 									</p>

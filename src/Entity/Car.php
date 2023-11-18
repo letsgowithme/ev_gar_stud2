@@ -82,8 +82,8 @@ class Car
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
     private Collection $images;
 
-    // #[ORM\OneToMany(mappedBy: 'car', targetEntity: Contact::class)]
-    // private Collection $contacts;
+    #[ORM\OneToMany(mappedBy: 'car', targetEntity: Contact::class)]
+    private Collection $contacts;
 
    
 
@@ -95,7 +95,7 @@ class Car
        
         $this->equipments = new ArrayCollection();
         $this->options = new ArrayCollection();
-        // $this->contacts = new ArrayCollection();
+        $this->contacts = new ArrayCollection();
         $this->images = new ArrayCollection();
        
     }
@@ -360,34 +360,34 @@ class Car
     }
 
 
-    // /**
-    //  * @return Collection<int, Contact>
-    //  */
-    // public function getContacts(): Collection
-    // {
-    //     return $this->contacts;
-    // }
-    // public function addContact(Contact $contact): self
-    // {
-    //     if (!$this->contacts->contains($contact)) {
-    //         $this->contacts->add($contact);
-    //         $contact->setCar($this);
-    //     }
+    /**
+     * @return Collection<int, Contact>
+     */
+    public function getContacts(): Collection
+    {
+        return $this->contacts;
+    }
+    public function addContact(Contact $contact): self
+    {
+        if (!$this->contacts->contains($contact)) {
+            $this->contacts->add($contact);
+            $contact->setCar($this);
+        }
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
-    // public function removeContact(Contact $contact): self
-    // {
-    //     if ($this->contacts->removeElement($contact)) {
-    //         // set the owning side to null (unless already changed)
-    //         if ($contact->getCar() === $this) {
-    //             $contact->setCar(null);
-    //         }
-    //     }
+    public function removeContact(Contact $contact): self
+    {
+        if ($this->contacts->removeElement($contact)) {
+            // set the owning side to null (unless already changed)
+            if ($contact->getCar() === $this) {
+                $contact->setCar(null);
+            }
+        }
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     /**
      * @return Collection<int, Images>

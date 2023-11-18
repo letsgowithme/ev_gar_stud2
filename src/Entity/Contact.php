@@ -28,9 +28,9 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $phoneNumber = null;
 
-    // #[ORM\ManyToOne(inversedBy: 'contacts')]
-    // #[ORM\JoinColumn(onDelete: 'CASCADE')]
-    // private ?Car $car = null;
+    #[ORM\ManyToOne(inversedBy: 'contacts')]
+    #[ORM\JoinColumn(onDelete: 'CASCADE')]
+    private ?Car $car = null;
 
        // #[ORM\Column]
     // private ?\DateTimeImmutable $createdAt = null;
@@ -109,22 +109,17 @@ class Contact
         return $this;
     }
 
-    
-    // public function getCar(): ?Car
-    // {
-    //     return $this->car;
-    // }
+    public function getCar(): ?Car
+    {
+        return $this->car;
+    }
 
-    // public function setCar(?Car $car): static
-    // {
-    //     $this->car = $car;
+    public function setCar(?Car $car): static
+    {
+        $this->car = $car;
 
-    //     return $this;
-    // }
-
-
-
-   
+        return $this;
+    }
 
   
 
