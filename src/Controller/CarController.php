@@ -5,15 +5,16 @@ namespace App\Controller;
 use App\Entity\Car;
 use App\Entity\Comment;
 use App\Entity\Contact;
-use App\Entity\Equipment;
 use App\Entity\Images;
 use App\Form\CarType;
 use App\Form\CommentType;
 use App\Form\ContactType;
-use App\Form\EquipmentType;
 use App\Repository\CarRepository;
 use App\Repository\ScheduleRepository;
+use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;
 use App\Service\PictureService;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -143,36 +144,53 @@ class CarController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'car.show', methods: ['GET'])]
+    #[Route('/{id}', name: 'car.show', methods: ['GET', 'POST'])]
     public function show(
+        // #[MapEntity(mapping: ['id' => 'id'])] Contact $contact,
     Car $car, 
     ScheduleRepository $scheduleRepository,
     Request $request,
     EntityManagerInterface $manager, 
-    Contact $contact
+    MailerInterface $mailer,
     ): Response
     {
         $images = $car->getImages();
         $contact = new Contact();
-        if($this->getUser()){
-            $contact->setContacter($this->getUser());
-        }
-         $formContact = $this->createForm(ContactType::class, $contact);
-         $formContact->handleRequest($request);
-         if ($formContact->isSubmitted() && $formContact->isValid()) {
-            // $contact->setContacter($this->getUser());
-            $contact->setCar($car);
+        $contactForm = $this->createForm(ContactType::class, $contact);
+        $contactForm->handleRequest($request);
+    if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+         $contact = $contactForm->getData();
             $manager->persist($contact);
             $manager->flush();
-         }
+            $this->addFlash(
+                'success',
+                'Votre message a bien été envoyée'
+            );
+    
+        $sellerEmail = $car->getAuthor()->getEmail();
+        $subject = $contact->getSubject();
+        $message = $contact->getMessage();
+        $email = (new Email())
+        ->from('admin@exemple.com')
+        ->to($sellerEmail)
+        ->subject($subject)
+        ->text($message);
+
+        $mailer->send($email);
+      
+    }
+   
+
+    
+    
             //    dd($images);
         return $this->render('car/show.html.twig', [
             'car' => $car,
             'schedules' => $scheduleRepository->findAll(),
-             'formContact' => $formContact->createView()
+             'contactForm' => $contactForm->createView()
         ]);
+    
     }
-
     #[Route('/{id}/edit', name: 'car.edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Car $car, 
     EntityManagerInterface $entityManager,

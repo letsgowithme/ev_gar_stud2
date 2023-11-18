@@ -124,25 +124,8 @@
 				</div>
 				</div>
 				</div>
-
-		<div class="func mt-4">
-			<button type="button rounded" id="contact_btn">Contacter le vendeur</button>
-				<div class="hidden text-light border w-100" id="contactForm">
-
-							{{ form_start(formContact) }}
-
-							{{ form_row(formContact.contacter) }}
-							{{ form_row(formContact.email) }}
-							{{ form_row(formContact.subject) }}
-							{{ form_row(formContact.message) }}
-							{{ form_row(formContact.phoneNumber) }}
-							{{ form_row(formContact.submit) }}
-							{{ form_end(formContact) }}
-						
-				
-			</div>
-			</div>
-			{% if app.user %}
+				{# ********************************************* #}
+	{# {% if app.user %}
 			{% for contacts in car.contacts %}
 						<div class="comment flex justify-start mb-4">
 							<div>
@@ -166,9 +149,27 @@
 							</div>
 						</div>
 						<hr class="mx-4">
-				
 				{% endfor %}
-					{% endif %}
+		{% endif %}  #}
+				{#********************Formulaire de contact*******************  #}
+		<div class="func mt-4">
+			<button type="button rounded" id="contact_btn">Contacter le vendeur</button>
+				<div class="hidden text-light border w-100" id="contactForm">
+
+							{{ form_start(contactForm) }}
+
+							{{ form_row(contactForm.contacter) }}
+							{{ form_row(contactForm.email) }}
+							{{ form_row(contactForm.subject) }}
+							{{ form_row(contactForm.message) }}
+							{{ form_row(contactForm.phoneNumber) }}
+							{{ form_row(contactForm.submit) }}
+							{{ form_end(contactForm) }}
+						
+				
+			</div>
+			</div>
+		
 			 </section>
 			{% if app.user %}
 		<button type="button" class="btn">

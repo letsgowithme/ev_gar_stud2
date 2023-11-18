@@ -28,11 +28,11 @@ class Contact
     #[ORM\Column(length: 255)]
     private ?string $phoneNumber = null;
 
-    #[ORM\ManyToOne(inversedBy: 'contacts')]
-    private ?Car $car = null;
+    // #[ORM\ManyToOne(inversedBy: 'contacts')]
+    // #[ORM\JoinColumn(onDelete: 'CASCADE')]
+    // private ?Car $car = null;
 
-
-    // #[ORM\Column]
+       // #[ORM\Column]
     // private ?\DateTimeImmutable $createdAt = null;
 
     public function getId(): ?int
@@ -109,29 +109,18 @@ class Contact
         return $this;
     }
 
-    // public function getCreatedAt(): ?\DateTimeImmutable
+    
+    // public function getCar(): ?Car
     // {
-    //     return $this->createdAt;
+    //     return $this->car;
     // }
 
-    // public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    // public function setCar(?Car $car): static
     // {
-    //     $this->createdAt = $createdAt;
+    //     $this->car = $car;
 
     //     return $this;
     // }
-
-    public function getCar(): ?Car
-    {
-        return $this->car;
-    }
-
-    public function setCar(?Car $car): static
-    {
-        $this->car = $car;
-
-        return $this;
-    }
 
 
 
