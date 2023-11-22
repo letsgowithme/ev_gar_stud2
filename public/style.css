@@ -524,7 +524,7 @@ font-size: 1.6em!important;
  
     #block_services{
     width: 50%;
-    display: block;
+    /* display: block; */
     color: var(--light)!important;
     position: absolute;
      left: 0%;
