@@ -1,9 +1,9 @@
 <div class="d-flex flex-column" 
 style="padding: 15px;"  id="block_services">
-<h2 id="services_title">Nos services</h2>
-<div class="d-flex" id="services_list">
+<h2 class="services_title_page">Nos services</h2>
+<div class="d-flex services_list">
  {% for service in services %}
- <p> {{ service.title }}</p>
+ <p class="services_title"> {{ service.title }}</p>
 {% endfor %}
 {% include "partials/_btn_contact.html.twig" %}
 </div>

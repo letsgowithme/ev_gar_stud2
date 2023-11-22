@@ -7,12 +7,12 @@
 						<div>
 							<div class="block p-6">
 								<div class="ms-6">
-                <h5 class="text-light rounded">{{ comment.subject|raw }}</h5>
-                  <p class="text-light fs-6 mb-3">
+                <h3 class="text-light rounded bg-light text-dark fs-2">{{ comment.subject|raw }}</h3>
+                  <p class="text-light mb-3">
 										{{ comment.content|raw }}
 									</p>
-										<p class="text-light " >{{ comment.author }}</p>
-                  <p class=" mb-3 text-light">Note: {{ comment.mark }}</p>									
+										<p class="text-light p_sec" >{{ comment.author }}</p>
+                  <p class=" mb-3 text-light p_sec">Note: {{ comment.mark }}</p>									
 								</div>
 							</div>
 						</div>

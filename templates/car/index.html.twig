@@ -66,12 +66,12 @@
 						</div>
 						<h4 class="card-title">
 						{{ car.title }}</h4>
-					<span>Année : </span><p class="card-text fw-bold  car_year" value=""> {{ car.year|raw }}</p>
+					<span class="fs-2">Année : </span><p class="card-text fw-bold  car_year" value=""> {{ car.year|raw }}</p>
           <p class="card-text fw-bold">{{ car.fuelType|raw }}</p>
        	  <p class="card-text fw-bold car_km" value="">{{ car.km|raw }}<span> km</span></p>
 					<hr>
 					<p class="card-text text-black fw-bold car_price" value="">{{ car.price|raw }}<span> €</span></p>
-					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: none;" class="fs-5 fw-bold text-light mt-3">Details</a></p>	
+					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: none;" class="fw-bold text-light mt-3 link_details">Details</a></p>	
 												
 					</div>
 			

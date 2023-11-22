@@ -4,14 +4,14 @@
 
 {% block body %}
 <div class="text-center">
-<h1 id="services_title_page" class="fw-bold" style="text-shadow: 2px 2px black; color: #D92332;">Nos services</h1>
+<h1 class="fw-bold services_title_page fs-1" style="text-shadow: 2px 2px black; color: #D92332;">Nos services</h1>
 </div>
 <div class="d-flex flex-column  align-items-center" 
 style="padding: 15px; background: #D92332;"  id="block_services_page">
 
 <div class="d-flex flex-column align-items-center flex-center" id="services_list_page">
  {% for service in services %}
- <p class="fs-4 text-light mb-4 mt-4"> {{ service.title }}</p>
+ <p class="services_title text-light mb-4 mt-4"> {{ service.title }}</p>
 {% endfor %}
 {% include "partials/_btn_contact.html.twig" %}
 </div>

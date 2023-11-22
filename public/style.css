@@ -31,9 +31,7 @@ a,
 .schedule_day{
   font-family: 'Rajdhani', sans-serif;
 }
-p{
-  font-family: 'Barlow', sans-serif;
-}
+
 #bnt_contact{
   background: var(--nav_bg_color);
 }
@@ -43,12 +41,20 @@ p{
     display: flex;
     flex-direction: column;
   }
-.red{
+  p{
+    font-family: 'Barlow', sans-serif;
+  font-size: 2em;
+    color: white;
+  }
+  .p_sec{
+    font-size: 1.7em;
+  }
+/* .red{
   color: red;
 }
 .blue{
   color: blue;
-}
+} */
   #body_home_base{
     background: none;
   }
@@ -58,20 +64,20 @@ p{
     height: 70px;
   }
 
-  #services_title{
+  .services_title{
     margin-bottom: 10px;
-    font-size: 2em;
+    font-size: 2.6em;
     color: var(--light);
     text-shadow: -2px 1px 1px rgb(75, 68, 68);
   }
-  #services_list p{
-font-size: 1.2em;
-  }
+  .services_list p{
 
-  #bg_homepage {
-    width: 100%; 
-    height: 30vh; 
+font-size: 1.6em!important;
   }
+.services_title_page{
+  font-size: 2.6em!important;
+  font-weight: bold;
+}
 
   #main_title {
     font-family: 'Rajdhani', sans-serif;
@@ -92,7 +98,7 @@ font-size: 1.2em;
      flex-direction: column;
      align-items: center;
   }
-  #services_list{
+  .services_list{
     display: flex;
      flex-direction: column;
      align-items: center;
@@ -145,11 +151,11 @@ font-size: 1.2em;
   .navbar a,
   footer a {
     color: white;
+    font-size: 2.8em;
   }
   .nav-link-name {
-    
     font-family: 'Rajdhani', sans-serif!important;
-    font-size: 2em !important;
+    font-size: 2.6em!important;
     margin-top: -20px;
     
   }
@@ -161,7 +167,7 @@ font-size: 1.2em;
   }
   #btn_rdv a{
     text-decoration: none;
-    font-size: 1em!important;
+    font-size: 1.8em!important;
   }
     
   #btn_rdv:hover {
@@ -179,12 +185,13 @@ font-size: 1.2em;
 
   #btn_contact {
     background-color: var(--main_bg_color);
-    z-index: -1;
+    /* z-index: ; */
     font-weight: bold;
-   
   }
+
   #btn_contact a{
     text-decoration: none;
+    font-size: 2em!important;
    
   }
   #btn_contact:hover {
@@ -202,9 +209,20 @@ font-size: 1.2em;
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 2.4em;
 
 
   }
+  .down_line_names {
+    background: var(--light);
+    color: var(--main_bg_color);
+    padding: 2px 15px;
+    border-radius: 10px;
+    width:300px;
+    font-size: 2.4em;
+  }
+  
+ 
   .down_link:hover{
     background-color: var(--rose);
     color: var(--dark);
@@ -246,6 +264,7 @@ font-size: 1.2em;
   .nav-link-footer{
     text-decoration: none;
     font-weight: bold;
+    font-size: 2em;
   }
   .address_line p{
     font-size: 1.1em;
@@ -259,14 +278,7 @@ font-size: 1.2em;
   align-items: center;
  
 }
-  .down_line_names {
-    background: var(--light);
-    color: var(--main_bg_color);
-    padding: 2px 15px;
-    border-radius: 10px;
-    width:300px;
-  }
-  
+ 
     .choiceList-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -291,13 +303,13 @@ font-size: 1.2em;
   
   #btn_reload {
     padding: 10px;
-    font-size: 1em;
+    font-size: 1.7em;
     margin-top: 1.2em !important;
     cursor: pointer;
     color: rgb(244, 248, 244);
     background: var(--rose);
     font-weight: bold;
-    width: 200px;
+    width: 330px;
   }
   #btn_reload:hover {
     color: rgb(64, 64, 5);
@@ -311,7 +323,40 @@ font-size: 1.2em;
     color: linen;
     opacity: 1;
   }
+#btn_comments,
+#btn_comment,
+#btn_up,
+#btn_home
+{
+  font-size: 1.6em!important;
+}
+.schedule_day{
+  font-size: 2em;;
+} .form-label{
+  font-size: 2em;
+}
+#rangeKmMin,
+#rangeKmVal,
+#rangePriceMin,
+#rangePriceVal,
+#rangeYearMin,
+#rangeYearVal
+{
+  font-size: 1.7em!important;
+}
 
+#yearReload,
+#priceReload,
+#kmReload{
+  font-size: 1.4em!important;
+}
+.card-title
+{
+  font-size: 3em;
+}
+.link_details{
+  font-size: 1.5em;
+}
 /* *****************page car.index**************** */
 .main_car_img{
   min-width: 350px;
@@ -371,7 +416,9 @@ font-size: 1.2em;
   margin-top: 10px;
 
 }
-
+.adr_p{
+  font-size: 1.9em!important;
+ }
 }
 /******************768px************** */
   @media screen and (min-width: 768px) {
@@ -389,8 +436,12 @@ font-size: 1.2em;
     width: 100%;
     height: 3em;
   }
+  
   .nav-link-footer{
     color: var(--light);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.7em;
   }
   .visit_site_links {
     display: flex;
@@ -398,9 +449,12 @@ font-size: 1.2em;
   .address_line{
     display: flex;
   }
+  .adr_p{
+   font-size: 1.9em!important;
+  }
   #bg_homepage {
     width: 100%; 
-    height: 50vh; 
+    height: 70vh!important; 
    
   }
   /* *****************page car.index 768px**************** */
@@ -437,6 +491,15 @@ font-size: 1.2em;
     margin-right: 7rem;
     font-style: 2em;;
   }
+  .down_link{
+    color: var(--light);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+
+
+  }
 }
 
 /* ************************1024px****************** */
@@ -469,12 +532,13 @@ font-size: 1.2em;
      border-radius: 0 0 0 0;
      
   } 
-  #services_title{
+  .services_title{
     margin-bottom: 10px;
     font-size: 2.5em;
     color: var(--light);
     text-shadow: -2px 1px 1px rgb(75, 68, 68);
   }
+
 
 
   #block_services p{
@@ -483,8 +547,8 @@ font-size: 1.2em;
  
 } 
  
-  .navbar-toggler-icon {
-    font-size: 1.2em;
+  .navbar-toggler{
+    font-size: 2em!important;
     color: white;
   } 
   
@@ -509,9 +573,15 @@ font-size: 1.2em;
     
   }
 
-  .nav-link {
+  /* .nav-link {
     font-size: 1.3em !important;
     padding: 10px;
+  } */
+  .nav-link-name {
+    font-family: 'Rajdhani', sans-serif!important;
+    font-size: 2.7em!important;
+    margin-top: -20px;
+    
   }
   .nav-item {
     padding-top: 0.5em;
@@ -544,7 +614,12 @@ font-size: 1.2em;
     text-decoration: none;
     font-size: 1.4em;
   } 
- 
+  .schedule_day{
+font-size: 1.6em;
+  }
+  .schedule_time{
+    font-size: 1.2em!important;
+  }
   .text_block_p {
     font-size: 1.3em !important;
     color: rgb(226, 223, 223) !important;
@@ -603,6 +678,13 @@ font-size: 1.2em;
     flex-direction: column!important;
     align-items: center!important;
   }
+  #btn_comments,
+#btn_comment,
+#btn_up,
+#btn_home
+{
+  font-size: 1.2em!important;
+}
   
  }  
  /* ************************1440px***************************************** */
@@ -628,7 +710,7 @@ font-size: 1.2em;
   z-index: -1;
 } 
 
-#services_title{
+.services_title{
   margin-bottom: 10px;
   font-size: 2.5em;
   color: var(--light);
@@ -642,7 +724,7 @@ padding: 10px;
 } 
 
 .navbar-toggler-icon {
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: white;
 } 
 
@@ -650,7 +732,11 @@ padding: 10px;
   width: 100%;
   height: 80px;
 }
-
+.navbar a,
+footer a {
+  color: white;
+  font-size: 2em !important;
+}
 .nav-link {
   font-size: 1.3em !important;
   padding: 10px;
