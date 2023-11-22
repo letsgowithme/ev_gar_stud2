@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}comment{% endblock %}
+{% block title %}Commentaire{% endblock %}
 
 {% block body %}
     <h1>comment</h1>
@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('comment.index') }}">back to list</a>
+    <a href="{{ path('comment.index') }}">Vers la liste</a>
 
-    <a href="{{ path('comment.edit', {'id': comment.id}) }}">edit</a>
+    <a href="{{ path('comment.edit', {'id': comment.id}) }}">Modifier</a>
 
     {{ include('comment/_delete_form.html.twig') }}
 {% endblock %}

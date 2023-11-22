@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Option index{% endblock %}
+{% block title %}Options{% endblock %}
 
 {% block body %}
     <h1>Option index</h1>
@@ -19,8 +19,8 @@
                 <td>{{ option.id }}</td>
                 <td>{{ option.name }}</td>
                 <td>
-                    <a href="{{ path('app_option_show', {'id': option.id}) }}">show</a>
-                    <a href="{{ path('app_option_edit', {'id': option.id}) }}">edit</a>
+                    <a href="{{ path('app_option_show', {'id': option.id}) }}">Voir</a>
+                    <a href="{{ path('app_option_edit', {'id': option.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
