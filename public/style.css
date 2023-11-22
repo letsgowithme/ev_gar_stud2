@@ -572,7 +572,8 @@ font-size: 1.2em;
   .bestCommBlock {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-left: 10%!important;
    
   }
   /* ****page car.show *1024px** */
