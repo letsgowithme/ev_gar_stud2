@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-// #[UniqueEntity('title')]
+#[UniqueEntity('title')]
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 #[Vich\Uploadable]
 class Car
