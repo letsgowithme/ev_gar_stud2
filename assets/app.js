@@ -9,7 +9,7 @@
 import './styles/app.css';
 
 
-console.log('app.js works from assets');
+// console.log('app.js works from assets');
 
 /*
  * Welcome to your app's main JavaScript file!
@@ -18,10 +18,10 @@ console.log('app.js works from assets');
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// import jquery from 'jquery';
-// import $ from 'jquery';
+ import jquery from 'jquery';
+ import $ from 'jquery';
 
-// global.$ = global.jQuery = $;
+ global.$ = global.jQuery = $;
  
 //import { Tooltip, Toast, Popover } from 'bootstrap';
   

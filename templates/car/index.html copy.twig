@@ -1,9 +1,4 @@
 {% extends 'base.html.twig' %}
-{% block head %}
-	<link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.min.css') }}">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.2/jquery.modal.min.css" integrity="sha512-T3VL1q6jMUIzGLRB9z86oJg9PgF7A55eC2XkB93zyWSqQw3Ju+6IEJZYBfT7E9wOHM7HCMCOZSpcssxnUn6AeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-{% endblock %}
 {% block title %}
 	Voitures 
 {% endblock %}
@@ -93,7 +88,7 @@
 			</div>
 		</div>
 		{# *************************************** #}
-
+	{# <script src="https://code.jquery.com/jquery-3.6.0.js"></script> #}
 	<script>
 	const car_info = document.getElementsByClassName("car_info");
 	const rangeKm = document.getElementById("rangeKm");
