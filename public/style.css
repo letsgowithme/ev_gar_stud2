@@ -14,6 +14,7 @@
   --rose: #d9777f;
   --dark: #262526;
   --light: #F2F2F2;
+  --bg_base: #f2f2c2;
 }
 
 .body {
@@ -624,6 +625,7 @@ a,
   } 
    .btn_up {
     font-size: 1.6em !important;
+    color: white;
   }
   .btn_home {
     text-decoration: none;

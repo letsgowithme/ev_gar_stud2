@@ -11,17 +11,16 @@ use App\Form\CommentType;
 use App\Form\ContactType;
 use App\Repository\CarRepository;
 use App\Repository\ScheduleRepository;
-use Symfony\Component\HttpKernel\Controller\ValueResolverInterface;
 use App\Service\PictureService;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/car')]
 class CarController extends AbstractController
@@ -54,6 +53,7 @@ class CarController extends AbstractController
     }
 
     #[Route('/userCars', name: 'car.user_index', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function user_index(CarRepository $carRepository,
     ScheduleRepository $scheduleRepository, 
     PaginatorInterface $paginator,
@@ -100,6 +100,7 @@ class CarController extends AbstractController
     }
 
     #[Route('/new', name: 'car.new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function new(Request $request, 
     EntityManagerInterface $entityManager, 
     ScheduleRepository $scheduleRepository,
@@ -197,6 +198,7 @@ class CarController extends AbstractController
     
     }
     #[Route('/{id}/edit', name: 'car.edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Car $car, 
     EntityManagerInterface $entityManager,
     ScheduleRepository $scheduleRepository,
@@ -243,6 +245,7 @@ class CarController extends AbstractController
     }
 
     #[Route('/{id}', name: 'car.delete', methods: ['POST'])]
+    #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Car $car, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$car->getId(), $request->request->get('_token'))) {

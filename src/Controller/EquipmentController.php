@@ -10,11 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/equipment')]
 class EquipmentController extends AbstractController
 {
     #[Route('/', name: 'equipment.index', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function index(EquipmentRepository $equipmentRepository): Response
     {
         return $this->render('equipment/index.html.twig', [
@@ -23,6 +25,7 @@ class EquipmentController extends AbstractController
     }
 
     #[Route('/new', name: 'equipment.new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $equipment = new Equipment();
@@ -43,6 +46,7 @@ class EquipmentController extends AbstractController
     }
 
     #[Route('/{id}', name: 'equipment.show', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function show(Equipment $equipment): Response
     {
         return $this->render('equipment/show.html.twig', [
@@ -51,6 +55,7 @@ class EquipmentController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'equipment.edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Equipment $equipment, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(EquipmentType::class, $equipment);
@@ -69,6 +74,7 @@ class EquipmentController extends AbstractController
     }
 
     #[Route('/{id}', name: 'equipment.delete', methods: ['POST'])]
+    #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Equipment $equipment, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$equipment->getId(), $request->request->get('_token'))) {
