@@ -13,10 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/option')]
-#[IsGranted('ROLE_USER')]
+
 class OptionController extends AbstractController
 {
     #[Route('/', name: 'app_option_index', methods: ['GET'])]
+    #[IsGranted('ROLE_USER')]
     public function index(OptionRepository $optionRepository): Response
     {
         return $this->render('option/index.html.twig', [
