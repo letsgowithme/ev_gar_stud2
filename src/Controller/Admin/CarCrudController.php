@@ -74,7 +74,9 @@ class CarCrudController extends AbstractCrudController
             NumberField::new('priceMax')
             ->setLabel('Prix maximal(€)'),
             AssociationField::new('images')
-            ->setLabel('Images')
+            ->setLabel('Images'),
+            AssociationField::new('author')
+            ->setLabel('Auteur')
 
         ];
     }
