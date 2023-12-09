@@ -58,15 +58,20 @@ class CarCrudController extends AbstractCrudController
             ->setLabel('Prix ')
             ->hideOnIndex(),
             AssociationField::new('equipments')
-            ->setLabel('Équipement'),
+            ->setLabel('Équipement')
+            ->hideOnIndex(),
             AssociationField::new('options')
-            ->setLabel('Options'),
+            ->setLabel('Options')
+            ->hideOnIndex(),
             NumberField::new('width')
-            ->setLabel('Largeur(cm)'),
+            ->setLabel('Largeur(cm)')
+            ->hideOnIndex(),
             NumberField::new('length')
-            ->setLabel('Longueur(cm)'),
+            ->setLabel('Longueur(cm)')
+            ->hideOnIndex(),
             NumberField::new('height')
-            ->setLabel('Hauteur(cm)'),
+            ->setLabel('Hauteur(cm)')
+            ->hideOnIndex(),
             NumberField::new('weight')
             ->setLabel('Poids(kg)'),
             NumberField::new('priceMin')
