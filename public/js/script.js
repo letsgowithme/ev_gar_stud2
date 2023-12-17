@@ -1,7 +1,6 @@
 	const rangeKm = document.getElementById("rangeKm");
 	const rangePrice = document.getElementById("rangePrice");
 	const rangeYear = document.getElementById("rangeYear");
-	
 
 	rangeKm.value = rangeKm.max;
 	rangeKmMin.value = rangeKm.min;
@@ -44,14 +43,11 @@ $(function () {
 								$(".car_info").css("display", "block");
 									priceChoice();
 									yearChoice();
-									
 							});
 				}else{ alert("Pas de voiture avec ces paramètres");	}
 				}); 
  }
 	 
-
-
 function priceChoice(){
 $("#rangePrice").on("input", function(){
 						var rangePrice = parseInt($("#rangePrice").val());
@@ -67,7 +63,6 @@ $("#rangePrice").on("input", function(){
 											$(".car_info").css("display", "block");
 												priceChoice();
 												yearChoice();
-												
 													});
 								}else{
 									console.log("Pas de proposition avec ce prix");
@@ -90,7 +85,6 @@ $("#rangeYear").on("input", function(){
 											$(".car_year").css("display", "block");
 									  	$(".car_info").css("display", "block"); 
 									yearChoice();
-								
 										});
 								
 								}else{
@@ -98,27 +92,13 @@ $("#rangeYear").on("input", function(){
 							}
 				}); 
  });
- 
 }
-
-$("#kmReload").on("input", function(){
-location.reload(true);
-});
-$("#priceReload").on("input", function(){	
-	location.reload(true);
-});						
-$("#yearReload").on("input", function(){
-	location.reload(true);
-});
 
 $("#rangeKm").on("change", kmChoice);
 $("#rangePrice").on("change", priceChoice);
 $("#rangeYear").on("change", yearChoice);
 
-
-$(".btn_reload").input(function () {
+$(".btn_reload").on("click", function(){
 location.reload(true);
 });
-
 });
-

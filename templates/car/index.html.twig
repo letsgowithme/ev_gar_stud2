@@ -18,7 +18,6 @@
          <button type="button" class="btn_create mb-3 mt-4" style="width: 240px; background: #d94350;" class="text-center fs-4 fw-bold rounded mb-3"><a href="{{ path('car.new') }}" >Créer une annonce</a></button>
 		{% endif %}
 		<button type="button" class="btn_reload mb-4 fw-bold" id="btn_reload">Réinitialiser les filtres</button>
-		{# </div> #}
 
 		{# ******************range start****************** #}
 		<div class="range_block d-flex justify-content-between">
@@ -26,14 +25,14 @@
 		<div class="px-4">
 		<label for="rangeKm" class="form-label fw-bold">Kilométrage</label>
 <input type="range" class="form-range" min="10000" max="250000" step="500" id="rangeKm" name="rangeKm"  
-{# onChange="showKm()" #}
 >
 <div class="fw-bold">
 <span id="rangeKmMin"></span><span id="rangeKmVal"></span>
 </div>
 
 <br>
-<button type="button" class="mb-4 fw-bold" id="kmReload">Réinitialiser</button>
+<button type="button" class="mb-4 fw-bold btn_reload" 
+>Réinitialiser</button>
 </div>
 
 <div class="px-4">
@@ -43,7 +42,8 @@
 <span id="rangePriceMin"></span><span id="rangePriceVal"></span>
 </div>
 <br>
-<button type="button" class="mb-4 fw-bold" id="priceReload">Réinitialiser</button>
+<button type="button" class="mb-4 fw-bold btn_reload" 
+>Réinitialiser</button>
 </div>
 
 <div class="px-4">
@@ -53,14 +53,14 @@
 <span id="rangeYearMin" ></span><span id="rangeYearVal"></span>
 </div>
 <br>
-<button type="button" class="mb-4 fw-bold" id="yearReload">Réinitialiser</button>
+<button type="button" class="mb-4 fw-bold btn_reload" 
+>Réinitialiser</button>
 </div>
 
 </div>
 
 {# ******************range end****************** #}
 <div class="d-flex flex-wrap text-center"  id="carPosts_block">
-		{# {% for car in pagination %} #}
 			{% for car in cars %}
 				<div class="card-body mb-3 text-xs-center car_info border rounded mx-3"
 				style="display: block;">
@@ -84,12 +84,7 @@
 			
 				<br>
 					{% endfor %}
-			{# {% endfor %} #}
-      {# <div class="text-center fs-5" style="margin-left: 16%;">
-{{ knp_pagination_render(pagination) }}
-</div> #}
-
-</div>
+	</div>
 <div class="row mt-4 mb-4">
 			<div class="col-12">
 				{% include "partials/_btn_up.html.twig" %}
@@ -104,5 +99,4 @@
 			</div>
 		</div>
 		{# *************************************** #}
-
 {% endblock %}
