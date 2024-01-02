@@ -15,7 +15,10 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     #[Route('/connexion', name: 'security.login', methods: ['GET', 'POST'])]
-    public function login(AuthenticationUtils $authenticationUtils, ScheduleRepository $scheduleRepository): Response
+    public function login(
+        AuthenticationUtils $authenticationUtils, 
+        ScheduleRepository $scheduleRepository
+        ): Response
     { 
         /**
         * This controller allows us to login

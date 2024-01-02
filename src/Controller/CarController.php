@@ -105,13 +105,14 @@ class CarController extends AbstractController
     EntityManagerInterface $entityManager, 
     ScheduleRepository $scheduleRepository,
     PictureService $pictureService,
-    // $id
     ): Response
     {
+
         $car = new Car();
         if ($this->getUser()) {
             $car->setAuthor($this->getUser());
         }
+
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
        
@@ -121,21 +122,17 @@ class CarController extends AbstractController
             foreach($images as $image){
                 // on deifnit le dossier de destination
                 $folder = "carPosts";
-                // on appele le service d'ajout
+              // on appele le service d'ajout
               $fichier = $pictureService->add($image, $folder, 640, 440);
               $img = new Images();
               $img->setName($fichier);
               $car->addImage($img);
-         
-
             }
-            //  dd($images);
+    
             $entityManager->persist($car);
             $entityManager->flush();
 
             return $this->redirectToRoute('car.index', [], Response::HTTP_SEE_OTHER);
-
-            // $this->addFlash('success', 'Annonce ajoutée avec succès');
         }
 
         return $this->render('car/new.html.twig', [

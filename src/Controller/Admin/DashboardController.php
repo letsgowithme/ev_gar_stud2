@@ -10,7 +10,6 @@ use App\Entity\Option;
 use App\Entity\Schedule;
 use App\Entity\Service;
 use App\Entity\User;
-use App\Repository\CarRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -60,10 +59,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home');
         yield MenuItem::linkToRoute('Voir le site', 'fas fa-eye', 'car.index');
-        
         yield MenuItem::linkToCrud('Employés', 'fas fa-user', User::class);
-
-        
         yield MenuItem::linkToCrud('Demandes de contact', 'fas fa-envelope', Contact::class);
         yield MenuItem::linkToCrud('Comments', 'fas fa-comment', Comment::class);
         yield MenuItem::linkToCrud('Annonces', 'fas fa-car', Car::class);

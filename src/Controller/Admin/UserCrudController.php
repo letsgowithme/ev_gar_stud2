@@ -8,13 +8,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -35,8 +31,7 @@ return $crud
             ->setDefaultSort(['lastname' => 'asc'])
             ->setPageTitle(pageName:Crud::PAGE_INDEX, title: 'Employé')
             ->setPageTitle(pageName:Crud::PAGE_NEW, title: 'Créer un employé')
-            ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier l\'employé')
-;
+            ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier l\'employé');
 }
 
 public function configureActions(Actions $actions): Actions
@@ -46,13 +41,9 @@ public function configureActions(Actions $actions): Actions
         ->setHtmlAttributes([
             'target' => '_blank'
         ])
-        
-        ->addCssClass('btn btn-success')
-    ;
+        ->addCssClass('btn btn-success');
     return $actions
-    ->add(Crud::PAGE_NEW, $linkExterne)
-
-    ;
+    ->add(Crud::PAGE_NEW, $linkExterne);
 }
 
 public function configureFields(string $pageName): iterable
@@ -73,9 +64,9 @@ TextField::new('plainPassword', 'password')
     ->setLabel('Mot de passe'),
 ArrayField::new('roles')
         ->setLabel('Rôle'),
-
 ];
 }
+
 public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
 {
     $this->encodePassword($entityInstance);

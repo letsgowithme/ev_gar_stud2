@@ -36,28 +36,14 @@ class CarType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold text-dark fs-4',
                 'minLength' => '2',
-                'maxLength' => '255'
+                'maxLength' => '100'
             ],
             'constraints' => [
                 new Assert\Length(['min' => 2, 'max' => 50]),
                 new Assert\NotBlank()
             ]
         ])
-        // ->add('modele', EntityType::class, [
-        //     'class' => Modele::class,
-        //     'query_builder' => function (ModeleRepository $r) {
-        //         return $r->createQueryBuilder('i')
-        //             ->orderBy('i.marque', 'ASC');
-        //     },
-        //     'label' => 'Modele',
-        //     'label_attr' => [
-        //         'class' => 'form-label mt-4 mb-4 text-dark fs-4'
-        //     ],
-
-        //     'choice_label' => 'marque',
-        //     'multiple' => false,
-        //     'expanded' => false
-        // ])
+     
         ->add('year', TextType::class, [
             'attr' => [
                 'class' => 'form-control'

@@ -21,13 +21,13 @@ class Car
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 100)]
     private ?string $title = null;
 
     #[Vich\UploadableField(mapping: 'car_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $imageName = null;
 
     #[ORM\Column]
@@ -36,18 +36,16 @@ class Car
     #[ORM\Column]
     private ?int $km = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
     private ?string $fuelType = null;
 
     #[ORM\Column]
     private ?int $price = null;
 
-    
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 30)]
     private ?string $color = null;
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
-
 
     #[ORM\ManyToMany(targetEntity: Equipment::class)]
     private Collection $equipments;
@@ -58,7 +56,6 @@ class Car
 
     #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'cars')]
     private Collection $options;
-
     
     #[ORM\Column(nullable: true)]
     private ?int $length = null;

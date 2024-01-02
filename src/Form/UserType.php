@@ -2,16 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\Allergen;
-use App\Entity\Diet;
-use App\Entity\Recipe;
 use App\Entity\User;
-use App\Repository\AllergenRepository;
-use App\Repository\DietRepository;
-use App\Repository\RecipeRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -41,6 +33,7 @@ class UserType extends AbstractType
                     new Assert\Length(['min' => 2, 'max' => 50])
                 ]
             ])
+
             ->add('firstname', TextType::class, [
                 'attr' => [
                     'class' => 'form-control',
@@ -74,6 +67,7 @@ class UserType extends AbstractType
                     new Assert\NotBlank()
                 ]
             ])
+
             ->add('roles', ChoiceType::class, [
                 'attr' => [
                     'class' => 'form-control ms-4 mb-4'
@@ -94,10 +88,6 @@ class UserType extends AbstractType
                     'class' => 'form-label  mt-4'
                 ]
             ])
-           
-
-           
-            
 
             ->add('submit', SubmitType::class, [
                 'attr' => [

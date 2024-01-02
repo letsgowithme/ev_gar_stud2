@@ -7,7 +7,7 @@
 		<div class="collapse navbar-collapse" id="navbarColor01">
 			<ul class="navbar-nav me-auto text-center">
 				<li class="nav-item">
-					<a class="nav-link nav-link-name active fw-bold" id="up" href="/">Accueil  
+					<a class="nav-link nav-link-name active fw-bold" id="up" href="/">Accueil
 						<span class="visually-hidden">(current)</span>
 					</a>
 				</li>
@@ -15,20 +15,16 @@
 					<a class="nav-link nav-link-name fw-bold" href="{{ path('service.index') }}">Services</a>
 				</li>
 				<li class="nav-item">
-						<a class="nav-link nav-link-name fw-bold" href="{{ path('car.index') }}">Voitures d'occasion</a>
-					</li>				
-		</ul>
-			{% if not app.user %}
-			<ul class="navbar-nav lg-me-1 d-lg-flex align-items-lg-end text-center">
-				<li class="nav-item me-2 fw-bold">
-					<a class="nav-link nav-link-name" href="/connexion">Connexion</a>
+					<a class="nav-link nav-link-name fw-bold" href="{{ path('car.index') }}">Voitures d'occasion</a>
 				</li>
-				{% endif %}
-				{# <li class="nav-item lg-me-4 fw-bold">
-					<a class="nav-link nav-link-name" href="/inscription">Inscription</a>
-				</li> #}
 			</ul>
-			
+			{% if not app.user %}
+				<ul class="navbar-nav lg-me-1 d-lg-flex align-items-lg-end text-center">
+					<li class="nav-item me-2 fw-bold">
+						<a class="nav-link nav-link-name" href="/connexion">Connexion</a>
+					</li>
+				{% endif %}
+			</ul>
 		</div>
 	</div>
 	<div class="d-flex">
@@ -36,18 +32,19 @@
 			{% if app.user %}
 				<li class="nav-item dropdown drop_user">
 					<a class="nav-link dropdown-toggle fs-5 fw-bold name_link" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-					{{ app.user.firstname }} {{ app.user.lastname }} 
+						{{ app.user.firstname }}
+						{{ app.user.lastname }}
 					</a>
 					<div class="dropdown-menu">
 						{% if 'ROLE_ADMIN' in app.user.roles %}
 							<a class="dropdown-item  fw-bold  fs-5" href="/admin">Tableau de bord</a>
 						{% endif %}
-						
+
 						<a class="dropdown-item fw-bold my-2 text-center fs-5" href="{{ path('car.user_index') }}">Mon espace</a>
 						<div class="dropdown-divider"></div>
-    
+
 						<a class="dropdown-item fw-bold my-2 text-center  fs-5" href="{{ path('security.logout') }}">Déconnextion</a>
-							 	{% endif %}		
+					{% endif %}
 				</li>
 			</div>
 		</li>
