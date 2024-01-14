@@ -182,18 +182,13 @@ class CarController extends AbstractController
             'id' => $car->getId()
         ]);
     }
-   
-
-    
-    
-            //    dd($images);
         return $this->render('car/show.html.twig', [
             'car' => $car,
             'schedules' => $scheduleRepository->findAll(),
              'contactForm' => $contactForm->createView()
         ]);
-    
     }
+
     #[Route('/{id}/edit', name: 'car.edit', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Car $car, 
@@ -203,15 +198,11 @@ class CarController extends AbstractController
     
     ): Response
     {
-        // $this->denyAccessUnlessGranted('ROLE_ADMIN', $car);
         $form = $this->createForm(CarType::class, $car);
         $form->handleRequest($request);
 
-       
-
         if ($form->isSubmitted() && $form->isValid()) {
             $images = $form->get('images')->getData();
-            // $author = $form->getAuthor();
             foreach($images as $image){
                 // On définit le dossier de destination
                 $folder = 'carPosts';
@@ -226,7 +217,6 @@ class CarController extends AbstractController
 
             $entityManager->persist($car);
             $entityManager->flush();
-            // dd($images);
             return $this->redirectToRoute('car.show', [
                 'id' => $car->getId()
             ]);
