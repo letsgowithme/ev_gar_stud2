@@ -45,34 +45,34 @@
                 </div>
           
 <div class="car_info_show text-center mb-4">
-		<h5 class="mt-3 text-light show_block_titles">Année:
+		<h5 class="mt-3 text-light show_block_titles fs-4">Année:
 			<span class="badge bg-primary">{{ car.year |raw }}</span>
 		</h5>
 
-		<h5 class="mt-3 text-light show_block_titles">Kilométrage
+		<h5 class="mt-3 text-light show_block_titles fs-4">Kilométrage
 			<span class="badge bg-primary mt-1">{{ car.km }}
 				km</span>
 		</h5>
 
 
-		<h5 class="mt-3 text-light show_block_titles">Carburant
+		<h5 class="mt-3 text-light show_block_titles fs-4">Carburant
 			<span class="badge bg-primary mt-1">
 				{{ car.fuelType  }}</span>
 		</h5>
 
-	<h5 class="mt-3 text-light show_block_titles">Couleur
+	<h5 class="mt-3 text-light show_block_titles fs-4">Couleur
 			<span class="badge bg-primary mt-1">
 				{{ car.color }}
 			</span>
 		</h5>
 
-		<h5 class="mt-3 text-light show_block_titles">Prix
+		<h5 class="mt-3 text-light show_block_titles fs-4">Prix
 			<span class="badge bg-primary mt-1">
 				{{ car.price }}
 				€</span>
 		</h5>
 
-		<h5 class="mt-3 text-light show_block_titles">Vendeur
+		<h5 class="mt-3 text-light show_block_titles fs-4">Vendeur
 			<span class="badge bg-primary mt-1">
 				{{ car.author }}
 				</span>
@@ -83,31 +83,30 @@
 			<button type="button rounded mb-4" id="caracter_btn">Caractéristiques</button>
 			<div id="caracter" class="d-flex flex-column align-items-center justify-content-between">
 			<div class="d-flex justify-content-between">
-						<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Largeur : 
+						<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Largeur : 
 				{{ car.width }} cm</p>
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Longueur : 
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Longueur : 
 				{{ car.length }} cm</p>
 				</div>
 				<div class="d-flex justify-content-between">
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Hauteur : 
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Hauteur : 
 				{{ car.height }} cm</p>
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Poids : 
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Poids : 
 				{{ car.weight }} kg</p>
 				</div>
 				<div class="d-flex justify-content-between">
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Prix minimal : 
+					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Prix minimal : 
 				{{ car.priceMin }} €</p>
-					<p class="border  mt-1 px-2 mx-2 text-light caract hidden">Prix maximal : 
+					<p class="border  mt-1 px-2 mx-2 text-light caract hidden fs-4">Prix maximal : 
 				{{ car.priceMax }} €</p>
 				</div>
-					{# </div> #}
 						</div>
 						</div>
 			<div class="func mt-4">
 			<button type="button rounded mb-4" id="opt_btn">Options</button>
 			<div id="opt_block" class="d-flex flex-column align-items-center mt-4">
 							{% for option in car.options %}
-						<p class="border mt-1 p-3 text-light opt hidden w-auto">
+						<p class="border mt-1 p-3 text-light opt hidden w-auto fs-4">
 				{{ option.name }} </p>
 				{% endfor %}
 				</div>
@@ -117,7 +116,7 @@
 			<button type="button rounded" id="equip_btn">Équipement</button>
 			<div id="equip_block" class="d-flex flex-column align-items-center mt-4">
 							{% for equipment in car.equipments %}
-						<p class="border mt-1 p-3 text-light equip hidden w-50 text-center">
+						<p class="border mt-1 p-3 text-light equip hidden w-50 text-center fs-4">
 				{{ equipment.name }} </p>
 				{% endfor %}
 				</div>
@@ -130,7 +129,6 @@
 						<div class="comment flex justify-start mb-4">
 							<div>
 								<div class="block p-6 mx-4 border">
-									
 										<p class="text-light fs-5">Author : {{ contact.contacter }}</p>
 										<p class="text-light fs-5">E-mail : 
 											{{ contact.email|raw }}
@@ -151,9 +149,9 @@
 						<hr class="mx-4">
 				{% endfor %}
 		{% endif %}  
-				{#********************Formulaire de contact*******************  #}
+				{#*************Formulaire de contact*******************  #}
 		<div class="func mt-4">
-			<button type="button rounded" id="contact_btn">Contacter le vendeur</button>
+			<button type="button rounded" id="contact_btn" class=" mb-4">Contacter le vendeur</button>
 				<div class="hidden text-light border w-100" id="contactForm">
 
 							{{ form_start(contactForm) }}
@@ -165,11 +163,8 @@
 							{{ form_row(contactForm.phoneNumber) }}
 							{{ form_row(contactForm.submit) }}
 							{{ form_end(contactForm) }}
-						
-				
 			</div>
 			</div>
-		
 			 </section>
 			{% if app.user %}
 		<button type="button" class="btn">
@@ -181,7 +176,6 @@
 		<a href="{{ path('car.index') }}" class="fs-4 py-2 to_post_list">Vers les annonces</a>
 	</button>
 	  </div>
-	
 
 	<div class="row mt-4 mb-4">
 			<div class="col-12">
