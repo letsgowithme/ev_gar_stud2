@@ -44,7 +44,7 @@ class HomeController extends AbstractController
                 'success',
                 'Votre commentaire a bien été prise en compte'
             );
-            return $this->redirectToRoute('home.index', ['id' => $comment->getId()]);
+            return $this->redirectToRoute('home', ['id' => $comment->getId()]);
         }
 
         return $this->render('home/index.html.twig', [

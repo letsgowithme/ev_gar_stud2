@@ -158,19 +158,20 @@ a,
   }
   #btn_rdv {
     background-color: var(--main_bg_color);
-    z-index: -1;
+ 
     font-weight: bold;
-  
+    cursor: pointer;
   }
   #btn_rdv a{
     text-decoration: none;
     font-size: 1.8em!important;
+    cursor: pointer;
   }
     
   #btn_rdv:hover {
     background-color: var(--rose)!important;
     border: 2px solid var(--main_bg_color);
-    transition: ease-in;
+    transition: 0.3s ease-in-out;
     font-weight: 700;
     color: var(--light);
     text-shadow: 2px 2px black;
@@ -178,6 +179,7 @@ a,
   } 
   #btn_rdv a:hover{
    color: var(--light)!important;
+   transition: 0.3s ease-in-out;
   }
 
   #btn_contact {
@@ -223,13 +225,16 @@ a,
   .down_link:hover{
     background-color: var(--rose);
     color: var(--dark);
+    transition: 0.3s ease-in-out;
     
   }
   #btn_up {
     color: var(--dark);
+    background: var(--bg_base);
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.4em;
+    padding: 5px;
   }
 #btn_home {
   text-decoration: none;
@@ -311,7 +316,7 @@ a,
   #btn_reload:hover {
     color: rgb(64, 64, 5);
     background-color: white !important;
-    transition: 0.4s linear;
+    transition: 0.3s ease-in-out;
   }
   
   .disabled {
@@ -326,6 +331,33 @@ a,
 #btn_home
 {
   font-size: 1.6em!important;
+}
+.p_common{
+  color:#262526; 
+}
+#btn_comments:hover,
+#btn_comment:hover{
+  background-color: silver;
+  transition: 0.3s ease-in-out;
+}
+#btn_home:hover{
+  background-color: var(--main_bg_color);
+  color:#ccc;
+  transition: 0.3s ease-in-out;
+}
+#btn_up:hover{
+  background-color: var(--main_bg_color);
+  color: var(--light);
+  padding: 5px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+
+}
+.to_post_list:hover{
+color: wheat !important;
+background-color: var(--main_bg_color);
+padding: 5px;
+transition: 0.3s ease-in-out;
 }
 .schedule_day{
   font-size: 2em;;
@@ -359,6 +391,14 @@ a,
   min-width: 350px;
   height:250px;
 }
+.link_details{
+  color: var(--light);
+}
+.link_details:hover{
+color: var(--main_bg_color);
+text-decoration: underline;
+transition: 0.3s ease-in-out;
+}
 
 .card_body{
   background-color: var(--rose)!important;
@@ -387,6 +427,7 @@ a,
   background-color: #fff;
   color: var(--main_bg_color);
   border-radius: 8px;
+  transition: 0.3s ease-in-out;
 }
 .range_block{
   display: flex;
@@ -394,6 +435,8 @@ a,
 }
  
 /* ********page car.show*375px****** */
+
+
 .gallery_img{
   position:relative;
   left: 13%;
@@ -401,6 +444,7 @@ a,
   height: auto;
   margin-bottom: 1em;
 }
+
 #carouselExampleIndicators{
   display: flex;
   justify-content: center;
@@ -415,6 +459,19 @@ a,
 }
 .adr_p{
   font-size: 1.9em!important;
+ }
+ #caracter_btn{
+font-size: 1.3em!important;
+ }
+
+ #contact_btn:hover,
+ #equip_btn:hover,
+ #opt_btn:hover,
+ #caracter_btn:hover{
+background-color: var(--main_bg_color);
+color: white;
+transition: 0.3s ease-in-out;
+padding: 2px 8px;
  }
 }
 /******************768px************** */
@@ -483,6 +540,11 @@ a,
   flex-direction: row;
 }
  /**page car.show* 768px*** */
+ .car_show_container {
+height: 100vh;
+margin-bottom: 20px;
+ }
+
  .gallery_img{
   position:relative;
   left: 13%;
@@ -685,6 +747,9 @@ font-size: 1.6em;
   .adr_p{
     font-size: 1.7em!important;
    }
+   .footer-copyright{
+    font-size: 2em;
+   }
   /* ****page car.show *1024px** */
   .gallery_img{
     position:relative;
@@ -717,7 +782,7 @@ font-size: 1.6em;
 #btn_up,
 #btn_home
 {
-  font-size: 1.2em!important;
+  font-size: 1.4em!important;
 }
 .down_link{
  

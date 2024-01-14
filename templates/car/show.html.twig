@@ -14,7 +14,7 @@
 
     
 
-	<main class="container bg-dark text-center">
+	<main class="container car_show_container bg-dark text-center h-100">
     <section class="row" >
     <div class="col-12 text-center">
 		<h1 class="mt-4 mb-4 text-light">{{ car.title }}</h1>
@@ -44,7 +44,7 @@
                     </button>
                 </div>
           
-<div class="car_info_show text-center">
+<div class="car_info_show text-center mb-4">
 		<h5 class="mt-3 text-light show_block_titles">Année:
 			<span class="badge bg-primary">{{ car.year |raw }}</span>
 		</h5>
@@ -77,36 +77,37 @@
 				{{ car.author }}
 				</span>
 		</h5>
-								<div class="suppl_info_block">
+			<div class="suppl_info_block">
 
 			<div class="func mt-4">
 			<button type="button rounded mb-4" id="caracter_btn">Caractéristiques</button>
 			<div id="caracter" class="d-flex flex-column align-items-center justify-content-between">
-			<div class="d-flex mt-4">
+			<div class="d-flex justify-content-between">
 						<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Largeur : 
-				{{ car.width }} </p>
+				{{ car.width }} cm</p>
 					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Longueur : 
-				{{ car.length }} </p>
+				{{ car.length }} cm</p>
 				</div>
-				<div class="d-flex">
+				<div class="d-flex justify-content-between">
 					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Hauteur : 
-				{{ car.height }} </p>
+				{{ car.height }} cm</p>
 					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Poids : 
-				{{ car.weight }} </p>
+				{{ car.weight }} kg</p>
 				</div>
-				<div class="d-flex">
+				<div class="d-flex justify-content-between">
 					<p class="border  mt-1 px-2 mx-2  text-light caract hidden">Prix minimal : 
-				{{ car.priceMin }} </p>
+				{{ car.priceMin }} €</p>
 					<p class="border  mt-1 px-2 mx-2 text-light caract hidden">Prix maximal : 
-				{{ car.priceMax }} </p>
+				{{ car.priceMax }} €</p>
 				</div>
+					{# </div> #}
 						</div>
 						</div>
 			<div class="func mt-4">
 			<button type="button rounded mb-4" id="opt_btn">Options</button>
-			<div id="opt_block" class="d-flex flex-column ">
+			<div id="opt_block" class="d-flex flex-column align-items-center mt-4">
 							{% for option in car.options %}
-						<p class="border mt-1 p-3 text-light opt hidden">
+						<p class="border mt-1 p-3 text-light opt hidden w-auto">
 				{{ option.name }} </p>
 				{% endfor %}
 				</div>
@@ -114,9 +115,9 @@
 
 			<div class="func mt-4">
 			<button type="button rounded" id="equip_btn">Équipement</button>
-			<div id="equip_block" class="d-flex flex-column">
+			<div id="equip_block" class="d-flex flex-column align-items-center mt-4">
 							{% for equipment in car.equipments %}
-						<p class="border mt-1 p-3 text-light equip hidden">
+						<p class="border mt-1 p-3 text-light equip hidden w-50 text-center">
 				{{ equipment.name }} </p>
 				{% endfor %}
 				</div>
@@ -146,7 +147,7 @@
 									</div>
 								</div>
 							</div>
-						{# </div> #}
+						</div>
 						<hr class="mx-4">
 				{% endfor %}
 		{% endif %}  
@@ -176,54 +177,23 @@
 		</button>
 		{% endif %}
 	</div>
-	<button type="button" class="btn">
-		<a href="{{ path('car.index') }}" class="fs-4 py-2">Vers les annonces</a>
+	<button type="button" class="btn ">
+		<a href="{{ path('car.index') }}" class="fs-4 py-2 to_post_list">Vers les annonces</a>
 	</button>
 	  </div>
 	
-</main>
+
 	<div class="row mt-4 mb-4">
 			<div class="col-12">
 				{% include "partials/_btn_up.html.twig" %}
 				{% include "partials/_btn_home.html.twig" %}
 			</div>
 		</div>
+		</main>
 <div class="row mt-4">
 			<div class="col-12">
 				{% include "partials/_liens_schedule_address.html.twig" %}
 			</div>
-		
-		</div>
-	{# <script src="https://code.jquery.com/jquery-3.6.0.js"></script> #}
-	{# <script src="/js/details.js" type="text/javascript"></script> #}
-{# <script>
-$(document).ready(function () {
-	$("#equip_btn").click(function(){
-		$("#equip_btn").css('background', '#d94350');
-		$("#equip_btn").css('color', 'white');
-		$(".equip").removeClass("hidden");  
-		
-			});
-				$("#caracter_btn").click(function(){
-		$("#caracter_btn").css('background', '#d94350');
-		$("#caracter_btn").css('color', 'white');
-		$(".caract").removeClass("hidden");
-		
-			});
-				$("#opt_btn").click(function(){
-		$("#opt_btn").css('background', '#d94350');
-		$("#opt_btn").css('color', 'white');
-		$(".opt").removeClass("hidden");
-		
-			});
-
-				$("#contact_btn").click(function(){
-		$("#contact_btn").css('background', '#d94350');
-			$("#contact_btn").css('color', 'white');
-		$("#contactForm").removeClass("hidden");
-		
-			});
-});
-
-</script> #}
+</div>
+	
 {% endblock %}

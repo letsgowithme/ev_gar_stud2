@@ -42,7 +42,7 @@
 </div>
 <div class="px-4">
 <label for="rangeYear" class="form-label fw-bold">Année</label>
-<input type="range" class="form-range" min="1950" max="2023" step="1" id="rangeYear">
+<input type="range" class="form-range" min="1980" max="2023" step="1" id="rangeYear">
 <div class="fw-bold">
 <span id="rangeYearMin" ></span><span id="rangeYearVal"></span>
 </div>
@@ -68,7 +68,7 @@
 					<hr>
 					<p class="card-text text-black fw-bold car_price" value="">{{ car.price|raw }}<span> €</span></p>
 					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: none;" 
-					class="fw-bold text-light mt-3 link_details">Details</a></p>	
+					class="fw-bold mt-3 link_details">Details</a></p>	
 					</div>
 				<br>
 					{% endfor %}
