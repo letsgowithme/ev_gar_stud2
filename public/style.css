@@ -473,6 +473,11 @@ color: white;
 transition: 0.3s ease-in-out;
 padding: 2px 8px;
  }
+ /* page car new */
+ .car_new_container{
+  height: auto!important;
+  width: 100%;
+ }
 }
 /******************768px************** */
   @media screen and (min-width: 768px) {
@@ -750,6 +755,12 @@ font-size: 1.6em;
    .footer-copyright{
     font-size: 2em;
    }
+   /* page car new */
+ .car_new_container{
+  height: auto!important;
+  width: 50%;
+  margin-bottom: 10%;
+ }
   /* ****page car.show *1024px** */
   .gallery_img{
     position:relative;

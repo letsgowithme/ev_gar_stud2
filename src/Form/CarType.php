@@ -100,7 +100,7 @@ class CarType extends AbstractType
                 'min' => 1,
                 'max' => 1000000
             ],
-            'label' => 'Prix',
+            'label' => 'Prix(€)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
@@ -199,7 +199,7 @@ class CarType extends AbstractType
                 'min' => 1,
                
             ], 
-            'label' => 'Largeur',
+            'label' => 'Largeur(cm)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
@@ -215,7 +215,7 @@ class CarType extends AbstractType
                 'min' => 1,
                
             ],
-            'label' => 'Longueur',
+            'label' => 'Longueur(cm)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
@@ -231,7 +231,7 @@ class CarType extends AbstractType
                 'min' => 1,
                
             ],
-            'label' => 'Hauteur',
+            'label' => 'Hauteur(cm)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
@@ -247,7 +247,7 @@ class CarType extends AbstractType
                 'min' => 1,
                
             ],
-            'label' => 'Poids',
+            'label' => 'Poids(kg)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
@@ -263,7 +263,7 @@ class CarType extends AbstractType
                 'min' => 1,
                
             ],
-            'label' => 'Prix minimal',
+            'label' => 'Prix minimal(€)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],
@@ -280,7 +280,7 @@ class CarType extends AbstractType
                
             ],
             'required' => false,
-            'label' => 'Prix maximal',
+            'label' => 'Prix maximal(€)',
             'label_attr' => [
                 'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
             ],

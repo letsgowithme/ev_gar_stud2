@@ -1,10 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Créer une annonce{% endblock %}
-
+{% block stylesheets %}
+			<style>
+				.incl_footer {
+					display: none;
+				}
+			</style>
+		{% endblock %}
 {% block body %}
-<div class="container w-50 p-4" style="background: #d94350;">
-    <h1 class="text-light">Créer une annonce</h1>
+<div class="container car_new_container p-4 border"    
+style="background: #d94350;">
+
+    <h1 class="text-dark">Créer une annonce</h1>
 {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form_row(form.title) }}
@@ -14,10 +22,12 @@
     {{ form_row(form.price) }}
     {{ form_row(form.color) }}
     {{ form_row(form.imageFile) }}
+      <div style="background: #d94350;" class="p-4 mt-4">
     {{ form_row(form.images) }}
+ 
     {{ form_label(form.equipments) }}
-    <br>
-        <div class="choiceList-wrapper" style="border: none;">
+   
+        <div class="choiceList-wrapper mt-4">
                 {% for field in form.equipments %}
                 <div class="d-flex text-start slot text-light mt-4 fs-5"  style="min-width: 15%; margin-right: 20px; padding: 10px; box-shadow: 1px 5px 7px;  margin-bottom: 10px;  cursor: pointer;">
                     <div class="">{{ form_widget(field) }}</div>
@@ -27,14 +37,15 @@
         </div>					
     {{ form_label(form.options) }}
         <br>
-        <div class="choiceList-wrapper" style="border: none;">
+        <div class="choiceList-wrapper p-4">
             {% for field in form.options %}
                     <div class="d-flex text-center text-light slot mt-4 fs-5 p-2" style="min-width: 15%; margin-right: 20px;  padding: 10px; margin-bottom: 10px; box-shadow: 1px 5px 5px; cursor: pointer;">
                         <div class="">{{ form_widget(field) }}</div>
                         <div class="ms-2">{{ form_label(field) }}</div>
                     </div>
             {% endfor %}
-        </div>                       
+        </div>   
+        <div class="p-4 mt-4">                    
     {{ form_row(form.width) }}
     {{ form_row(form.length) }}
     {{ form_row(form.height) }}
@@ -43,8 +54,15 @@
     {{ form_row(form.priceMax) }}
 
     {{ form_row(form.submit, { 'label': 'Créer' }) }}
-{{ form_end(form) }}
+    {{ form_end(form) }}
 
     <a href="{{ path('car.index') }}" class="fs-5 fw-bold text-light mt-4">Vers la liste d'annonces</a>
-    </div>
+     </div>   </div>  
+    {# <div class="row mt-4">
+			<div class="col-12">
+				{% include "partials/_liens_schedule_address.html.twig" %}
+			</div>
+		</div> #}
+  
+    
 {% endblock %}
