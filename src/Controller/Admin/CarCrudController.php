@@ -43,6 +43,10 @@ class CarCrudController extends AbstractCrudController
             ->setRequired(false)
             ->setLabel('Image')
             ->hideOnIndex(),
+            AssociationField::new('images')
+            ->setRequired(false)
+            ->setLabel('Images')
+            ->hideOnIndex(),
             NumberField::new('year')
             ->setLabel('Année de mise en circulation')
             ->hideOnIndex(),

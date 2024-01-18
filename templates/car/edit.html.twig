@@ -3,8 +3,8 @@
 {% block title %}Modifier l'annonce{% endblock %}
 
 {% block body %}
-<div class="container w-50 p-4" style="background: #d94350;">
-    <h1>Modifier l'annonce</h1>
+<div class="container car_new_container p-4 border"    
+style="background: #d94350;">
 
 {{ form_start(form) }}
     {{ form_errors(form) }}
@@ -15,7 +15,13 @@
     {{ form_row(form.price) }}
     {{ form_row(form.color) }}
     {{ form_row(form.imageFile) }}
+
+    <h3>Images</h3>
     {{ form_row(form.images) }}
+
+
+
+
     {{ form_label(form.equipments) }}
     <br>
         <div class="choiceList-wrapper" style="border: none;">
@@ -47,14 +53,19 @@
 {{ form_end(form) }}
 
 
-    </div>
+   
 
+<div>
+    <a href="{{ path('car.index') }}" class="my-4 fs-4 text-light to_posts">Vers les annonces</a>
+ {% include "partials/_btn_up.html.twig" %}
+</div>
 
-    <a href="{{ path('car.index') }}" class="my-4">Vers les annonces</a>
-
-
-    {{ include('car/_delete_form.html.twig') }}
+    <div style="background: red; width: 100px;">{{ include('car/_delete_form.html.twig') }}</div>
   
-    </div>
-    
+    </div> </div>
+        <div class="row mt-4">
+			<div class="col-12">
+				{% include "partials/_liens_schedule_address.html.twig" %}
+			</div>
+		</div>
 {% endblock %}

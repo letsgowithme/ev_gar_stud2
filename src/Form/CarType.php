@@ -150,7 +150,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Vous pouvez rajouter 3 photos',
             'label_attr' => [
-                'class' => 'form-label mt-4 fw-bold  text-dark fs-4'
+                'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4'
             ],
             'multiple' => true,
             'required' => false,
@@ -168,7 +168,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Équipement',
             'label_attr' => [
-                'class' => 'form-label mt-4 fw-bold  mb-4 text-dark fs-4'
+                'class' => 'form-label mt-4 fw-bold  mb-4 text-dark fs-4 bg-light p-2 rounded'
             ],
 
             'choice_label' => 'name',
@@ -186,7 +186,7 @@ class CarType extends AbstractType
             ],
             'label' => 'Options',
             'label_attr' => [
-                'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4'
+                'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4 bg-light p-2 rounded'
             ],
 
             'choice_label' => 'name',
@@ -292,7 +292,7 @@ class CarType extends AbstractType
             
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary mt-4 fs-4'
+                    'class' => 'btn btn-primary mt-4 mb-4 fs-4'
                 ],
                 'label' => 'Sauvegarder',
             ])
