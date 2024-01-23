@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container car_new_container p-4 border"    
 style="background: #d94350;">
-
+   <h1 class="text-light">Modifier l'annonce</h1>
 {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form_row(form.title) }}
@@ -17,6 +17,16 @@ style="background: #d94350;">
     {{ form_row(form.imageFile) }}
 
     <h3>Images</h3>
+    <div class="d-flex justify-content-around">
+    {% for image in car.images %}
+    <div class="mt-2">
+        <img src="{{ asset('assets/uploads/carPosts/mini/640x440-' ~ image.name) }}" 
+        {# class="d-block gallery_img"  #}
+        alt="{{ car.title }}" width="150" height="140">
+        <a href="{{ path('car.delete_img', { id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+        </div>
+    {% endfor %}
+    </div>
     {{ form_row(form.images) }}
 
 
@@ -49,7 +59,7 @@ style="background: #d94350;">
     {{ form_row(form.priceMin) }}
     {{ form_row(form.priceMax) }}
 
-    {{ form_row(form.submit, { 'label': 'Créer' }) }}
+    {{ form_row(form.submit, { 'label': 'Modifier' }) }}
 {{ form_end(form) }}
 
 

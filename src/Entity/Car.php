@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[UniqueEntity('title')]
 #[ORM\Entity(repositoryClass: CarRepository::class)]
@@ -20,6 +21,10 @@ class Car
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\Regex(
+        pattern: '/^[a-z]+$/i',
+        htmlPattern: '^[a-zA-Z]+$'
+    )]
     #[ORM\Column(length: 100)]
     private ?string $title = null;
 

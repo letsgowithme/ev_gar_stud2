@@ -98,7 +98,7 @@ class CarType extends AbstractType
             'attr' => [
                 'class' => 'form-control',
                 'min' => 1,
-                'max' => 1000000
+                'max' => 30000
             ],
             'label' => 'Prix(€)',
             'label_attr' => [
@@ -106,7 +106,7 @@ class CarType extends AbstractType
             ],
             'constraints' => [
                 new Assert\Positive(),
-                new Assert\LessThan(1000000)
+                new Assert\LessThan(30000)
             ]
         ])
         ->add('color', ChoiceType::class, [

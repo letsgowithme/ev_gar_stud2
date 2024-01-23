@@ -28,7 +28,7 @@
                     <div class="carousel-inner">
                         {% for image in car.images %}
                             <div class="carousel-item {{ (loop.first ) ? 'active' : '' }}  text-center">
-                                <img src="{{ asset('assets/uploads/carPosts/mini/640x440-') ~ image.name }}" class="d-block gallery_img" alt="{{ car.title }}">
+                                <img src="{{ asset('assets/uploads/carPosts/mini/640x440-' ~ image.name) }}" class="d-block gallery_img" alt="{{ car.title }}">
                             </div>
                         {% endfor %}
                     </div>

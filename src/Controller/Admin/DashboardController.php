@@ -10,7 +10,6 @@ use App\Entity\Option;
 use App\Entity\Schedule;
 use App\Entity\Service;
 use App\Entity\User;
-use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -18,35 +17,17 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+#[IsGranted('ROLE_ADMIN', statusCode: 403, exceptionCode: 10010)]
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
-    #[IsGranted('ROLE_ADMIN')]
+   
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'L \'utilisateur a tenté d\'accéder à une page sans avoir le ROLE_ADMIN');
         return $this->render('admin/dashboard.html.twig');
     }
-//     #[IsGranted('ROLE_ADMIN')]
-//  #[Route('/car', name: 'car.index', methods: ['GET'])]
-//  public function allRecipes(CarRepository $carRepository): Response
-//  {
-//     return $this->render('car/index.html.twig');
-    
-//  }
- #[IsGranted('ROLE_ADMIN')] 
- #[Route('/user', name: 'user.new', methods: ['GET'])]
- public function createUser(UserRepository $userRepository): Response
- {
-    return $this->render('user/index.html.twig');
-    
- }
-     #[IsGranted('ROLE_ADMIN')]
- #[Route('/users', name: 'user.index', methods: ['GET'])]
- public function allRecipes(UserRepository $userRepository): Response
- {
-    return $this->render('user/index.html.twig');
-    
- }
+
 
     public function configureDashboard(): Dashboard
     {

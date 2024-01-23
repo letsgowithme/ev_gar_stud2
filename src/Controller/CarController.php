@@ -12,6 +12,7 @@ use App\Form\ContactType;
 use App\Repository\CarRepository;
 use App\Repository\ScheduleRepository;
 use App\Service\PictureService;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Doctrine\ORM\EntityManagerInterface;
@@ -225,13 +226,12 @@ class CarController extends AbstractController
         return $this->render('car/edit.html.twig', [
             'car' => $car,
             'form' => $form,
-           
             'schedules' => $scheduleRepository->findAll()
             
         ]);
     }
 
-    #[Route('/{id}', name: 'car.delete', methods: ['POST'])]
+    #[Route('/delete/{id}', name: 'car.delete', methods: ['POST'])]
     #[IsGranted('ROLE_USER')]
     public function delete(Request $request, Car $car, EntityManagerInterface $entityManager): Response
     {
@@ -239,7 +239,18 @@ class CarController extends AbstractController
             $entityManager->remove($car);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('car.index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/delete/image{id}', name: 'delete_img', methods: ['DELETE'])]
+    #[IsGranted('ROLE_USER')]
+    public function deleteImage(Request $request, Images $images, EntityManagerInterface $entityManager, PictureService $pictureService): JsonResponse
+    {
+        if ($this->isCsrfTokenValid('delete'.$images->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($images);
+            $entityManager->flush();
+        }
+
+        return new JsonResponse(['error' => 'Token Invalid'], 400);
     }
 }

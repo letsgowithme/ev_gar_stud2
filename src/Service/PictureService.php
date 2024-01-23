@@ -18,13 +18,13 @@ class PictureService
 
     // on donne un nouveau nom à l'image
     $fichier = md5(uniqid(mt_rand(), true)) . '.webp';
-    // ON RECUP LES INFO DE L'IMAGE(LARGEUR, ETC)
+    // on recupere les Iinfos de l'image(largeur, etc)
     $picture_infos = getimagesize($picture);
 
     if ($picture_infos === false) {
       throw new Exception('Format d\'image incorrect');
     }
-    // on verif le format de l'image
+    // on verifie le format de l'image
 
     switch ($picture_infos['mime']) {
       case 'image/jpeg':
