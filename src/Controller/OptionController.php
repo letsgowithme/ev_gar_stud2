@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Option;
-use App\Form\Option1Type;
+use App\Form\OptionType;
 use App\Repository\OptionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,7 +30,7 @@ class OptionController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $option = new Option();
-        $form = $this->createForm(Option1Type::class, $option);
+        $form = $this->createForm(OptionType::class, $option);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,7 +59,7 @@ class OptionController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Option $option, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(Option1Type::class, $option);
+        $form = $this->createForm(OptionType::class, $option);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

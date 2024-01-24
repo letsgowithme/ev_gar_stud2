@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 #[UniqueEntity('title')]
 #[ORM\Entity(repositoryClass: CarRepository::class)]
 #[Vich\Uploadable]
@@ -21,10 +22,6 @@ class Car
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Assert\Regex(
-        pattern: '/^[a-z]+$/i',
-        htmlPattern: '^[a-zA-Z]+$'
-    )]
     #[ORM\Column(length: 100)]
     private ?string $title = null;
 
@@ -79,7 +76,7 @@ class Car
     #[ORM\Column(nullable: true)]
     private ?int $priceMax = null;
 
-    
+
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
     private Collection $images;
 

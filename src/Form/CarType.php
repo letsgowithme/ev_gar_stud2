@@ -4,16 +4,15 @@ namespace App\Form;
 
 use App\Entity\Car;
 use App\Entity\Equipment;
+use App\Entity\Images;
 use App\Entity\Option;
-use App\Entity\Modeles;
 use App\Repository\EquipmentRepository;
 use App\Repository\OptionRepository;
-use App\Repository\ModelesRepository;
-use PhpParser\Parser\Multiple;
+use Symfony\Component\Validator\Constraints\All;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -154,7 +153,23 @@ class CarType extends AbstractType
             ],
             'multiple' => true,
             'required' => false,
-            'mapped' => false
+            'mapped' => false,
+            'constraints' => [
+                new All(
+                    new Image([
+                        'maxWidth' => 640,
+                        'maxWidthMessage' => 'L\'image doit faire {{ max_width }} pixels de large au maximum',
+                        'maxSize' => '100K',
+                        'maxSizeMessage' => 'Vous pouvez rajouter jusqu\'à 3 images avec {{ max_size }}M taille au maximum',
+                        'mimeTypes' => [ 
+                            'image/jpeg',
+                            'image/png',
+                        ],
+
+
+                    ])
+                )
+            ]
             
         ])
         ->add('equipments', EntityType::class, [
