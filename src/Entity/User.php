@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      */
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 180)]
     private ?string $password = null;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Car::class)]

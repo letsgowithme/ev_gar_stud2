@@ -76,17 +76,11 @@ class Car
     #[ORM\Column(nullable: true)]
     private ?int $priceMax = null;
 
-
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
     private Collection $images;
 
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Contact::class)]
     private Collection $contacts;
-
-   
-
-   
-  
 
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
