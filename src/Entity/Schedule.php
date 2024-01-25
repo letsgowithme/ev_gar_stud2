@@ -10,22 +10,22 @@ class Schedule
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(type: "string", length: 50)]
     private ?string $day = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "string", length: 10, nullable: true)]
     private ?string $openingTimeMorning = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "string", length: 10, nullable: true)]
     private ?string $closingTimeMorning = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "string", length: 10, nullable: true)]
     private ?string $openingTimeEvening = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "string", length: 10, nullable: true)]
     private ?string $closingTimeEvening = null;
 
 

@@ -6,6 +6,7 @@ use App\Repository\OptionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: OptionRepository::class)]
 #[ORM\Table(name: '`option`')]
@@ -13,10 +14,11 @@ class Option
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "string", length: 100)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $name = null;
 
     #[ORM\ManyToMany(targetEntity: Car::class, mappedBy: 'options')]

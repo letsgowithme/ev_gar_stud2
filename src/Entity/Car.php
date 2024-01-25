@@ -19,10 +19,12 @@ class Car
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(type: "string", length: 100)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Length(min: 1, max: 100, maxMessage: "Le nom est trop long")]
     private ?string $title = null;
 
     #[Vich\UploadableField(mapping: 'car_images', fileNameProperty: 'imageName')]
@@ -31,19 +33,25 @@ class Car
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $imageName = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: "integer", length: 4)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?int $year = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Length(min: 1, max: 6)]
     private ?int $km = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(type: "string", length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $fuelType = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?int $price = null;
 
-    #[ORM\Column(length: 30)]
+    #[ORM\Column(type: "string", length: 30)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $color = null;
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
@@ -58,22 +66,22 @@ class Car
     #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'cars')]
     private Collection $options;
     
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $length = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $width = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $height = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $weight = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $priceMin = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(type: "integer", nullable: true)]
     private ?int $priceMax = null;
 
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
@@ -84,7 +92,6 @@ class Car
 
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
-       
         $this->equipments = new ArrayCollection();
         $this->options = new ArrayCollection();
         $this->contacts = new ArrayCollection();

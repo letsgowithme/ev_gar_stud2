@@ -4,8 +4,6 @@
 {% endblock %}
 
 {% block body %}
-	{# <div style="height: 50px; z-index: -3;">{% include "partials/_show_bg.html.twig" %}
-		</div> #}
 	{% for message in app.flashes('success') %}
 		<div class="alert alert-success">
 			{{ message }}
@@ -122,6 +120,9 @@
 				</div>
 				{# ********************************************* #}
 	{% if app.user %}
+	
+		
+	
 	<h3 class="text-light mt-4">Demandes de contact</h3>
 			 {% for contact in car.contacts %}
 						<div class="comment flex justify-start mb-4">
@@ -138,7 +139,7 @@
 											{{ contact.message|raw }}
 										</p>
 										<p class="text-light fs-5">Téléphone : 
-											{{ contact.phoneNumber|raw }}
+											{{ contact.phoneNumber|raw }} 
 										</p>
 									</div>
 								</div>
@@ -147,6 +148,7 @@
 						<hr class="mx-4">
 				{% endfor %}
 		{% endif %}  
+	
 				{#*************Formulaire de contact*******************  #}
 				{% if not app.user %}
 					
@@ -161,7 +163,7 @@
 							{{ form_row(contactForm.email) }}
 							{{ form_row(contactForm.subject) }}
 							{{ form_row(contactForm.message) }}
-							{{ form_row(contactForm.phoneNumber) }}
+				  		{{ form_row(contactForm.phoneNumber) }} 
 							{{ form_row(contactForm.submit) }}
 							{{ form_end(contactForm) }}
 			</div>
@@ -193,3 +195,4 @@
 </div>
 	
 {% endblock %}
+

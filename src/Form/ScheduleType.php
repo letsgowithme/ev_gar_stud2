@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class ScheduleType extends AbstractType
 {
@@ -45,7 +46,11 @@ class ScheduleType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label mt-4 fs-5',
                    
+                ],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 10])
                 ]
+                   
             ])
             ->add('closingTimeMorning', TextType::class, [
                 'attr' => [
@@ -56,6 +61,9 @@ class ScheduleType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label mt-4 fs-5',
                    
+                ],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 10])
                 ]
             ])
             ->add('openingTimeEvening', TextType::class, [
@@ -67,6 +75,9 @@ class ScheduleType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label mt-4 fs-5',
                    
+                ],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 10])
                 ]
             ])
             ->add('closingTimeEvening', TextType::class, [
@@ -78,40 +89,12 @@ class ScheduleType extends AbstractType
                 'label_attr' => [
                     'class' => 'form-label mt-4 fs-5',
                    
+                ],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 10])
                 ]
             ])
-          
-             ->add('dayTime', ChoiceType::class, [
-            'attr' => [
-                'class' => 'form-control ms-4 mb-4'
-            ],
-            'multiple' => false,
-            'expanded' => true,
-            'choices'  => [
-                '12:00' =>  '12:00',
-                    '12:15' => '12:15',
-                    '12:30' => '12:30',
-                    '12:45' => '12:45',
-                    '13:00' => '13:00',   
-            ]
-        ])
-
-        ->add('eveningTime', ChoiceType::class, [
-            'attr' => [
-                'class' => 'form-control ms-4 mb-4'
-            ],
-            'multiple' => false,
-            'expanded' => true,
-            'choices'  => [
-                '19:00' =>  '19:00',
-                    '19:15' => '19:15',
-                    '19:30' => '19:30',
-                    '19:45' => '19:45',
-                    '20:00' => '20:00',   
-            ]
-        ])
-
-          
+                    
             
             ->add('submit', SubmitType::class, [
                 'attr' => [

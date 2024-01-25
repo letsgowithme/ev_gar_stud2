@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 
 class ContactType extends AbstractType
 {
@@ -53,7 +54,9 @@ class ContactType extends AbstractType
 
             ->add('subject', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '50',
                 ],
                 'label' => 'Sujet',
                 'label_attr' => [
@@ -61,32 +64,39 @@ class ContactType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
-                    new Assert\Length(['min' => 2, 'max' => 100])
+                    new Assert\Length(['min' => 2, 'max' => 50])
                 ]
             ])
 
             ->add('message', TextareaType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'minlenght' => '2',
+                    'maxlenght' => '300',
                 ],
                 'label' => 'Message',
                 'label_attr' => [
                     'class' => 'form-label mt-4 text-light fs-4'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank()
+                    new Assert\NotBlank(),
+                    new Assert\Length(['min' => 2, 'max' => 300])
                 ]
             ])
-            ->add('phoneNumber', TextType::class, [
+            ->add('phoneNumber', TelType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'pattern' => '^0[1-9]\d{8}$', 
+                    'title' => 'Format requis : 0123456789',
                 ],
                 'label' => 'Numéro de téléphone',
                 'label_attr' => [
                     'class' => 'form-label mt-4 text-light fs-4'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank()
+                    new Assert\NotBlank(),
+                    
+                   
                 ]
             ])
 

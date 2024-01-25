@@ -4,36 +4,46 @@ namespace App\Entity;
 
 use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Length(min: 1, max: 50)]
     private ?string $contacter = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 180)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Email()]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\Length(min: 1, max: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $subject = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'text', length: 300)]
+    #[Assert\Length(min: 1, max: 300)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $message = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Regex(
+        pattern: "/^0[1-9]\d{8}$/",
+    )]
     private ?string $phoneNumber = null;
 
     #[ORM\ManyToOne(inversedBy: 'contacts')]
     #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?Car $car = null;
-
-       // #[ORM\Column]
-    // private ?\DateTimeImmutable $createdAt = null;
 
     public function getId(): ?int
     {

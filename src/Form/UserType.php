@@ -54,7 +54,7 @@ class UserType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                     'minLength' => '2',
-                    'maxLength' => '180'
+                    'maxLength' => '30'
                 ],
                 'label' => 'Email',
                 'label_attr' => [

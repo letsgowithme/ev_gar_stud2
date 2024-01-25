@@ -27,7 +27,7 @@ class CommentType extends AbstractType
             'label_attr' => [
                 'class' => 'form-label mt-4 text-light fs-5 fw-bold',
                 'minLength' => '2',
-                'maxLength' => '255'
+                'maxLength' => '50'
             ],
             'constraints' => [
                 new Assert\Length(['min' => 2, 'max' => 50]),
@@ -36,13 +36,16 @@ class CommentType extends AbstractType
         ])
             ->add('content', TextareaType::class, [
                     'attr' => [
-                        'class' => 'form-control block w-full px-3 text-base font-normal bg-white bg-clip border border-solid text-gray-700 focus:border-blue-600 focus-outline-none'
+                        'class' => 'form-control block w-full px-3 text-base font-normal bg-white bg-clip border border-solid text-gray-700 focus:border-blue-600 focus-outline-none',
+                        'minLength' => '1',
+                        'maxLength' => '255'
                     ],
                     'label' => 'Contenu',
                     'label_attr' => [
                         'class' => 'form-label inline-block mb-2 fs-5 text-light fw-bold'
                     ],
                     'constraints' => [
+                        new Assert\Length(['min' => 1, 'max' => 255]),
                         new Assert\NotBlank()
                     ]
                 ]
@@ -54,11 +57,11 @@ class CommentType extends AbstractType
                 'label' => 'Nom/Prénom',
                 'label_attr' => [
                     'class' => 'form-label mt-4 text-light fs-5  fw-bold',
-                    'minLength' => '3',
+                    'minLength' => '1',
                     'maxLength' => '50'
                 ],
                 'constraints' => [
-                    new Assert\Length(['min' => 3, 'max' => 50]),
+                    new Assert\Length(['min' => 1, 'max' => 50]),
                     new Assert\NotBlank()
                 ]
             ])
@@ -82,6 +85,9 @@ class CommentType extends AbstractType
                 ],
                 'multiple' => false,
                 'required' => true,
+                'constraints' => [
+                    new Assert\NotBlank()
+                ]
     
             ])
             ->add('isApproved', HiddenType::class,[

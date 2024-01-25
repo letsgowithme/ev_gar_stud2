@@ -4,30 +4,38 @@ namespace App\Entity;
 
 use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 class Comment
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: "integer")]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "string", length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Length(min: 1, max: 50, maxMessage: "Le sujet est trop long")]
     private ?string $subject = null;
 
    
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "text", length: 255)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Length(min: 1, max: 255, maxMessage: "Le message est trop long")]
     private ?string $content = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "string", length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Length(min: 1, max: 50, maxMessage: "Le nom est trop long")]
     private ?string $author = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: "integer")]
+    #[Assert\NotBlank(message: "Veuillez mettre la note")]
     private ?int $mark = null;
 
 
-    #[ORM\Column]
+    #[ORM\Column(type: "boolean")]
     private ?bool $isApproved = null;
 
    
