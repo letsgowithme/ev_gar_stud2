@@ -97,7 +97,7 @@ class AppFixtures extends Fixture
            // Contact
            for ($j = 0; $j < 5; $j++) {
             $contact = new Contact();
-            $contact->setContacter($this->faker->name())
+            $contact->setfullName($this->faker->name())
                 ->setEmail($this->faker->email())
                 ->setSubject($this->faker->word())
                 ->setMessage($this->faker->text())

@@ -17,7 +17,7 @@ class Contact
     #[ORM\Column(type: 'string', length: 50)]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     #[Assert\Length(min: 1, max: 50)]
-    private ?string $contacter = null;
+    private ?string $fullName = null;
 
     #[ORM\Column(type: 'string', length: 180)]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
@@ -52,21 +52,21 @@ class Contact
 
 
     /**
-     * Get the value of contacter
+     * Get the value of fullName
      */ 
-    public function getContacter()
+    public function getFullName()
     {
-        return $this->contacter;
+        return $this->fullName;
     }
 
     /**
-     * Set the value of contacter
+     * Set the value of fullName
      *
      * @return  self
      */ 
-    public function setContacter($contacter)
+    public function setFullName($fullName)
     {
-        $this->contacter = $contacter;
+        $this->fullName = $fullName;
 
         return $this;
     }

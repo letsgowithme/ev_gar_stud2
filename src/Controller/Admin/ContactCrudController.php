@@ -23,7 +23,7 @@ class ContactCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Contacts')
             ->setPageTitle(pageName:Crud::PAGE_INDEX, title: 'Demandes de contact')
             // ->setPageTitle(pageName:Crud::PAGE_NEW, title: 'Créer un commentaire')
-            ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier le commentaire')
+            ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier la demande de contact')
             ;
     } 
     
@@ -32,7 +32,7 @@ class ContactCrudController extends AbstractCrudController
         return [
             IdField::new('id')
             ->hideOnForm(),
-            TextField::new('fullname')
+            TextField::new('fullName')
             ->setLabel('Nom/Prénom'),
             TextField::new('email')
             ->setLabel('Email'),

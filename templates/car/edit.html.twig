@@ -21,7 +21,6 @@ style="background: #d94350;">
     {% for image in car.images %}
     <div class="mt-2">
         <img src="{{ asset('assets/uploads/carPosts/mini/640x440-' ~ image.name) }}" 
-        {# class="d-block gallery_img"  #}
         alt="{{ car.title }}" width="150" height="140">
         <a href="{{ path('delete_image', { id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
         </div>

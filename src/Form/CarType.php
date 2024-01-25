@@ -159,7 +159,7 @@ class CarType extends AbstractType
                     new Image([
                         'maxWidth' => 640,
                         'maxWidthMessage' => 'L\'image doit faire {{ max_width }} pixels de large au maximum',
-                        'maxSize' => '100K',
+                        'maxSize' => '150K',
                         'maxSizeMessage' => 'L\'images doit avoir {{ max_size }}M de taille au maximum',
                         'mimeTypes' => [ 
                             'image/jpeg',

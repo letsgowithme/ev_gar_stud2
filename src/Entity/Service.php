@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ServiceRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
@@ -17,7 +16,7 @@ class Service
     #[ORM\Column(type: "string", length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: "text")]
     private ?string $description = null;
 
     public function getId(): ?int

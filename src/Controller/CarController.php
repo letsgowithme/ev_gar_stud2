@@ -170,7 +170,7 @@ class CarController extends AbstractController
         $sellerEmail = $car->getAuthor()->getEmail();
         $subject = $contact->getSubject();
         $message = $contact->getMessage();
-        $author = $contact->getContacter();
+        $author = $contact->getfullName();
         $email = (new Email())
         ->from('admin@exemple.com')
         ->to($sellerEmail)
