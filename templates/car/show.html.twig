@@ -148,6 +148,9 @@
 				{% endfor %}
 		{% endif %}  
 				{#*************Formulaire de contact*******************  #}
+				{% if not app.user %}
+					
+				
 		<div class="func mt-4">
 			<button type="button rounded" id="contact_btn" class=" mb-4">Contacter le vendeur</button>
 				<div class="hidden text-light border w-100" id="contactForm">
@@ -163,6 +166,7 @@
 							{{ form_end(contactForm) }}
 			</div>
 			</div>
+			{% endif %}
 			 </section>
 			{% if app.user %}
 		<button type="button" class="btn">
