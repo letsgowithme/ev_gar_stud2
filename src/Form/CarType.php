@@ -147,7 +147,7 @@ class CarType extends AbstractType
             'attr' => [
                 'class' => 'form-control mb-4'
             ],
-            'label' => 'Vous pouvez rajouter 3 photos',
+            'label' => 'Ajouter les photos',
             'label_attr' => [
                 'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4'
             ],
@@ -160,10 +160,14 @@ class CarType extends AbstractType
                         'maxWidth' => 640,
                         'maxWidthMessage' => 'L\'image doit faire {{ max_width }} pixels de large au maximum',
                         'maxSize' => '100K',
-                        'maxSizeMessage' => 'Vous pouvez rajouter jusqu\'à 3 images avec {{ max_size }}M taille au maximum',
+                        'maxSizeMessage' => 'L\'images doit avoir {{ max_size }}M de taille au maximum',
                         'mimeTypes' => [ 
                             'image/jpeg',
                             'image/png',
+                            'image/webp',
+                        'maxNumberOfComponents' => 3,
+                        'maxNumberOfComponentsMessage' => 'Vous pouvez ajouter jusqu\'à 3 images'
+                        
                         ],
 
 
