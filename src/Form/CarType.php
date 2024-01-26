@@ -160,16 +160,12 @@ class CarType extends AbstractType
                         'maxWidth' => 640,
                         'maxWidthMessage' => 'L\'image doit faire {{ max_width }} pixels de large au maximum',
                         'maxSize' => '150K',
-                        'maxSizeMessage' => 'L\'images doit avoir {{ max_size }}M de taille au maximum',
+                        'maxSizeMessage' => 'L\'images doit avoir {{ max_size }}K de taille au maximum',
                         'mimeTypes' => [ 
                             'image/jpeg',
                             'image/png',
-                            'image/webp',
-                        'maxNumberOfComponents' => 3,
-                        'maxNumberOfComponentsMessage' => 'Vous pouvez ajouter jusqu\'à 3 images'
-                        
+                            'image/webp'
                         ],
-
 
                     ])
                 )
@@ -194,7 +190,7 @@ class CarType extends AbstractType
             'multiple' => true,
             'expanded' => true
         ])
-        ->add('CarOptions', EntityType::class, [
+        ->add('carOptions', EntityType::class, [
             'class' => CarOption::class,
             'query_builder' => function (CarOptionRepository $r) {
                 return $r->createQueryBuilder('i')

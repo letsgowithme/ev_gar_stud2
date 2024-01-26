@@ -128,6 +128,7 @@ class CarController extends AbstractController
               $img = new Images();
               $img->setName($fichier);
               $car->addImage($img);
+              dd($images);
             }
     
             $entityManager->persist($car);

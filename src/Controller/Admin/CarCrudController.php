@@ -51,19 +51,17 @@ class CarCrudController extends AbstractCrudController
             ->setLabel('Année de mise en circulation')
             ->hideOnIndex(),
             NumberField::new('km')
-            ->setLabel('Kilométrage ')
-            ->hideOnIndex(),
+            ->setLabel('Kilométrage '),
             TextField::new('fuelType')
             ->setLabel('Type de carburant'),
             TextField::new('color')
             ->setLabel('Couleur'),
             NumberField::new('price')
-            ->setLabel('Prix ')
-            ->hideOnIndex(),
+            ->setLabel('Prix '),
             AssociationField::new('equipments')
             ->setLabel('Équipement')
             ->hideOnIndex(),
-            AssociationField::new('carOptions')
+            AssociationField::new('Options')
             ->setLabel('Options')
             ->hideOnIndex(),
             NumberField::new('width')
@@ -76,11 +74,14 @@ class CarCrudController extends AbstractCrudController
             ->setLabel('Hauteur(cm)')
             ->hideOnIndex(),
             NumberField::new('weight')
-            ->setLabel('Poids(kg)'),
+            ->setLabel('Poids(kg)')
+            ->hideOnIndex(),
             NumberField::new('priceMin')
+            ->hideOnIndex()
             ->setLabel('Prix minimal(€)'),
             NumberField::new('priceMax')
-            ->setLabel('Prix maximal(€)'),
+            ->setLabel('Prix maximal(€)')
+            ->hideOnIndex(),
             AssociationField::new('images')
             ->setLabel('Images'),
             AssociationField::new('author')

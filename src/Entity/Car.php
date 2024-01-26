@@ -85,12 +85,11 @@ class Car
     private ?int $priceMax = null;
 
     #[Assert\Count(
-        min: 1,
+        min: 0,
         max: 3,
-        minMessage: 'You must specify at least one image',
-        maxMessage: 'You cannot specify more than {{ max }} images',
+        minMessage: 'Vous pouvez ajouter les images plutard',
+        maxMessage: 'Vous ne pouvez pas ajouter plus que {{ max }} images',
     )]
-
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
     private Collection $images;
 
