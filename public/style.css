@@ -66,9 +66,13 @@ a,
 
  
   
-  .services_title{
-    font-size: 1.8em!important;
+  .services_title_page{
+    font-size: 2.4em!important;
     padding-top: 15px;
+  }
+  .services_txt{
+    font-size: 1.8em;
+    
   }
 .services_title_page{
   font-size: 2.8em!important;
@@ -629,11 +633,15 @@ margin-bottom: 20px;
      border-radius: 0 0 0 0;
      
   } 
-  .services_title{
+  .services_title_page{
     margin-bottom: 10px;
-    font-size: 2.5em;
+    font-size: 2.9em!important;
     color: var(--light);
     text-shadow: -2px 1px 1px rgb(75, 68, 68);
+  }
+  .services_txt{
+    font-size: 1.8em;
+    margin: 0 10%;
   }
 
   #block_services p{
@@ -827,7 +835,7 @@ font-size: 1.6em;
   z-index: -1;
 } 
 
-.services_title{
+.services_title_page{
   margin-bottom: 10px;
   font-size: 2.5em;
   color: var(--light);

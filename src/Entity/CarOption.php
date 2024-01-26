@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\carCarOptionRepository;
+use App\Repository\CarOptionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: CarCarOptionRepository::class)]
-#[ORM\Table(name: '`CarOption`')]
+#[ORM\Entity(repositoryClass: CarOptionRepository::class)]
 class CarOption
 {
     #[ORM\Id]
@@ -21,7 +20,7 @@ class CarOption
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Car::class, mappedBy: 'CarOptions')]
+    #[ORM\ManyToMany(targetEntity: Car::class, mappedBy: 'carOptions')]
     private Collection $cars;
 
     public function __construct()

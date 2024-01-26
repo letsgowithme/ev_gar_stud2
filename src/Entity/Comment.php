@@ -28,7 +28,7 @@ class Comment
     #[ORM\Column(type: "string", length: 50)]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     #[Assert\Length(min: 1, max: 50, maxMessage: "Le nom est trop long")]
-    private ?string $author = null;
+    private ?string $commentator = null;
 
     #[ORM\Column(type: "integer")]
     #[Assert\NotBlank(message: "Veuillez mettre la note")]
@@ -89,21 +89,21 @@ class Comment
         return $this;
     }
    /**
-     * Get the value of author
+     * Get the value of commentator
      */ 
-    public function getAuthor()
+    public function getCommentator()
     {
-        return $this->author;
+        return $this->commentator;
     }
 
     /**
-     * Set the value of author
+     * Set the value of commentator
      *
      * @return  self
      */ 
-    public function setAuthor($author)
+    public function setCommentator($commentator)
     {
-        $this->author = $author;
+        $this->commentator = $commentator;
 
         return $this;
     }

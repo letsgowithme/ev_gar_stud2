@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Option;
+use App\Entity\CarOption;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -13,7 +13,7 @@ class CarOptionCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Option::class;
+        return CarOption::class;
     }
 
     public function configureCrud(Crud $crud): Crud

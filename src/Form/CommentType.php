@@ -49,7 +49,7 @@ class CommentType extends AbstractType
                     ]
                 ]
             )
-            ->add('author', TextType::class, [
+            ->add('commentator', TextType::class, [
                 'attr' => [
                     'class' => 'form-control mb-4'
                 ],

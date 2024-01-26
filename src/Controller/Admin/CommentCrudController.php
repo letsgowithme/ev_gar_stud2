@@ -38,7 +38,7 @@ class CommentCrudController extends AbstractCrudController
             ->setFormType(CKEditorType::class)
             ->setLabel('Contenu')
             ->hideOnIndex(), 
-            TextField::new('author')
+            TextField::new('commentator')
             ->setLabel('Nom/Prénom'),   
             NumberField::new('mark')
             ->setLabel('Note')

@@ -64,7 +64,7 @@ class CarController extends AbstractController
     { 
         $comment = new Comment();
         if($this->getUser()) {
-            $comment->setAuthor($this->getUser());
+            $comment->setCommentator($this->getUser());
         }
         $commentForm = $this->createForm(CommentType::class, $comment);
         $commentForm->handleRequest($request);
