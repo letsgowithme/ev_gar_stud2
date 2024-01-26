@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\OptionRepository;
+use App\Repository\carCarOptionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity(repositoryClass: OptionRepository::class)]
-#[ORM\Table(name: '`option`')]
-class Option
+#[ORM\Entity(repositoryClass: CarCarOptionRepository::class)]
+#[ORM\Table(name: '`CarOption`')]
+class CarOption
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -21,7 +21,7 @@ class Option
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Car::class, mappedBy: 'options')]
+    #[ORM\ManyToMany(targetEntity: Car::class, mappedBy: 'CarOptions')]
     private Collection $cars;
 
     public function __construct()
@@ -63,7 +63,7 @@ class Option
     {
         if (!$this->cars->contains($car)) {
             $this->cars->add($car);
-            $car->addOption($this);
+            $car->addcarOption($this);
         }
 
         return $this;
@@ -72,7 +72,7 @@ class Option
     public function removeCar(Car $car): static
     {
         if ($this->cars->removeElement($car)) {
-            $car->removeOption($this);
+            $car->removecarOption($this);
         }
 
         return $this;

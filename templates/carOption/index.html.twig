@@ -14,13 +14,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for option in options %}
+        {% for carOption in carOptions %}
             <tr>
-                <td>{{ option.id }}</td>
-                <td>{{ option.name }}</td>
+                <td>{{ carOption.id }}</td>
+                <td>{{ carOption.name }}</td>
                 <td>
-                    <a href="{{ path('app_option_show', {'id': option.id}) }}">Voir</a>
-                    <a href="{{ path('app_option_edit', {'id': option.id}) }}">Modifier</a>
+                    <a href="{{ path('app_carOption_show', {'id': carOption.id}) }}">Voir</a>
+                    <a href="{{ path('app_carOption_edit', {'id': carOption.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +31,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_option_new') }}">Create new</a>
+    <a href="{{ path('app_carOption_new') }}">Create new</a>
 {% endblock %}

@@ -5,9 +5,9 @@ namespace App\Form;
 use App\Entity\Car;
 use App\Entity\Equipment;
 use App\Entity\Images;
-use App\Entity\Option;
+use App\Entity\CarOption;
 use App\Repository\EquipmentRepository;
-use App\Repository\OptionRepository;
+use App\Repository\CarOptionRepository;
 use Symfony\Component\Validator\Constraints\All;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\CarOptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CarType extends AbstractType
@@ -194,16 +194,16 @@ class CarType extends AbstractType
             'multiple' => true,
             'expanded' => true
         ])
-        ->add('options', EntityType::class, [
-            'class' => Option::class,
-            'query_builder' => function (OptionRepository $r) {
+        ->add('CarOptions', EntityType::class, [
+            'class' => CarOption::class,
+            'query_builder' => function (CarOptionRepository $r) {
                 return $r->createQueryBuilder('i')
                     ->orderBy('i.name', 'ASC');
             },
             'attr' => [
                 'class' => 'mb-4'
             ],
-            'label' => 'Options',
+            'label' => 'CarOptions',
             'label_attr' => [
                 'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4 bg-light p-2 rounded'
             ],

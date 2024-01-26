@@ -63,7 +63,7 @@ class CarCrudController extends AbstractCrudController
             AssociationField::new('equipments')
             ->setLabel('Équipement')
             ->hideOnIndex(),
-            AssociationField::new('options')
+            AssociationField::new('carOptions')
             ->setLabel('Options')
             ->hideOnIndex(),
             NumberField::new('width')

@@ -243,7 +243,7 @@ class CarController extends AbstractController
     }
 
     #[Route('/delete/image/{id}', name: 'delete_image', methods: ['DELETE'])]
-    public function deleteImage(Images $image, Request $request, EntityManagerInterface $em, PictureService $pictureService): JsonResponse
+    public function deleteImage(Images $image, Request $request, EntityManagerInterface $entityManager, PictureService $pictureService): JsonResponse
     {
         // On récupère le contenu de la requête
         $data = json_decode($request->getContent(), true);
@@ -255,8 +255,35 @@ class CarController extends AbstractController
 
             if($pictureService->delete($nom, 'carPosts', 640, 440)){
                 // On supprime l'image de la base de données
-                $em->remove($image);
-                $em->flush();
+                $entityManager->remove($image);
+                $entityManager->flush();
+
+                return new JsonResponse(['success' => true], 200);
+            }
+            // La suppression a échoué
+            return new JsonResponse(['error' => 'Erreur de suppression'], 400);
+        }
+
+        return new JsonResponse(['error' => 'Token invalide'], 400);
+    }
+    #[Route('/delete/contact/{id}', name: 'delete_contact', methods: ['DELETE'])]
+    public function deleteContact(Contact $contact, 
+    Request $request, 
+    EntityManagerInterface $entityManager, 
+    ): JsonResponse
+    {
+        // On récupère le contenu de la requête
+        $data = json_decode($request->getContent(), true);
+
+        if($this->isCsrfTokenValid('delete' . $contact->getId(), $data['_token'])){
+            // Le token csrf est valide
+            // On récupère le nom de l'image
+            $contactId = $contact->getId();
+
+            if($contactId){
+                // On supprime contact de la base de données
+                $entityManager->remove($contact);
+                $entityManager->flush();
 
                 return new JsonResponse(['success' => true], 200);
             }

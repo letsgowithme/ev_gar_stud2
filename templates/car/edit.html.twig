@@ -39,10 +39,10 @@ style="background: #d94350;">
                 </div>
             {% endfor %}
         </div>					
-    {{ form_label(form.options) }}
+    {{ form_label(form.carOptions) }}
         <br>
         <div class="choiceList-wrapper" style="border: none;">
-            {% for field in form.options %}
+            {% for field in form.carOptions %}
                     <div class="d-flex text-center text-light slot mt-4 fs-5 p-2" style="min-width: 15%; margin-right: 20px;  padding: 10px; margin-bottom: 10px; box-shadow: 1px 5px 5px; cursor: pointer;">
                         <div class="">{{ form_widget(field) }}</div>
                         <div class="ms-2">{{ form_label(field) }}</div>
@@ -77,5 +77,5 @@ style="background: #d94350;">
 		</div>
 {% endblock %}
 {% block javascripts %}
-    <script src="{{ asset('/assets/js/images.js') }}" defer></script>
+    <script src="{{ asset('/assets/js/delete_elem.js') }}" defer></script>
 {% endblock %}

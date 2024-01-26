@@ -101,9 +101,9 @@
 			<div class="func mt-4">
 			<button type="button rounded mb-4" id="opt_btn">Options</button>
 			<div id="opt_block" class="d-flex flex-column align-items-center mt-4">
-							{% for option in car.options %}
+							{% for carOption in car.carOptions %}
 						<p class="border mt-1 p-3 text-light opt hidden w-auto fs-4">
-				{{ option.name }} </p>
+				{{ carOption.name }} </p>
 				{% endfor %}
 				</div>
 				</div>
@@ -125,7 +125,8 @@
 	
 	<h3 class="text-light mt-4">Demandes de contact</h3>
 			 {% for contact in car.contacts %}
-						<div class="comment flex justify-start mb-4">
+
+						<div class="comment d-flex flex-column align-items-center mb-4" style="padding: 50px; width: 100%;">
 							<div>
 								<div class="block p-6 mx-4 border">
 										<p class="text-light fs-5">Author : {{ contact.fullName }}</p>
@@ -141,10 +142,15 @@
 										<p class="text-light fs-5">Téléphone : 
 											{{ contact.phoneNumber|raw }} 
 										</p>
+											<a href="{{ path('delete_contact', { id: contact.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ contact.id) }}">Supprimer</a>
 									</div>
+									
 								</div>
+								
 							</div>
+							
 						</div>
+					
 						<hr class="mx-4">
 				{% endfor %}
 		{% endif %}  
@@ -195,4 +201,6 @@
 </div>
 	
 {% endblock %}
-
+{% block javascripts %}
+    <script src="{{ asset('/assets/js/delete_elem.js') }}" defer></script>
+{% endblock %}

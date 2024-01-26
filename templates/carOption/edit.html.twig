@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Option{% endblock %}
+
+{% block body %}
+    <h1>Modifier Option</h1>
+
+    {{ include('carOption/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_carOption_index') }}">Vers la liste</a>
+
+    {{ include('carOption/_delete_form.html.twig') }}
+{% endblock %}

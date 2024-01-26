@@ -9,18 +9,18 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ option.id }}</td>
+                <td>{{ carOption.id }}</td>
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ option.name }}</td>
+                <td>{{ carOption.name }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_option_index') }}">Vers la liste</a>
+    <a href="{{ path('app_carOption_index') }}">Vers la liste</a>
 
-    <a href="{{ path('app_option_edit', {'id': option.id}) }}">Modifier</a>
+    <a href="{{ path('app_carOption_edit', {'id': carOption.id}) }}">Modifier</a>
 
-    {{ include('option/_delete_form.html.twig') }}
+    {{ include('carOption/_delete_form.html.twig') }}
 {% endblock %}

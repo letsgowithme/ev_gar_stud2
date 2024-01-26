@@ -63,8 +63,8 @@ class Car
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
-    #[ORM\ManyToMany(targetEntity: Option::class, inversedBy: 'cars')]
-    private Collection $options;
+    #[ORM\ManyToMany(targetEntity: CarOption::class, inversedBy: 'cars')]
+    private Collection $carOptions;
     
     #[ORM\Column(type: "integer", nullable: true)]
     private ?int $length = null;
@@ -84,6 +84,13 @@ class Car
     #[ORM\Column(type: "integer", nullable: true)]
     private ?int $priceMax = null;
 
+    #[Assert\Count(
+        min: 1,
+        max: 3,
+        minMessage: 'You must specify at least one image',
+        maxMessage: 'You cannot specify more than {{ max }} images',
+    )]
+
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
     private Collection $images;
 
@@ -93,7 +100,7 @@ class Car
     public function __construct(){
         $this->updatedAt = new \DateTimeImmutable();
         $this->equipments = new ArrayCollection();
-        $this->options = new ArrayCollection();
+        $this->carOptions = new ArrayCollection();
         $this->contacts = new ArrayCollection();
         $this->images = new ArrayCollection();
        
@@ -263,25 +270,25 @@ class Car
     }
 
     /**
-     * @return Collection<int, Option>
+     * @return Collection<int, CarOption>
      */
-    public function getOptions(): Collection
+    public function getCarOptions(): Collection
     {
-        return $this->options;
+        return $this->carOptions;
     }
 
-    public function addOption(Option $option): static
+    public function addOption(CarOption $carOption): static
     {
-        if (!$this->options->contains($option)) {
-            $this->options->add($option);
+        if (!$this->carOptions->contains($carOption)) {
+            $this->carOptions->add($carOption);
         }
 
         return $this;
     }
 
-    public function removeOption(Option $option): static
+    public function removeCarOption(carOption $carOption): static
     {
-        $this->options->removeElement($option);
+        $this->carOptions->removeElement($carOption);
 
         return $this;
     }

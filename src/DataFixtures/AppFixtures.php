@@ -6,7 +6,7 @@ use App\Entity\Car;
 use App\Entity\User;
 use App\Entity\Contact;
 use App\Entity\Equipment;
-use App\Entity\Option;
+use App\Entity\CarOption;
 use App\Entity\Schedule;
 use App\Entity\Comment;
 use App\Entity\Images;
@@ -107,14 +107,14 @@ class AppFixtures extends Fixture
         }
 
         
-           //Option
-           $options = [];
+           //carOption
+           $carOptions = [];
            for ($n = 0; $n < 5; $n++) {
-               $option = new Option();
-               $option->setName($this->faker->word());
+               $carOption = new carOption();
+               $carOption->setName($this->faker->word());
                
-               $options[] = $options;
-            $manager->persist($option);
+               $carcarOptions[] = $options;
+            $manager->persist($carOption);
            }
              // Schedule
               $schedules = [];
