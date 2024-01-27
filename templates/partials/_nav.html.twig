@@ -37,13 +37,13 @@
 					</a>
 					<div class="dropdown-menu">
 						{% if 'ROLE_ADMIN' in app.user.roles %}
-							<a class="dropdown-item  fw-bold  fs-5" href="/admin">Tableau de bord</a>
+							<a class="dropdown-item  fw-bold  fs-6 px-2" href="/admin">Tableau de bord</a>
 						{% endif %}
 
-						<a class="dropdown-item fw-bold my-2 text-center fs-5" href="{{ path('car.user_index') }}">Mon espace</a>
+						<a class="dropdown-item fw-bold my-2 text-center fs-6" href="{{ path('car.user_index') }}">Mon espace</a>
 						<div class="dropdown-divider"></div>
 
-						<a class="dropdown-item fw-bold my-2 text-center  fs-5" href="{{ path('app_logout') }}">Déconnextion</a>
+						<a class="dropdown-item fw-bold my-2 text-center  fs-6" href="{{ path('app_logout') }}">Déconnextion</a>
 					{% endif %}
 				</li>
 			</div>

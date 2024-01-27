@@ -9,10 +9,10 @@
 <div class="d-flex flex-column  align-items-center" 
 style="padding: 15px; background: #D92332;"  id="block_services_page">
 
-<div class="d-flex flex-column align-items-center flex-center" id="services_list_page">
+<div class="d-flex flex-column align-items-center text-center flex-center" id="services_list_page">
  {% for service in services %}
  <p class="services_title_page text-light mb-4 mt-4"> {{ service.title }}</p>
- <p class="services_txt text-light mb-4 mt-4 border p-4"> {{ service.description }}</p>
+ <p class="services_txt text-light mb-4 mt-4 border p-4 text-center"> {{ service.description }}</p>
 {% endfor %}
 {% include "partials/_btn_contact.html.twig" %}
 </div>
