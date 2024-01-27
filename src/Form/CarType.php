@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -165,10 +166,10 @@ class CarType extends AbstractType
                             'image/jpeg',
                             'image/png',
                             'image/webp'
-                        ],
-
-                    ])
-                )
+                        ]    
+                        ])
+                    )
+                    // ,'maxNumberOfComponents' => 3
             ]
             
         ])
