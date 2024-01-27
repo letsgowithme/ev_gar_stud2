@@ -146,7 +146,6 @@ class CarController extends AbstractController
 
     #[Route('/{id}', name: 'car.show', methods: ['GET', 'POST'])]
     public function show(
-        // #[MapEntity(mapping: ['id' => 'id'])] Contact $contact,
     Car $car, 
     ScheduleRepository $scheduleRepository,
     Request $request,
@@ -171,12 +170,12 @@ class CarController extends AbstractController
         $sellerEmail = $car->getAuthor()->getEmail();
         $subject = $contact->getSubject();
         $message = $contact->getMessage();
-        $author = $contact->getfullName();
+        $guest = $contact->getfullName();
         $email = (new Email())
         ->from('admin@exemple.com')
         ->to($sellerEmail)
         ->subject($subject)
-        ->text("De: ". $author, "Message: ". $message);
+        ->text("De: ". $guest, "Message: ". $message);
 
         $mailer->send($email);
       

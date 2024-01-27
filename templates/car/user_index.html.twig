@@ -9,11 +9,12 @@
 	>{% if app.user %}
 		<h1 class="text-center bg-light d-1 fw-bold" id="h1_car_index">Mes annonces</h1>
 			<div class="d-flex justify-content-between">
-         <button type="button" class="btn_create mb-3 mt-4" style="width: 240px; background: #d94350;" class="text-center fs-4 fw-bold rounded mb-3"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
+         <button type="button" class="btn_create mb-3 mt-4" style="width: 240px; background: #d94350;" class="text-center fw-bold rounded mb-3"><a href="{{ path('car.new') }}" class="fs-4 ">Créer une annonce</a></button>
+				 <div>
 				 <h3 class="my-4">
-					<button type="button rounded" id="btn_comment">Créer un commentaire</button>
+					<button type="button rounded" id="btn_comment" class="fs-4">Créer un commentaire</button>
 				</h3>
-				
+				</div>
 			</div>
 		{% endif %}
 	
