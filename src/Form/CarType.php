@@ -144,6 +144,7 @@ class CarType extends AbstractType
             'required' => false,
            
         ])
+        
         ->add('images', FileType::class, [
             'attr' => [
                 'class' => 'form-control mb-4'
@@ -169,7 +170,7 @@ class CarType extends AbstractType
                         ]    
                         ])
                     )
-                    // ,'maxNumberOfComponents' => 3
+                 
             ]
             
         ])
@@ -200,7 +201,7 @@ class CarType extends AbstractType
             'attr' => [
                 'class' => 'mb-4'
             ],
-            'label' => 'CarOptions',
+            'label' => 'Options',
             'label_attr' => [
                 'class' => 'form-label mt-4 mb-4 fw-bold  text-dark fs-4 bg-light p-2 rounded'
             ],

@@ -76,7 +76,7 @@
 			<div class="suppl_info_block">
 
 			<div class="func mt-4">
-			<button type="button rounded mb-4" id="caracter_btn">Caractéristiques</button>
+			<button type="button rounded mb-4 fs-5" id="caracter_btn">Caractéristiques</button>
 			<div id="caracter" class="d-flex flex-column align-items-center justify-content-between">
 			<div class="d-flex justify-content-between mt-4">
 						<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Largeur : 
@@ -122,12 +122,15 @@
 	{% if app.user %}
 	
 		
-	<h3 class="text-light mt-4">Demandes de contact</h3>
-			 {% for contact in car.contacts %}
 
-						<div class="comment d-flex flex-column align-items-center mb-4" style="padding: 50px; width: 100%;">
+			 {% for contact in car.contacts %}
+	
+						<div class="comment px-4 d-flex flex-column align-items-center mb-4" style="padding: 50px; width: 100%;">
 							<div>
-								<div class="block p-6 mx-4 border">
+						
+								<div class="block pb-4 mx-4">
+									<h4 class="text-light mt-4 px-4  pt-2 show_content_btn cursor">Demandes de contact numéro {{ contact.id }}</h4>
+									<div class="contact_content hidden  border">
 										<p class="text-light fs-5">Author : {{ contact.fullName }}</p>
 										<p class="text-light fs-5">E-mail : 
 											{{ contact.email|raw }}
@@ -135,15 +138,17 @@
 										<p class="text-light fs-5">Sujet : 
 											{{ contact.subject|raw }}
 										</p>
-										<p class="text-light fs-5">Message : 
+										<p class="text-light fs-5 px-4">Message : 
 											{{ contact.message|raw }}
 										</p>
 										<p class="text-light fs-5">Téléphone : 
 											{{ contact.phoneNumber|raw }} 
 										</p>
-											<a href="{{ path('delete_contact', { id: contact.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ contact.id) }}">Supprimer</a>
+											<a href="{{ path('delete_contact', { id: contact.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ contact.id) }}" class="link_delete fs-5">Supprimer</a>
+											<br>
+											<button class="close fs-6 cursor mt-2 mb-2">Fermer</button>
 									</div>
-									
+									</div>
 								</div>
 								
 							</div>
@@ -176,8 +181,8 @@
 			{% endif %}
 			 </section>
 			{% if app.user %}
-		<button type="button" class="btn">
-			<a href="{{ path('car.edit', {'id': car.id}) }}" class="fs-4 py-2 fw-bold">Modifier</a>
+		<button type="button" class="btn my-2">
+			<a href="{{ path('car.edit', {'id': car.id}) }}" class="fs-4 py-2  fw-bold link">Modifier</a>
 		</button>
 		{% endif %}
 	</div>
@@ -202,4 +207,5 @@
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('/assets/js/delete_elem.js') }}" defer></script>
+		 <script src="{{ asset('/assets/js/show_content.js') }}" defer></script>
 {% endblock %}

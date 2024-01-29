@@ -22,7 +22,7 @@ style="background: #d94350;">
     <div class="mt-2">
         <img src="{{ asset('assets/uploads/carPosts/mini/640x440-' ~ image.name) }}" 
         alt="{{ car.title }}" width="150" height="140">
-        <a href="{{ path('delete_image', { id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+        <a href="{{ path('delete_image', { id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}" class="link">Supprimer</a>
         </div>
     {% endfor %}
     </div>
@@ -63,11 +63,11 @@ style="background: #d94350;">
    
 
 <div>
-    <a href="{{ path('car.index') }}" class="my-4 fs-4 text-light to_posts">Vers les annonces</a>
+    <a href="{{ path('car.index') }}" class="my-4 px-2 fs-4 text-light to_posts">Vers les annonces</a>
  {% include "partials/_btn_up.html.twig" %}
 </div>
 
-    <div style="background: red; width: 100px;">{{ include('car/_delete_form.html.twig') }}</div>
+    <div style="width: 100px;">{{ include('car/_delete_form.html.twig') }}</div>
   
     </div> </div>
         <div class="row mt-4">

@@ -88,7 +88,7 @@ class Car
         min: 0,
         max: 3,
         minMessage: 'Vous pouvez ajouter les images plutard',
-        maxMessage: 'Vous ne pouvez pas ajouter plus que {{ max }} images',
+        maxMessage: 'Vous ne pouvez pas ajouter plus que 3 images',
     )]
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Images::class,  cascade: ['persist', 'remove'])]
     private Collection $images;

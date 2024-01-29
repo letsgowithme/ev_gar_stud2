@@ -32,7 +32,13 @@ a,
 .schedule_day{
   font-family: 'Rajdhani', sans-serif;
 }
-
+.cursor{
+cursor: pointer;
+}
+.close:hover{
+background-color: blue;
+color: white;
+}
 #bnt_contact{
   background: var(--nav_bg_color);
 }
@@ -206,6 +212,36 @@ a,
   } 
   #btn_contact a:hover{
    color: var(--light)!important;
+  }
+  .show_content_btn:hover{
+    border: 1px solid white;
+    background-color: var(--main_bg_color);
+  }
+  .link{
+    padding: 5px;
+    border: 2px solid white;
+    background-color: var(--nav_bg_color);
+    color: white;
+  }
+  .link_delete{
+    padding: 5px;
+    /* border: 2px solid white; */
+    /* background-color: red; */
+  }
+
+  .link:hover {
+ border: 2px solid red;
+ color: red;
+ background-color: white;
+ font-weight: bold;
+
+ 
+  }
+  .link_delete:hover {
+    border: 2px solid darkblue;
+    color: white;
+    background-color: red;
+    font-weight: bold;
   }
   .down_link{
     color: var(--light);
@@ -465,7 +501,9 @@ transition: 0.3s ease-in-out;
 .adr_p{
   font-size: 1.9em!important;
  }
- #caracter_btn{
+ #caracter_btn,
+ #equip_btn,
+ #opt_btn{
 font-size: 1.3em!important;
  }
 

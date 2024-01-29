@@ -3,14 +3,19 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Car;
+use App\Form\ImagesType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CarCrudController extends AbstractCrudController
 {
@@ -37,24 +42,51 @@ class CarCrudController extends AbstractCrudController
             ->hideOnForm(),
             TextField::new('title')
             ->setLabel('Titre d\'annonce'),
+            TextField::new('imageFile')
+                ->setFormType(VichImageType::class)
+                ->hideOnIndex()
+                ->setLabel('Image principale'),
             ImageField::new('imageName')
             ->setFormType(FileUploadType::class)
             ->setUploadDir('/public/uploads')
             ->setRequired(false)
-            ->setLabel('Image principale')
+            ->setLabel('Image')
+            ->hideOnForm()
             ->hideOnIndex(),
-            AssociationField::new('images')
+            ImageField::new('images')
+            ->setFormType(FileUploadType::class)
+            ->setFormTypeOption('by_reference', false)
+            ->setUploadDir('/public/assets/uploads')
+            ->setBasePath('/assets/uploads')
             ->setRequired(false)
-            ->setLabel('Images')
-            ->hideOnIndex(),
+            ->hideOnIndex()
+            ->setLabel('Ajouter plus d\'images'),
             NumberField::new('year')
             ->setLabel('Année de mise en circulation')
             ->hideOnIndex(),
             NumberField::new('km')
             ->setLabel('Kilométrage '),
-            TextField::new('fuelType')
+            ChoiceField::new('fuelType')
+            ->setChoices([
+                'Essence' => 'Essence',
+                'Diesel' => 'Diesel',
+                'Electrique' => 'Electrique',
+            ])
             ->setLabel('Type de carburant'),
-            TextField::new('color')
+            ChoiceField::new('color')
+            ->setChoices([
+                'Choisir la couleur' => "",
+                'Noir' => 'Noir',
+                'Blanc' => 'Blanc',
+                'Vert' => 'Vert',
+                'Rouge' => 'Rouge',
+                'Argent' => 'Argent',
+                'Orange' => 'Orange',
+                'Bleu' => 'Bleu',
+                'Gris' => 'Gris',
+                'Beige' => 'Beige',
+                'Autre' => 'Autre',
+            ])
             ->setLabel('Couleur'),
             NumberField::new('price')
             ->setLabel('Prix '),

@@ -134,6 +134,11 @@ class CarController extends AbstractController
             $entityManager->persist($car);
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                'Votre annonce a été créée avec succès !'
+            );
+
             return $this->redirectToRoute('car.index', [], Response::HTTP_SEE_OTHER);
         }
 
