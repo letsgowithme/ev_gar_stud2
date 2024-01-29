@@ -41,7 +41,7 @@
                 </div>
           
 <div class="car_info_show text-center mb-4">
-		<h5 class="mt-3 text-light show_block_titles fs-4">Année:
+		<h5 class="mt-3 text-light show_block_titles fs-4 text-center">Année :
 			<span class="badge bg-primary">{{ car.year |raw }}</span>
 		</h5>
 
@@ -79,21 +79,21 @@
 			<button type="button rounded mb-4 fs-5" id="caracter_btn">Caractéristiques</button>
 			<div id="caracter" class="d-flex flex-column align-items-center justify-content-between">
 			<div class="d-flex justify-content-between mt-4">
-						<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Largeur : 
+						<p class="badge_caract border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Largeur : 
 				{{ car.width }} cm</p>
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Longueur : 
+					<p class="badge_caract border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Longueur : 
 				{{ car.length }} cm</p>
 				</div>
 				<div class="d-flex justify-content-between">
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Hauteur : 
+					<p class="badge_caract border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Hauteur : 
 				{{ car.height }} cm</p>
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Poids : 
+					<p class="badge_caract border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Poids : 
 				{{ car.weight }} kg</p>
 				</div>
 				<div class="d-flex justify-content-between">
-					<p class="border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Prix minimal : 
+					<p class="badge_caract border  mt-1 px-2 mx-2  text-light caract hidden fs-4">Prix minimal : 
 				{{ car.priceMin }} €</p>
-					<p class="border  mt-1 px-2 mx-2 text-light caract hidden fs-4">Prix maximal : 
+					<p class="badge_caract border  mt-1 px-2 mx-2 text-light caract hidden fs-4">Prix maximal : 
 				{{ car.priceMax }} €</p>
 				</div>
 						</div>
@@ -125,12 +125,12 @@
 
 			 {% for contact in car.contacts %}
 	
-						<div class="comment px-4 d-flex flex-column align-items-center mb-4" style="padding: 50px; width: 100%;">
-							<div>
+						<div class="comment px-4 d-flex flex-column align-items-center mb-1" style="padding: 0px; width: 100%;">
+						
 						
 								<div class="block pb-4 mx-4">
-									<h4 class="text-light mt-4 px-4  pt-2 show_content_btn cursor">Demandes de contact numéro {{ contact.id }}</h4>
-									<div class="contact_content hidden  border">
+									<h4 class=" mt-1 px-4  pt-2 show_content_btn border cursor">Demande de contact numéro {{ contact.id }}</h4>
+									<div class="contact_content hidden  border" style="width: 375px;">
 										<p class="text-light fs-5">Author : {{ contact.fullName }}</p>
 										<p class="text-light fs-5">E-mail : 
 											{{ contact.email|raw }}
@@ -208,4 +208,5 @@
 {% block javascripts %}
     <script src="{{ asset('/assets/js/delete_elem.js') }}" defer></script>
 		 <script src="{{ asset('/assets/js/show_content.js') }}" defer></script>
+		 <script src="{{ asset('/assets/js/details.js') }}" defer></script>
 {% endblock %}

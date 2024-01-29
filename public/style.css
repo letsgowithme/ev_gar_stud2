@@ -213,9 +213,17 @@ color: white;
   #btn_contact a:hover{
    color: var(--light)!important;
   }
+
+  .show_content_btn{
+    background-color: blue;
+    color: white;
+    border: 1px solid blue;
+   }
+
   .show_content_btn:hover{
     border: 1px solid white;
     background-color: var(--main_bg_color);
+    color: white;
   }
   .link{
     padding: 5px;
@@ -223,10 +231,25 @@ color: white;
     background-color: var(--nav_bg_color);
     color: white;
   }
+  .btn_link_delete{
+    padding: 5px;
+    border: 2px solid white;
+    background-color: red;
+    color: blue!important;
+  }
+
+  .btn_link_delete:hover{
+    padding: 5px;
+    border: 2px solid red;
+    background-color: white;
+    color: blue;
+  }
+
   .link_delete{
     padding: 5px;
-    /* border: 2px solid white; */
-    /* background-color: red; */
+    background-color: red;
+    color: white;
+    border: 2px solid white;
   }
 
   .link:hover {
@@ -239,7 +262,7 @@ color: white;
   }
   .link_delete:hover {
     border: 2px solid darkblue;
-    color: white;
+    color: rgb(63, 63, 65);
     background-color: red;
     font-weight: bold;
   }
@@ -506,7 +529,7 @@ transition: 0.3s ease-in-out;
  #opt_btn{
 font-size: 1.3em!important;
  }
-
+ 
  #contact_btn:hover,
  #equip_btn:hover,
  #opt_btn:hover,
@@ -521,6 +544,9 @@ padding: 2px 8px;
   height: auto!important;
   width: 100%;
  }
+.opt{
+  width: 375px!important;
+}
 }
 /******************768px************** */
   @media screen and (min-width: 768px) {
@@ -829,6 +855,15 @@ font-size: 1.6em;
   }
   #btn_rdv a{
     font-size: 2em!important;
+  }
+  .badge{
+    width: 180px!important;
+  
+  }
+  .badge_caract{
+    width: 250px!important;
+    font-size: 1.6em;
+  
   }
   .car_info_show{
     display: flex!important;
