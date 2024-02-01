@@ -14,7 +14,8 @@ class SecurityController extends AbstractController
         public function login(AuthenticationUtils $authenticationUtils,
         ScheduleRepository $scheduleRepository
         ): Response
-    {   /**
+    {   
+        /**
         * This controller allows us to login
         *
         * @param AuthenticationUtils $authenticationUtils

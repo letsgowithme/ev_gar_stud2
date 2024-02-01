@@ -24,10 +24,10 @@ class UserCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
 {
 return $crud
-            ->setEntityLabelInPlural('Emplyés')
+            ->setEntityLabelInPlural('Employés')
             ->setEntityLabelInSingular('Employé')
             ->setSearchFields(['lastname'])
-            ->setPageTitle("index", "Administration des emlpoyés")
+            ->setPageTitle("index", "Administration des employés")
             ->setDefaultSort(['lastname' => 'asc'])
             ->setPageTitle(pageName:Crud::PAGE_INDEX, title: 'Employé')
             ->setPageTitle(pageName:Crud::PAGE_NEW, title: 'Créer un employé')
