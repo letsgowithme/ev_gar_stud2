@@ -126,28 +126,29 @@
 			 {% for contact in car.contacts %}
 	
 						<div class="comment px-4 d-flex flex-column align-items-center mb-1" style="padding: 0px; width: 100%;">
-						
+				
 						
 								<div class="block pb-4 mx-4">
 									<h4 class=" mt-1 px-4  pt-2 show_content_btn border cursor">Demande de contact numéro {{ contact.id }}</h4>
-									<div class="contact_content hidden  border" style="width: 375px;">
-										<p class="text-light fs-5">Author : {{ contact.fullName }}</p>
-										<p class="text-light fs-5">E-mail : 
+									<div class="contact_content hidden  border">
+										<p class="cont_txt text-light  mt-4">Author : {{ contact.fullName }}</p>
+										<p class="text-light">E-mail : 
 											{{ contact.email|raw }}
 										</p>
-										<p class="text-light fs-5">Sujet : 
-											{{ contact.subject|raw }}
+										<p class="cont_txt text-light">Sujet : 
+											{{ contact.subject|raw }} <br>à propos de l'annonce numéro <strong>{{ car.id }} <br> {{ car.title }}</strong>
 										</p>
-										<p class="text-light fs-5 px-4">Message : 
+										<p class="cont_txt text-light px-4">Message : 
 											{{ contact.message|raw }}
 										</p>
-										<p class="text-light fs-5">Téléphone : 
+										<p class="cont_txt text-light">Téléphone : 
 											{{ contact.phoneNumber|raw }} 
 										</p>
-											<a href="{{ path('delete_contact', { id: contact.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ contact.id) }}" class="link_delete fs-5">Supprimer</a>
+										<div class="d-flex justify-content-around">
+											<a href="{{ path('delete_contact', { id: contact.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ contact.id) }}" class="link_delete link_del_car_sh fs-5 my-4">Supprimer</a>
 											<br>
-											<button class="close fs-6 cursor mt-2 mb-2">Fermer</button>
-									</div>
+											<button class="btn-light border close fs-5 cursor my-2">Fermer</button>
+									</div></div>
 									</div>
 								</div>
 								

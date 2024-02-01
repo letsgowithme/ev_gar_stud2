@@ -22,7 +22,7 @@ class CommentRepository extends ServiceEntityRepository
     }
 
      /**
-     * Show public recipes
+     * 
      * @param integer $nbComments
      * @return array
      */
