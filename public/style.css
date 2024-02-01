@@ -560,6 +560,10 @@ padding: 2px 8px;
 .opt{
   width: 375px!important;
 }
+/* page login */
+.login_page_container{
+  height: auto;
+}
 }
 /******************768px************** */
   @media screen and (min-width: 768px) {
@@ -655,6 +659,9 @@ margin-bottom: 20px;
 
 
   }
+  .login_page_container{
+    height: 300px;
+  }
 }
 @media screen and (min-width: 800px) {
 /**page car.show* 768px*** */
@@ -681,6 +688,7 @@ margin-bottom: 20px;
   {
     background-color: #f0db9c!important;
   }
+ 
 }
 
 /* ************************1024px****************** */
@@ -910,7 +918,9 @@ font-size: 1.6em;
 
 
 }
-  
+.login_page_container{
+  height: 460px;
+}
  }  
  /* ************************1440px***************************************** */
  @media screen and (min-width: 1440px) {
