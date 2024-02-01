@@ -4,7 +4,7 @@
 				{% for schedule in schedules %}
 				<div class="d-flex flex-column schedule_list">
 						 <div class="fw-bold text-center text-capitalize text-light schedule_day">{{ schedule.day }}</div>
-						<div class="text-center text-light schedule_time fs-2" style="max-width: 250px; padding: 10px;">
+						<div class="text-center text-light schedule_time fs-2" style="max-width: 250px; min-height: 50px; padding: 10px;">
 						{% if schedule.openingTimeMorning %}
 						{{ schedule.openingTimeMorning }}
 							{% endif %}
