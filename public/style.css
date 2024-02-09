@@ -863,6 +863,9 @@ font-size: 1.6em;
    .footer-copyright{
     font-size: 1.2em;
    }
+   #btn_rdv{
+    margin-top: -2%;
+   }
    /* page car new */
  .car_new_container{
   height: auto!important;
@@ -1022,7 +1025,7 @@ footer a {
   font-size: 2em;
   position: absolute;
   left: 65%;
-  top: 95%;
+  top: 90%;
   z-index: 7;
   padding: 20px;
   border: 2px solid #ccc;
