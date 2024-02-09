@@ -48,7 +48,7 @@ public function configureActions(Actions $actions): Actions
 
 public function configureFields(string $pageName): iterable
 {
-     $roles = ['ROLE_ADMIN', 'ROLE_USER'];
+     $roles = ['ROLE_USER', 'ROLE_ADMIN'];
 return [
 IdField::new('id')
 ->hideOnForm(),
