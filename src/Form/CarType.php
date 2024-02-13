@@ -74,6 +74,7 @@ class CarType extends AbstractType
                 new Assert\LessThan(300000)
             ]
         ])
+        
         ->add('fuelType', ChoiceType::class, [
             'choices' => [
                 'Choisir' => "",

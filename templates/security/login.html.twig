@@ -3,10 +3,10 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<section class="container my-3 login_page_container w-50" style="height: 30vh;">
+<section class="container my-3 login_page_container w-50" style="height: 35vh;">
 <h1 class="mb-3">Page de connexion</h1>
     <div class="row">
-        <div class="col">
+        <div class="col mb-4">
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -23,13 +23,14 @@
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <button class="btn btn-lg btn-primary mt-3" type="submit">
+                <button class="btn btn-lg btn-primary mt-3 mb-4" type="submit">
                     Se connecter
                 </button>
             </form>
         
         </div>
-    </div>
+    </div>  
+     {# </div>    #}
 </section>
 <div class="row mt-4 mb-4">
 			<div class="col-12">

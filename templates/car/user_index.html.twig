@@ -4,17 +4,18 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container mt-4 d-flex flex-xs-column justify-content-center" 
+	<div class="container mt-4 d-flex flex-xs-column align-items-center
+	{# justify-content-center #}
+	" 
 	style="height: auto;"
 	>{% if app.user %}
 		<h1 class="text-center bg-light d-1 fw-bold" id="h1_car_index">Mes annonces</h1>
 			<div class="d-flex justify-content-between">
-         <button type="button" class="btn_create mb-3 mt-4" style="width: 240px; background: #d94350;" class="text-center fw-bold rounded mb-3"><a href="{{ path('car.new') }}" class="fs-4 ">Créer une annonce</a></button>
-				 <div>
-				 <h3 class="my-4">
-					<button type="button rounded" id="btn_comment" class="fs-4">Créer un commentaire</button>
-				</h3>
-				</div>
+         <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 me-2" 
+				 style="width: auto; background: #d94350;"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
+				
+					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3" style="width: auto; background: #d94350;">Créer un commentaire</button>
+			
 			</div>
 		{% endif %}
 	
@@ -25,15 +26,15 @@
 					{% for car in app.user.cars %}
 			
 				<div class="card  mb-3 text-sm-center car_info">
-					 <div class="card-body card_body">
+					 <div class="card-body card_body text-center">
 						<div class="car__image card-image">
-						<p class="card-text text-light bg-dark rounded w-50 car_price_span"
+						<p class="card-text text-light bg-dark rounded w-50 ps-2 car_price_span"
 						 >{{ car.price|raw }} €</p>
 							<img
 						 class="main_car_img mb-3"
 							src="{{ vich_uploader_asset(car, 'imageFile') }}">
 						</div>
-						<h4 class="card-title">
+						<h4 class="card-title text-center">
 						{{ car.title }}</h4>
 					<span>Année : </span><p class="card-text fw-bold  car_year" value=""> {{ car.year|raw }}</p>
           <p class="card-text fw-bold">{{ car.fuelType|raw }}</p>
@@ -72,7 +73,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
 	$(document).ready(function () {
-$("#btn_comment").click(function () {
+$("#btn_comment_p_user").click(function () {
 $("#commentNew").removeClass("hidden");
 $("#commentNew").css("position","absolute");
 // $("#commentNew").css("z-index","5");

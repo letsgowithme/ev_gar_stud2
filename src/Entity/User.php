@@ -52,8 +52,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->cars = new ArrayCollection();
     }
 
-    
-
     public function getId(): ?int
     {
         return $this->id;
@@ -144,7 +142,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
     
-
     /**
      * @see PasswordAuthenticatedUserInterface
      */
@@ -203,9 +200,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->lastname;
         
     }
-
-
-   
-
   
 }
