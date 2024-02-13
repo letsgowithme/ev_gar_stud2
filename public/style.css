@@ -821,7 +821,7 @@ margin-bottom: 20px;
     .call_us{
       display: block;
       position: relative;
-      right: -10%;
+      right: 10%;
       transform: translateX(0%);
       font-size: 1.2em;
       border: 1px solid white;
@@ -1109,7 +1109,7 @@ font-size: 1.6em;
   }
 
   .call_us{
-    right: -25%;
+    right: 5%;
     transform: translateX(0%);
     font-size: 1.4em;
     border: 1px solid rgb(183, 12, 12);
