@@ -9,23 +9,23 @@
 	" 
 	style="height: auto;"
 	>{% if app.user %}
-		<h1 class="text-center bg-light d-1 fw-bold" id="h1_car_index">Mes annonces</h1>
+		<h1 class="text-center bg-light d-1 fw-bold p-2 rounded" id="h1_car_index">Mes annonces</h1>
 			<div class="d-flex justify-content-between">
          <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 me-2" 
-				 style="width: auto; background: #d94350;"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
+				 style="width: auto;"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
 				
-					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3" style="width: auto; background: #d94350;">Créer un commentaire</button>
+					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3" style="width: auto;">Créer un commentaire</button>
 			
 			</div>
 		{% endif %}
 	
-<div class="d-flex flex-wrap"  id="carPosts_block">
+<div class="d-flex flex-xs-column flex-lg-row flex-wrap"  id="carPosts_block">
 
 		{# {% for car in pagination %} #}
     {% if app.user.cars %}
 					{% for car in app.user.cars %}
 			
-				<div class="card  mb-3 text-sm-center car_info">
+				<div class="card  mb-3 text-sm-center car_info mx-2">
 					 <div class="card-body card_body text-center">
 						<div class="car__image card-image">
 						<p class="card-text text-light bg-dark rounded w-50 ps-2 car_price_span"
@@ -48,7 +48,7 @@
 				<br>
 			{% endfor %}
       {% endif %}
-			<div class="hidden w-50 p-4" id="commentNew">
+			<div class="hidden p-4" id="commentNew">
 					{% include "partials/_comment.html.twig" %}
 				</div>
 				</div>
@@ -73,10 +73,12 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
 	$(document).ready(function () {
+		$("#commentNew").addClass("hidden");
+		// $("#commentNew").css("z-index","5");
 $("#btn_comment_p_user").click(function () {
 $("#commentNew").removeClass("hidden");
 $("#commentNew").css("position","absolute");
-// $("#commentNew").css("z-index","5");
+
 $("#commentNew").css("background-color","#d94350");
 
 });
