@@ -14,9 +14,15 @@
 					{{ form_row(commentForm.commentator) }}
 				</div>
 				<div class="mb-3">
-				<h5>Note:</h5>
+				<h5>Note :</h5>
 					{{ form_widget(commentForm.mark) }}
 				</div>
+					{% if app.user %}
+						<div class="mb-3">
+				<h5>Approuver :</h5>
+					{{ form_widget(commentForm.isApproved) }}
+				</div>
+				{% endif %}
 				<div class="mb-3">
 					{{ form_row(commentForm.submit) }}
 				</div>

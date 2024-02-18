@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Comment;
+use Doctrine\DBAL\Types\BooleanType;
+use PhpParser\Node\Expr\Cast\Bool_;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -24,7 +26,7 @@ class CommentType extends AbstractType
             ],
             'label' => 'Sujet',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-light fs-5 fw-bold',
+                'class' => 'form-label mt-4 text-light fs-6 fw-bold',
                 'minLength' => '2',
                 'maxLength' => '50'
             ],
@@ -41,7 +43,7 @@ class CommentType extends AbstractType
                     ],
                     'label' => 'Contenu',
                     'label_attr' => [
-                        'class' => 'form-label inline-block mb-2 fs-5 text-light fw-bold'
+                        'class' => 'form-label inline-block mb-2 fs-6 text-light fw-bold'
                     ],
                     'constraints' => [
                         new Assert\Length(['min' => 1, 'max' => 255]),
@@ -55,7 +57,7 @@ class CommentType extends AbstractType
                 ],
                 'label' => 'Nom/Prénom',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-5  fw-bold',
+                    'class' => 'form-label mt-4 text-light fs-6  fw-bold',
                     'minLength' => '1',
                     'maxLength' => '50'
                 ],
@@ -66,7 +68,7 @@ class CommentType extends AbstractType
             ])
             ->add('mark', ChoiceType::class, [
                 'attr' => [
-                    'class' => 'form-select mb-4 fs-5'
+                    'class' => 'form-select  mb-4 fs-6'
                 ],
                 'choices' => [
                     'Choisir' => "",
@@ -80,7 +82,7 @@ class CommentType extends AbstractType
                 
                 'label' => 'Note:',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-5 fw-bold'
+                    'class' => 'form-label mt-4 text-light fs-6 fw-bold'
                 ],
                 'multiple' => false,
                 'required' => true,
@@ -89,16 +91,30 @@ class CommentType extends AbstractType
                 ]
     
             ])
-            ->add('isApproved', HiddenType::class,[
-                'data' => '0',
+            // ->add('isApproved', HiddenType::class,[
+            //     'data' => '0',
+            // ])
+            ->add('isApproved', ChoiceType::class,[
+                'attr' => [
+                    'class' => 'form-select  mb-4 fs-6'
+                ],
+                "choices" => [
+                'Non approuvé' => '0',
+                'Approuvé' => '1'
+                ],
+                'label' => 'Approuver:',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 text-light fs-6 fw-bold'
+                ],
             ])
 
             ->add('submit', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-primary mt-4 mb-5'
                 ],
-                'label' => 'Envoyer le commentaire'
-            ]);;
+                'label' => 'Enregistrer'
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -22,7 +22,6 @@ class ContactCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('Contact')
             ->setEntityLabelInPlural('Contacts')
             ->setPageTitle(pageName:Crud::PAGE_INDEX, title: 'Demandes de contact')
-            // ->setPageTitle(pageName:Crud::PAGE_NEW, title: 'Créer un commentaire')
             ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier la demande de contact')
             ;
     } 

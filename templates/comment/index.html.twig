@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}comment{% endblock %}
+
+{% block body %}
+    <h1>comment</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Appr</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.subject }}</td>
+                <td>{{ comment.isApproved }}</td>
+                <td>
+                    <a href="{{ path('comment.show', {'id': comment.id}) }}">Voir</a>
+                    <a href="{{ path('comment.edit', {'id': comment.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_carOption_new') }}">Create new</a>
+{% endblock %}

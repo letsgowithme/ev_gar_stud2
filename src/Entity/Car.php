@@ -35,10 +35,12 @@ class Car
 
     #[ORM\Column(type: "integer", length: 4)]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Positive]
     private ?int $year = null;
 
     #[ORM\Column(type: "integer")]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Positive]
     #[Assert\Length(min: 1, max: 6)]
     private ?int $km = null;
 
@@ -48,6 +50,7 @@ class Car
 
     #[ORM\Column(type: "integer")]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
+    #[Assert\Positive]
     private ?int $price = null;
 
     #[ORM\Column(type: "string", length: 30)]

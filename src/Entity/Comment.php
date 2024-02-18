@@ -64,12 +64,18 @@ class Comment
 
         return $this;
     }
-
+ /**
+     * Get the value of content
+     */ 
     public function getContent(): ?string
     {
         return $this->content;
     }
-
+  /**
+     * Set the value of content
+     *
+     * @return  self
+     */ 
     public function setContent(string $content): static
     {
         $this->content = $content;

@@ -42,7 +42,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Voir le site', 'fas fa-eye', 'car.index');
         yield MenuItem::linkToCrud('Employés', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Demandes de contact', 'fas fa-envelope', Contact::class);
-        yield MenuItem::linkToCrud('Comments', 'fas fa-comment', Comment::class);
+        yield MenuItem::linkToCrud('Témoignage', 'fas fa-comment', Comment::class);
         yield MenuItem::linkToCrud('Annonces', 'fas fa-car', Car::class);
         yield MenuItem::linkToCrud('Équipement', 'fas fa-hand-dots', Equipment::class);
         yield MenuItem::linkToCrud('Option', 'fas fa-bowl-food', CarOption::class);

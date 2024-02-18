@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier commentaire{% endblock %}
+{% block title %}Approuver le témoignage
+{% endblock %}
 
 {% block body %}
-    <h1>Modifier commentaire</h1>
-
-    {{ include('comment/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('comment.index') }}">Vers la liste</a>
-
-    {{ include('comment/_delete_form.html.twig') }}
+	<div class="container bg-dark rounded">
+		<h1 class="text-light">Approuver le témoignage</h1>
+		{{ form_start(commentForm) }}
+		{{ form_errors(commentForm) }}
+		{{ form_row(commentForm.subject,{"disabled" : true}) }}
+		{{ form_row(commentForm.content,{"disabled" : true}) }}
+		{{ form_row(commentForm.commentator,{"disabled" : true}) }}
+		{{ form_row(commentForm.mark,{"disabled" : true}) }}
+		{{ form_row(commentForm.isApproved) }}
+		{{ form_end(commentForm) }}
+		<a class="mt-4 fs-3" href="{{ path('car.user_index') }}">Vers mon espace</a>
+	</div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('/assets/js/comment_appr.js') }}" defer></script>
+	
 {% endblock %}

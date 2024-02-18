@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Comment;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -14,6 +15,7 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class CommentCrudController extends AbstractCrudController
 {
+   
     public static function getEntityFqcn(): string
     {
         return Comment::class;
@@ -21,11 +23,11 @@ class CommentCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('Commentaire')
-            ->setEntityLabelInPlural('Commentaires')
-            ->setPageTitle(pageName:Crud::PAGE_INDEX, title: 'Commentaires')
-            ->setPageTitle(pageName:Crud::PAGE_NEW, title: 'Créer un commentaire')
-            ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier le commentaire')
+            ->setEntityLabelInSingular('Témoignage')
+            ->setEntityLabelInPlural('Témoignages')
+            ->setPageTitle(pageName:Crud::PAGE_INDEX, title: 'Témoignage')
+            ->setPageTitle(pageName:Crud::PAGE_NEW, title: 'Créer un Témoignage')
+            ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier le Témoignage')
             ;
     } 
     public function configureFields(string $pageName): iterable
@@ -36,13 +38,11 @@ class CommentCrudController extends AbstractCrudController
             ->setLabel('Sujet'),     
             TextEditorField::new('content')
             ->setFormType(CKEditorType::class)
-            ->setLabel('Contenu')
-            ->hideOnIndex(), 
+            ->setLabel('Contenu'), 
             TextField::new('commentator')
             ->setLabel('Nom/Prénom'),   
             NumberField::new('mark')
-            ->setLabel('Note')
-            ->hideOnIndex(),
+            ->setLabel('Note'),
             BooleanField::new('isApproved')
             ->setLabel('Approuvé ?')
           

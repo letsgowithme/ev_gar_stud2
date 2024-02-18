@@ -10,6 +10,7 @@ use App\Form\CarType;
 use App\Form\CommentType;
 use App\Form\ContactType;
 use App\Repository\CarRepository;
+use App\Repository\CommentRepository;
 use App\Repository\ScheduleRepository;
 use App\Service\PictureService;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -47,16 +48,18 @@ class CarController extends AbstractController
         ]);
     }
 
-    #[Route('/userCars', name: 'car.user_index', methods: ['GET'])]
+    #[Route('/userSpace', name: 'car.user_index', methods: ['GET'])]
     #[IsGranted('ROLE_USER')]
     public function user_index(CarRepository $carRepository,
     ScheduleRepository $scheduleRepository, 
     PaginatorInterface $paginator,
     Request $request,
     EntityManagerInterface $manager,
+    CommentRepository $commentRepository
     ): Response
     { 
         $comment = new Comment();
+        $comments = $commentRepository->findAll();
         if($this->getUser()) {
             $comment->setCommentator($this->getUser());
         }
@@ -71,7 +74,7 @@ class CarController extends AbstractController
             $manager->flush();
             $this->addFlash(
                 'success',
-                'Votre commentaire a bien été prise en compte'
+                'Votre témoignage a bien été prise en compte'
             );
         }
         $pagination = $paginator->paginate(
@@ -90,6 +93,7 @@ class CarController extends AbstractController
             'schedules' => $scheduleRepository->findAll(),
             'pagination' => $pagination,
             'commentForm' => $commentForm,
+            'comments' => $comments
         
         ]);
     }

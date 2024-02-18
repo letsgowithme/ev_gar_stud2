@@ -96,11 +96,10 @@ class ContactType extends AbstractType
                     'class' => 'form-label mt-4 text-light fs-4'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(),
-                    
-                   
+                    new Assert\NotBlank(),                   
                 ]
             ])
+
             ->add('captcha', Recaptcha3Type::class, [
                 'constraints' => new Recaptcha3(),
                 'action_name' => 'contact',
