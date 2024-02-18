@@ -96,7 +96,7 @@ class CommentType extends AbstractType
             // ])
             ->add('isApproved', ChoiceType::class,[
                 'attr' => [
-                    'class' => 'form-select  mb-4 fs-6'
+                    'class' => 'form-select  mb-4 fs-6 hidden'
                 ],
                 "choices" => [
                 'Non approuvé' => '0',
@@ -104,7 +104,7 @@ class CommentType extends AbstractType
                 ],
                 'label' => 'Approuver:',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-6 fw-bold'
+                    'class' => 'form-label mt-4 text-light fs-6 fw-bold hidden'
                 ],
             ])
 

@@ -1,5 +1,5 @@
 $(function () {
-
+  $("#comment_isApproved").removeClass("hidden");
 $("form").on("submit", function(){
 $("#comment_subject").prop( "disabled", false );
   $("#comment_content").prop( "disabled", false );
