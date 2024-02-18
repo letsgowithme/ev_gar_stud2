@@ -3,7 +3,7 @@
 			{% for comment in comments %}
 				{% if comment.isApproved %}
 			
-					<div class="comment bg-light mb-4 pt-3 rounded border-bottom w-25 ms-2">
+					<div class="comment bg-light mb-4 pt-3 rounded border-bottom ms-2" style="width: 400px; padding: 10px;">
 						<div>
 							<div class="block p-6">
 								<div class="col-md-12">
@@ -11,8 +11,8 @@
                   <p class="text-dark fs-5 mb-3">
 										{{ comment.content|raw }}
 									</p>
-                  <p class="text-dark mb-3">Note : {{ comment.mark }}/5</p>
-									<p class="text-dark mb-3">{{ comment.commentator }}</p>
+                  <p class="text-dark mb-3 comm_all_txt">Note : {{ comment.mark }}/5</p>
+									<p class="text-dark mb-3 comm_all_txt">{{ comment.commentator }}</p>
 									
 								</div>
 							</div>

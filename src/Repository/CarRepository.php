@@ -21,21 +21,31 @@ class CarRepository extends ServiceEntityRepository
         parent::__construct($registry, Car::class);
     }
 
-    public function paginationQuery($page, $limit, $filters = null)
+    public function paginationQuery()
     {
-        $query = $this->createQueryBuilder('c');
-         if($filters != null){
-            $query->andWhere('c.cars IN(:cars)')
-                  ->setParameter(':cars', array_values($filters));
-            $query->orderBy('c.id', 'ASC')
+        return $this->createQueryBuilder('c')
+                 ->orderBy('c.id', 'ASC')
                   ->getQuery()
-                  ->setMaxResults($limit);
-         }
+                 ;
+       
          
          
-         return $query->getQuery()->getResult();
+       
     }
-   
+    // public function paginationQuery($page, $limit, $filters = null)
+    // {
+    //     $query = $this->createQueryBuilder('c');
+    //      if($filters != null){
+    //         $query->andWhere('c.cars IN(:cars)')
+    //               ->setParameter(':cars', array_values($filters));
+    //         $query->orderBy('c.id', 'ASC')
+    //               ->getQuery()
+    //               ->setMaxResults($limit);
+    //      }
+         
+         
+    //      return $query->getQuery()->getResult();
+    // }
     public function findAllCars($filters = null){
         $query = $this->createQueryBuilder('c')
                ->select('COUNT(c)');

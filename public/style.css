@@ -968,9 +968,22 @@ font-size: 1.6em;
     min-width: 140px;
     padding-top: 10px;
   }
-  #comment_content{
+  #comment_content,
+  #comment_mark,
+  #comment_commentator
+  {
     font-size: 1em!important;
   }
+  .comm_all_txt
+  {
+    font-size: 1.2em!important;
+  }
+
+  .pagination span{
+letter-spacing: 3px;
+    font-size: 1.6em;
+      }
+
   #carPosts_block {
     display: flex;
     flex-direction: row;

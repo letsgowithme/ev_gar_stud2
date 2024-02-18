@@ -54,9 +54,10 @@
 
 {# ******************range end****************** #}
 <div class="d-flex flex-wrap text-center"  id="carPosts_block">
-			{% for car in cars %}
+			{% for car in pagination %}
 				<div class="card-body mb-3 text-xs-center car_info border rounded mx-3"
 				style="display: block;">
+				<input type="hidden" value="{{ car.id|raw }}">
 						<div class="car__image card-image">
 						<p class="card-text text-light bg-dark rounded w-25 car_price_span">{{ car.price|raw }} €</p>
 							<img class="main_car_img mb-3" src="{{ vich_uploader_asset(car, 'imageFile') }}">
@@ -72,7 +73,11 @@
 					</div>
 				<br>
 					{% endfor %}
+				
 	</div>
+		<div>
+					{{ knp_pagination_render(pagination) }}
+					</div>
 <div class="row mt-4 mb-4">
 			<div class="col-12">
 				{% include "partials/_btn_up.html.twig" %}

@@ -35,10 +35,9 @@ class CarController extends AbstractController
     ): Response
     { 
         $pagination = $paginator->paginate(
-        $carRepository->paginationQuery('page', 1, 
-        ),
+        $carRepository->paginationQuery(),
             $request->query->get('page', 1),
-            5
+            6
         );
         $cars = $carRepository->findAll();
         return $this->render('car/index.html.twig', [
