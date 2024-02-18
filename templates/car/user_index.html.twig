@@ -14,15 +14,9 @@
          <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 me-2 fs-4" 
 				 style="width: auto;"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
 				
-					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3 me-2 fs-4" style="width: auto;">Créer un témoignage</button>
-					{% for comment in comments %}
-				{% if comment.isApproved == 0 %}
-				{% if comment.isProcessed == 0 %}
+					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3 me-2 fs-4" style="width: auto;">Créer un témoignage</button>	
 						 <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 fs-4" id="btn_approuvement"
 				 style="width: auto;"><a href="#approuvement_corps">Des témoignages à approuver</a></button>
-					{% endif %}
-					{% endif %}
-					{% endfor %}
 			
 			</div>
 		{% endif %}
@@ -79,6 +73,7 @@
 							<div class="block p-6">
 								<div class="col-md-12">
                 <h3  class="text-dark">{{ comment.subject|raw }}</h3>
+								<input type="hidden" name="subject" class="comment_subject" value="{{ comment.subject|raw }}">
                   <p class="text-dark  mb-3 d-flex flex-wrap" style="font-size: 1.2em;" >
 										{{ comment.content|raw }}
 									</p>
@@ -114,15 +109,14 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script>
 	$(document).ready(function () {
-		$("#commentNew").addClass("hidden");
+
+$("#commentNew").addClass("hidden");
 $("#btn_comment_p_user").click(function () {
 $("#commentNew").removeClass("hidden");
 $("#commentNew").css("position","absolute");
-
 $("#commentNew").css("background-color","#d94350");
 
 });
-
 
 });
 </script>
