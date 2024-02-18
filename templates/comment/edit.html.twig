@@ -13,7 +13,10 @@
 		{{ form_row(commentForm.commentator,{"disabled" : true}) }}
 		{{ form_row(commentForm.mark,{"disabled" : true}) }}
 		{{ form_row(commentForm.isApproved) }}
+		{{ form_row(commentForm.isProcessed) }}
 		{{ form_end(commentForm) }}
+	
+
 		<a class="mt-4 fs-3" href="{{ path('car.user_index') }}">Vers mon espace</a>
 	</div>
 {% endblock %}

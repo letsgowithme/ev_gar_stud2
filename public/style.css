@@ -893,6 +893,7 @@ margin-bottom: 20px;
     font-style: 2em;
     margin-top: -5%;
     margin-left: 25%;
+  
   }
  
   .dropdown-menu{
@@ -966,6 +967,9 @@ font-size: 1.6em;
    .schedule_list {
     min-width: 140px;
     padding-top: 10px;
+  }
+  #comment_content{
+    font-size: 1em!important;
   }
   #carPosts_block {
     display: flex;

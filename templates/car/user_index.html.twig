@@ -15,9 +15,11 @@
 				 style="width: auto;"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
 				
 					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3 me-2 fs-4" style="width: auto;">Créer un témoignage</button>
-					
-					 <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 fs-4" id="btn_approuvement"
+					{% if comments %}
+						 <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 fs-4" id="btn_approuvement"
 				 style="width: auto;"><a href="#approuvement_corps">Des témoignages à approuver</a></button>
+					{% endif %}
+					
 			
 			</div>
 		{% endif %}
@@ -63,30 +65,34 @@
 </div></div></div>
 <div>
 
-<div class="text-center d-flex flex-wrap justify-content-between" >
+<div class="text-center d-flex flex-wrap justify-content-between" id="approuvement_corps">
 
 			{% for comment in comments %}
 				{% if comment.isApproved == 0 %}
+				{% if comment.isProcessed == 0 %}
 			
-					<div class="comment  mb-4 pt-3 rounded ms-2" id="approuvement_corps" style="border: 1px solid darkgray; padding: 10px;">
+					<div class="comment  mb-4 pt-3 rounded ms-2"  style="border: 1px solid darkgray; padding: 10px; width: 400px;  ">
 						<div>
 							<div class="block p-6">
 								<div class="col-md-12">
-                <h5  class="text-dark">{{ comment.subject|raw }}</h5>
-                  <p class="text-dark  mb-3">
+                <h3  class="text-dark">{{ comment.subject|raw }}</h3>
+                  <p class="text-dark  mb-3 d-flex flex-wrap" style="font-size: 1.2em;" >
 										{{ comment.content|raw }}
 									</p>
-                  <p class="text-dark mb-3">Note : {{ comment.mark }}/5</p>
-									<p class="text-dark mb-3">{{ comment.commentator }}</p>
+                  <p class="text-dark mb-3"  style="font-size: 1.2em;">Note : {{ comment.mark }}/5</p>
+									<p class="text-dark mb-3"  style="font-size: 1.2em;">{{ comment.commentator }}</p>
 		
 									<button class="btn btn-info me-4"><a class="text-light text-decoration-none fs-5" href="{{ path('comment.edit', {'id': comment.id}) }}">Approuver</a></button>
-									 <button class="btn btn-danger"><a class="text-light text-decoration-none fs-5" href="{{ path('comment.delete', {'id': comment.id}) }}">Supprimer</a></button>
+									{% if app.user.roles is same as "ROLE_ADMIN" %}
+										<button class="btn btn-danger"><a class="text-light text-decoration-none fs-5" href="{{ path('comment.delete', {'id': comment.id}) }}">Supprimer</a></button>
+									{% endif %}
+									 
 								</div>
 							</div>
 						</div>
 					</div>
 				
-				
+				{% endif %}
 				{% endif %}
 			{% endfor %}
 				</div>	</div>
@@ -113,6 +119,8 @@ $("#commentNew").css("position","absolute");
 $("#commentNew").css("background-color","#d94350");
 
 });
+
+
 });
 </script>
 {% endblock %}

@@ -140,7 +140,8 @@ class AppFixtures extends Fixture
                      ->setContent($this->faker->text())
                     ->setCommentator($this->faker->name())
                     ->setMark(mt_rand(1, 5))
-                    ->setisApproved(mt_rand(0, 1) === 0 ? false : true);
+                    ->setIsApproved(mt_rand(0, 1) === 0 ? false : true)
+                    ->setIsProcessed(mt_rand(0, 1) === 0 ? false : true);
 
             $manager->persist($comment);
         }

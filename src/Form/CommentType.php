@@ -43,7 +43,7 @@ class CommentType extends AbstractType
                     ],
                     'label' => 'Contenu',
                     'label_attr' => [
-                        'class' => 'form-label inline-block mb-2 fs-6 text-light fw-bold'
+                        'class' => 'form-label inline-block mb-2  text-light fw-bold'
                     ],
                     'constraints' => [
                         new Assert\Length(['min' => 1, 'max' => 255]),
@@ -103,6 +103,19 @@ class CommentType extends AbstractType
                 'Approuvé' => '1'
                 ],
                 'label' => 'Approuver:',
+                'label_attr' => [
+                    'class' => 'form-label mt-4 text-light fs-6 fw-bold hidden'
+                ],
+            ])
+            ->add('isProcessed', ChoiceType::class,[
+                'attr' => [
+                    'class' => 'form-select  mb-4 fs-6 hidden'
+                ],
+                "choices" => [
+                'Non traité' => '0',
+                'Traité' => '1'
+                ],
+                'label' => 'Traiter:',
                 'label_attr' => [
                     'class' => 'form-label mt-4 text-light fs-6 fw-bold hidden'
                 ],

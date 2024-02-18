@@ -38,6 +38,9 @@ class Comment
     #[ORM\Column(type: "boolean")]
     private ?bool $isApproved = null;
 
+    #[ORM\Column(type: "boolean")]
+    private ?bool $isProcessed = null;
+
    
     public function getId(): ?int
     {
@@ -141,4 +144,24 @@ class Comment
     }
 
  
+
+    /**
+     * Get the value of isProcessed
+     */ 
+    public function getIsProcessed()
+    {
+        return $this->isProcessed;
+    }
+
+    /**
+     * Set the value of isProcessed
+     *
+     * @return  self
+     */ 
+    public function setIsProcessed($isProcessed)
+    {
+        $this->isProcessed = $isProcessed;
+
+        return $this;
+    }
 }

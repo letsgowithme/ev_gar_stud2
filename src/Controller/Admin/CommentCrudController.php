@@ -44,7 +44,9 @@ class CommentCrudController extends AbstractCrudController
             NumberField::new('mark')
             ->setLabel('Note'),
             BooleanField::new('isApproved')
-            ->setLabel('Approuvé ?')
+            ->setLabel('Approuvé ?'),
+            BooleanField::new('isProcessed')
+            ->setLabel('Traité ?')
           
         ];
     }
