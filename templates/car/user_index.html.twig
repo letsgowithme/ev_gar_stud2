@@ -15,11 +15,14 @@
 				 style="width: auto;"><a href="{{ path('car.new') }}">Créer une annonce</a></button>
 				
 					<button type="button" id="btn_comment_p_user" class="btn_create btn_p_user mt-4  text-center fw-bold rounded mb-3 me-2 fs-4" style="width: auto;">Créer un témoignage</button>
-					{% if comments %}
+					{% for comment in comments %}
+				{% if comment.isApproved == 0 %}
+				{% if comment.isProcessed == 0 %}
 						 <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 fs-4" id="btn_approuvement"
 				 style="width: auto;"><a href="#approuvement_corps">Des témoignages à approuver</a></button>
 					{% endif %}
-					
+					{% endif %}
+					{% endfor %}
 			
 			</div>
 		{% endif %}
