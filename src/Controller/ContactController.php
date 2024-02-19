@@ -24,43 +24,32 @@ class ContactController extends AbstractController
         ): Response
     {
         $contact = new Contact();
-
-        
         $formContact=$this->createForm(ContactType::class, $contact);
-
         $formContact->handleRequest($request);
         if ($formContact->isSubmitted() && $formContact->isValid()) {
 
              $contact = $formContact->getData();
              $manager->persist($contact);
              $manager->flush();
-
              //Email
              $mailService->sendEmail(
                 $contact->getEmail(),
                 $contact->getSubject(),
                 'emails/contact.html.twig',
                 ['contact' => $contact]
-            );
-
-            
+            ); 
              $this->addFlash(
                 'success',
                 'Votre message a été envoyé avec succès !'
             );
-    
             return $this->redirectToRoute('home');
-        
         }
 
-       
         return $this->render('contact/index.html.twig', [
             'formContact' => $formContact->createView(),
             'schedules' => $scheduleRepository->findAll()
 
         ]);
-    
-    
     
     }
 }

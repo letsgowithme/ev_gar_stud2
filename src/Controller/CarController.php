@@ -161,6 +161,7 @@ class CarController extends AbstractController
         $contactForm->handleRequest($request);
     if ($contactForm->isSubmitted() && $contactForm->isValid()) {
          $contact = $contactForm->getData();
+         $contact->setSubject($car->getTitle());
          $contact->setCar($car);
             $manager->persist($contact);
             $manager->flush();
@@ -170,7 +171,7 @@ class CarController extends AbstractController
             );
     
         $sellerEmail = $car->getAuthor()->getEmail();
-        $subject = $contact->getSubject();
+        $subject = $car->getTitle();
         $message = $contact->getMessage();
         $guest = $contact->getfullName();
         $email = (new Email())

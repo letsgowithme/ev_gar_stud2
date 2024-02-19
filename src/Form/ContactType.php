@@ -65,7 +65,6 @@ class ContactType extends AbstractType
                     'class' => 'form-label mt-4 text-light fs-4'
                 ],
                 'constraints' => [
-                    new Assert\NotBlank(),
                     new Assert\Length(['min' => 2, 'max' => 50])
                 ]
             ])

@@ -136,7 +136,7 @@
 											{{ contact.email|raw }}
 										</p>
 										<p class="cont_txt text-light">Sujet : 
-											{{ contact.subject|raw }} <br>à propos de l'annonce numéro <strong>{{ car.id }} <br> {{ car.title }}</strong>
+											{{ contact.subject|raw }}
 										</p>
 										<p class="cont_txt text-light px-4">Message : 
 											{{ contact.message|raw }}
@@ -172,7 +172,9 @@
 
 							{{ form_row(contactForm.fullName) }}
 							{{ form_row(contactForm.email) }}
-							{{ form_row(contactForm.subject) }}
+							<div class="hidden">
+							{{ form_row(contactForm.subject, {"required": false}) }}
+							</div>
 							{{ form_row(contactForm.message) }}
 				  		{{ form_row(contactForm.phoneNumber) }} 
 							{{ form_row(contactForm.submit) }}

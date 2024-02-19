@@ -59,7 +59,7 @@
 {# ******************range end****************** #}
 <div class="d-flex flex-wrap text-center row"  id="carPosts_block">
 			{% for car in pagination %}
-			<div class="col-xs-12 col-sm-6 col-lg-4">
+			{# <div class="cadre col-xs-12 col-sm-6 col-lg-4" style="display: block;"> #}
 			<div class="card-body mb-3 text-xs-center car_info border rounded" style="display: block;">
 				<input type="hidden" value="{{ car.id|raw }}">
 						<div class="car__image card-image">
@@ -74,12 +74,13 @@
 					<p class="card-text text-black fw-bold car_price" value="">{{ car.price|raw }}<span> €</span></p>
 					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: underscore;" 
 					class="fw-bold mt-3 link_details">Details</a></p>	
-			</div></div>
+			</div>
+			{# </div> #}
 				<br>
 					{% endfor %}
 				
 	</div>
-		{# <div> #}
+		<div>
 					{{ knp_pagination_render(pagination) }}
 	</div>
 <div class="row mt-4 mb-4">

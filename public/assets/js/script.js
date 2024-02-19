@@ -25,7 +25,9 @@ $(function () {
   var rangeYearMin = $("#rangeYear").attr('min');
 	var rangeYearMax = $("#rangeYear").attr('max');
 	$("#rangeYearVal").text(rangeYearMin +  " - " + rangeYearMax);
-
+	kmChoice();
+	priceChoice();
+	yearChoice();
  function kmChoice(){
 		var rangeKm = parseInt($("#rangeKm").val());
 		$("#rangeKmVal").text(rangeKmMin + " km" +  " - " + rangeKm + "km");
@@ -38,6 +40,7 @@ $(function () {
 			yearChoice();
 				}else if(car_km > rangeKm){	
 					$(this).parent().css("display", "none");
+	
 							$("#rangeKm").on("input", function(){
 								$(".car_km").css("display", "block");
 								$(".car_info").css("display", "block");
@@ -51,12 +54,14 @@ $(function () {
 function priceChoice(){
 $("#rangePrice").on("input", function(){
 						var rangePrice = parseInt($("#rangePrice").val());
-							$("#rangePriceVal").text(rangePriceMin + "€" +  " - " + rangePrice + "€");
+						$("#rangePriceVal").text(rangePriceMin + "€" +  " - " + rangePrice + "€");
 						var car_info = $(".car_info");
 						$(".car_price").each(function(){
 						var car_price = parseInt($(this).text());
 								if(car_price <= rangePrice){ 
-								}else if(car_price > rangePrice){
+									kmChoice();
+									yearChoice();
+								}else if(car_price > rangePrice){ 
 									$(this).parent().css("display", "none");
 										$("#rangePrice").on("input", function(){
 											$(".car_price").css("display", "block");
@@ -79,6 +84,8 @@ $("#rangeYear").on("input", function(){
 						$(".car_year").each(function(){
 						var car_year = parseInt($(this).text());
 								if(car_year <= rangeYear){ 
+									kmChoice();
+									priceChoice();
 								}else if(car_year > rangeYear){
 								$(this).parent().css("display", "none");
 										$("#rangeYear").on("input", function(){

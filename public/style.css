@@ -810,6 +810,7 @@ padding: 2px 8px;
 
 .car_info{
   margin-top: 10px;
+  max-width: 340px!important;
 }
 
 .range_ttl{
@@ -817,7 +818,7 @@ padding: 2px 8px;
 }
 
 .range_val span{
-  font-size: 0.7em;
+
   width:200px;
 }
 
@@ -1254,7 +1255,11 @@ letter-spacing: 3px;
    width: auto;
    font-size: 3em;
   }
-
+  .car_info{
+    margin-top: 10px;
+    max-width: 400px!important;
+  }
+  
   .call_us{
     right: 5%;
     transform: translateX(0%);

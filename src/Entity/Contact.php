@@ -26,7 +26,6 @@ class Contact
 
     #[ORM\Column(type: 'string', length: 50)]
     #[Assert\Length(min: 1, max: 50)]
-    #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $subject = null;
 
     #[ORM\Column(type: 'text', length: 300)]
