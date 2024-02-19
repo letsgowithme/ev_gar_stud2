@@ -96,16 +96,10 @@ color: white;
     height: 70px;
   }
 
- 
-  
-  /* .services_title_page{
-    font-size: 2.4em!important;
-    padding-top: 15px;
-  } */
   .services_txt{
     font-size: 1.8em;
-    
   }
+
 .services_title_page{
   font-size: 2.8em!important;
   font-weight: bold;
@@ -123,6 +117,7 @@ color: white;
     padding:  3px;
   
   }
+
   #block_services{
     background-color: var(--nav_bg_color)!important; 
      background: none;
@@ -131,11 +126,13 @@ color: white;
      align-items: center;
     
   }
+
   .services_list{
     display: flex;
      flex-direction: column;
      align-items: center;
   }
+
   .drop_user{
     margin-right: 7rem;
     font-style: 2em;
@@ -144,17 +141,14 @@ color: white;
   }
  
   .dropdown-menu{
- 
    background-color: var(--nav_bg_color);
   }
+
   .dropdown-item{
     margin-top: 20%;
     font-size: 1em!important;
     padding: 0;
    }
-   /* .dropdown-item {
-    font-size: 2em !important;
-  }  */
   
   .body_homepage_base{
     display: flex; 
@@ -163,15 +157,18 @@ color: white;
     width: 100%;
     background-color: #a7a77b;
   }
+
   .navbar,
   footer,
   #line_sched_adr_liens {
     background-color: var(--main_bg_color);
   }
+
   .navbar-toggler-icon {
     font-size: 1.8em;
     color: white;
   }
+
   #navbarColor01{
     z-index: 5;
     background-color: var(--main_bg_color);
@@ -182,23 +179,26 @@ color: white;
   .navbar{
     height: 80px;
   }
+
   .navbar a,
   footer a {
     color: white;
     font-size: 2.8em;
   }
+
   .nav-link-name {
     font-family: 'Rajdhani', sans-serif!important;
     font-size: 2.6em!important;
     margin-top: -20px;
     
   }
+
   #btn_rdv {
     background-color: var(--main_bg_color);
- 
     font-weight: bold;
     cursor: pointer;
   }
+
   #btn_rdv a{
     text-decoration: none;
     font-size: 1.8em!important;
@@ -214,6 +214,7 @@ color: white;
     text-shadow: 2px 2px black;
    
   } 
+
   #btn_rdv a:hover{
    color: var(--light)!important;
    transition: 0.3s ease-in-out;
@@ -230,6 +231,7 @@ color: white;
     font-size: 2em!important;
    
   }
+
   #btn_contact:hover {
     background-color: var(--rose)!important;
     border: 2px solid var(--main_bg_color);
@@ -237,6 +239,7 @@ color: white;
     font-weight: 700;
     color: var(--light);
   } 
+
   #btn_contact a:hover{
    color: var(--light)!important;
   }
@@ -252,12 +255,14 @@ color: white;
     background-color: var(--main_bg_color);
     color: white;
   }
+
   .link{
     padding: 5px;
     border: 2px solid white;
     background-color: var(--nav_bg_color);
     color: white;
   }
+
   .btn_link_delete{
     padding: 5px;
     border: 2px solid white;
@@ -286,40 +291,39 @@ color: white;
  color: red;
  background-color: white;
  font-weight: bold;
-
  
   }
+
   .link_delete:hover {
     border: 2px solid darkblue;
     color: rgb(63, 63, 65);
     background-color: red;
     font-weight: bold;
   }
+
   .down_link{
     color: var(--light);
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
     font-size: 2.4em;
-
-
   }
+
   .down_line_names {
     background: var(--light);
     color: var(--main_bg_color);
     padding: 2px 15px;
     border-radius: 10px;
-    width:300px;
-    font-size: 2.1em;
+    width:200px;
+    font-size: 1.8em;
   }
   
- 
   .down_link:hover{
     background-color: var(--rose);
     color: var(--dark);
     transition: 0.3s ease-in-out;
-    
   }
+
   #btn_up {
     color: var(--dark);
     background: var(--bg_base);
@@ -328,12 +332,13 @@ color: white;
     font-size: 1.4em;
     padding: 5px;
   }
+
 #btn_home {
   text-decoration: none;
   font-size: 1.2em;
   background-color: var(--rose);
-
 }
+
 #btn_home a{
   text-decoration: none;
   font-weight: bold;
@@ -344,10 +349,12 @@ color: white;
   .nav-item {
     padding-top: 5em;
   }
+
   .lien_s_a{
     display: flex;
     flex-direction: column;
   }
+
   .footer {
     display: flex;
     flex-direction: column;
@@ -355,17 +362,21 @@ color: white;
     margin-top: 20px;
     margin-bottom: 0;
   }
+
   .nav-link-footer{
     text-decoration: none;
     font-weight: bold;
     font-size: 1.5em;
   }
+
   .address_line p{
     font-size: 1.1em;
   }
+
 #bestComments{
   background: var(--nav_bg_color);
 }
+
 .bestCommBlock {
   display: flex;
   flex-direction: column;
@@ -385,13 +396,14 @@ color: white;
   .hidden {
     display: none;
   }
+
   .visible {
     display: block;
   }
   
   #btn_reload {
     padding: 10px;
-    font-size: 1.7em;
+    font-size: 1.3em;
     margin-top: 1.2em !important;
     cursor: pointer;
     color: rgb(244, 248, 244);
@@ -399,6 +411,7 @@ color: white;
     font-weight: bold;
     width: 330px;
   }
+
   #btn_reload:hover {
     color: rgb(64, 64, 5);
     background-color: white !important;
@@ -411,27 +424,31 @@ color: white;
     color: linen;
     opacity: 1;
   }
+
 #btn_comments,
 #btn_comment,
 #btn_up,
 #btn_home
-
 {
   font-size: 1.6em!important;
 }
+
 .p_common{
   color:#262526; 
 }
+
 #btn_comments:hover,
 #btn_comment:hover{
   background-color: silver;
   transition: 0.3s ease-in-out;
 }
+
 #btn_home:hover{
   background-color: var(--main_bg_color);
   color:#ccc;
   transition: 0.3s ease-in-out;
 }
+
 #btn_up:hover{
   background-color: var(--main_bg_color);
   color: var(--light);
@@ -441,17 +458,22 @@ color: white;
   border:1px solid white;
 
 }
+
 .to_posts:hover{
   background-color: var(--main_bg_color);
   color: var(--light);
 transition: 0.3s ease-in-out;
 border:1px solid white;
 }
+
 .schedule_day{
-  font-size: 2em;;
-} .form-label{
+  font-size: 1.5em;
+} 
+
+.form-label{
   font-size: 2em;
 }
+
 #rangeKmMin,
 #rangeKmVal,
 #rangePriceMin,
@@ -467,25 +489,48 @@ border:1px solid white;
 #kmReload{
   font-size: 1.4em!important;
 }
+
 .card-title
 {
-  font-size: 3em;
+  font-size: 2em;
 }
+
 .link_details{
-  font-size: 1.5em;
+  font-size: 0.8em;
 }
+
 /* *****************page car.index**************** */
 .main_car_img{
   width: 350px;
   height: 250px;
 }
+
+.range_ttl{
+  font-size: 1.3em;
+}
+
+#rangeKmMin,
+#rangeKmVal,
+#rangePriceMin,
+#rangePriceVal,
+#rangeYearMin,
+#rangeYearVal{
+  font-size: 1.3em!important;
+}
+
+.form-range{
+  width: 350px;
+}
+
 .main_car_img_edit img{
   width: 350px;
   height: auto;
 }
+
 .link_details{
   color: var(--light);
 }
+
 .link_details:hover{
 color: var(--main_bg_color);
 text-decoration: underline;
@@ -494,20 +539,22 @@ transition: 0.3s ease-in-out;
 
 .card_body{
   background-color: var(--rose)!important;
-  min-width: 370px;
+  width: 370px;
   
 }
+
 .car_info{
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #d9777f; 
-  max-width: 500px;
 }
+
 #h1_car_index{
   color: var(--main_bg_color);
   text-shadow: 2px 2px 1px rgb(93, 91, 91);
 }
+
 .btn_create a
 { color: white;
  
@@ -517,39 +564,50 @@ transition: 0.3s ease-in-out;
   padding: 2px 5px;
   margin: 5px;
 }
+
 .btn_create{
   background: #d94350;
   color: white;
 }
+
 .btn_create:hover{
   background-color: #fff;
   color: var(--main_bg_color);
   border-radius: 8px;
   transition: 0.3s ease-in-out;
 }
+
 .btn_create a:hover{
   color: var(--main_bg_color);
 }
+
 .range_block{
   display: flex;
   flex-direction: column;
 }
+
 #carPosts_block {
   display: flex;
   flex-direction: row;
   position: relative;
   margin-top: 3%;
   justify-content: center; 
-  width: 360px;
 }
+
 .hidden{
   display: none;
 }
+
 #commentNew{
   width: 100%;
   height: 30%;
   
 }
+
+.card-text{
+  font-size: 1.4em;
+}
+
 /* ********page car.show*375px****** */
 
 .carousel-control-prev-icon,
@@ -565,24 +623,26 @@ transition: 0.3s ease-in-out;
   height: auto;
   margin-bottom: 1em;
 }
+
 .contact_content{
   width: 375px;
 }
+
 #carouselExampleIndicators{
   display: flex;
   justify-content: center;
-  
 } 
 
 .show_block_titles span{
   display: flex;
   justify-content: center;
   margin-top: 10px;
-
 }
+
 .adr_p{
   font-size: 1.9em!important;
  }
+
  #caracter_btn,
  #equip_btn,
  #opt_btn,
@@ -592,9 +652,12 @@ color: rgb(225, 222, 222);
 background-color: rgb(76, 73, 73);
 box-shadow: 1px 3px 5px white;
 font-weight: bold;
-
  }
- 
+
+ #equip_block{
+  width: 350px;
+ }
+
  #contact_btn:hover,
  #equip_btn:hover,
  #opt_btn:hover,
@@ -610,9 +673,11 @@ padding: 2px 8px;
   flex-direction: column;
   align-items: center;
 }
+
 .visit_site_links a{
  font-size: 1.6em;
 }
+
 .call_us_txt{
   border-radius: 8px;
   color: #0c1e94;
@@ -624,33 +689,33 @@ padding: 2px 8px;
   height: auto!important;
   width: 100%;
  }
- /* page car.edit */
- /* .main_car_img{
-  width: 370px !important;
- } */
+
  .img_edit_block{
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
  }
+
 .opt{
   width: 375px!important;
 }
+
 /* page login */
 .login_page_container{
   height: auto;
 }
+
 #bg_homepage {
   width: 100%; 
   height: 40vh!important; 
  
 }
-}
+
+
 /* car eidt */
 .img_edit_main{
   width: 100px !important;
+}
 }
 /******************768px************** */
   @media screen and (min-width: 768px) {
@@ -680,50 +745,64 @@ padding: 2px 8px;
     font-weight: bold;
     font-size: 1.2em;
   }
+
   .visit_site_links {
     display: flex;
   }
+
   .address_line{
     display: flex;
   }
+
   .adr_p{
    font-size: 1.9em!important;
   }
+
   #bg_homepage {
     width: 100%; 
     height: 55vh!important; 
    
   }
+
   /* *****************page car.index 768px**************** */
 .main_car_img{
-  width: 450px; 
-  height: 280px;
+  width: 280px; 
+  height: 200px;
 }
+
 .main_car_img_edit img{
   width: 450px; 
   height: auto;
 }
+
+.form-range{
+  width: 200px;
+}
+
+#btn_reload {
+  font-size: 1.3em;
+  margin-top: 1.2em !important;
+  width: 260px;
+}
+
 #carPosts_block {
   display: flex;
   flex-direction: row;
-  /* position: relative; */
   margin-top: 3%;
-  justify-content: center; 
-  align-items: center;
-  width: 560px;
+  justify-content: space-between; 
 }
-.card_body{
-  min-width: 450px;
-}
+
 .range_block{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .visit_site_links {
   display: flex;
   flex-direction: column;
 }
+
 .range_block{
   display: flex;
   flex-direction: row;
@@ -731,6 +810,24 @@ padding: 2px 8px;
 
 .car_info{
   margin-top: 10px;
+}
+
+.range_ttl{
+  font-size: 1.2em;
+}
+
+.range_val span{
+  font-size: 0.7em;
+  width:200px;
+}
+
+#rangeKmMin,
+#rangeKmVal,
+#rangePriceMin,
+#rangePriceVal,
+#rangeYearMin,
+#rangeYearVal{
+  font-size:1.2em!important;
 }
  /**page car.show* 768px*** */
  .car_show_container {
@@ -743,7 +840,6 @@ margin-bottom: 20px;
 }
 
  .gallery_img{
- 
   width: 500px!important;
   height: 450px!important;
 }
@@ -751,55 +847,60 @@ margin-bottom: 20px;
     margin-right: 7rem;
     font-style: 2em;;
   }
+
   .down_link{
     color: var(--light);
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
     font-size: 2em;
-
-
   }
+
   .login_page_container{
     height: 300px;
   }
     /* car.edit 768px */
     .img_edit_block{
-      
       align-items: center;
-    
-    
      }
+
      #commentNew{
       position: relative;
      top: 0;
     
     }
+    .suppl_info_block{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+   
 }
+/* @media screen and (min-width: 800px) */
 @media screen and (min-width: 800px) {
-/**page car.show* 768px*** */
+/**page car.show* 800px*** */
 .gallery_img{
-  
   width: 300px!important;
   height: 250px!important;
 }
+
   .drop_user{
     margin-right: 7rem;
     font-style: 2em;;
   }
+  
   .down_link{
     color: var(--light);
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
     font-size: 2em;
-
-
   }
-  #body_home_base
-  {
+
+  #body_home_base{
     background-color: #f0db9c!important;
   }
+
   .main_car_img_edit img{
     width: 550px; 
     height: auto;
@@ -812,12 +913,15 @@ margin-bottom: 20px;
     .bg_services_block{
       display: flex;
     }
+
     .call_us_xs{
       display: none;
     }
+
    .call_us_lg{
       display: block;
     }
+
     .call_us{
       display: block;
       position: relative;
@@ -828,16 +932,16 @@ margin-bottom: 20px;
       padding: 10px;
       border-radius: 5px;
       width: 200px;
-
     }
   
     .contact_form{
       height: 80%;
-      
     }
+
     .comm_title{
       font-size: 3.3em;
     }
+
     #main_title {
       display: inline-block;
       text-shadow: -2px 2px 2px rgb(82, 80, 80);
@@ -861,17 +965,19 @@ margin-bottom: 20px;
      margin-top: 0;
      border-radius: 0 0 0 0;
      margin-bottom: 2%;
-     
   } 
+
   .service_and_img{
     height: 550px;
   }
+
   .services_title_page{
     margin-bottom: 10px;
     font-size: 2.9em!important;
     color: var(--light);
     text-shadow: -2px 1px 1px rgb(75, 68, 68);
   }
+
   .services_txt{
     font-size: 1.8em;
     margin: 0 10%;
@@ -880,7 +986,6 @@ margin-bottom: 20px;
   #block_services p{
   font-size: 1.2em;
   padding: 10px;
- 
 } 
  
   .navbar-toggler{
@@ -893,36 +998,38 @@ margin-bottom: 20px;
     font-style: 2em;
     margin-top: -5%;
     margin-left: 25%;
-  
   }
  
   .dropdown-menu{
    background-color: var(--nav_bg_color);
   }
+
   .dropdown-item{
     margin-top: 10%;
     font-size: 1em!important;
     padding: 10pxs;
    }
+
   #navbarColor01{
     width: 100%!important;
     height: 80px;
-    
   }
 
   #navbarColor01 a {
     font-size: 1.5em !important;
     padding: 10px;
   }
+
   .nav-link-name {
     font-family: 'Rajdhani', sans-serif!important;
     font-size: 2.7em!important;
     margin-top: -20px;
-    
   }
+
   .nav-item {
     padding-top: 0.5em;
   }
+
   .dropdown-item,
   #username {
     font-size: 1.2em !important;
@@ -931,6 +1038,7 @@ margin-bottom: 20px;
    .footer-link {
     font-size: 1em !important;
   }
+
   .text_block_p {
     font-size: 2em !important;
   }
@@ -940,40 +1048,49 @@ margin-bottom: 20px;
     flex-direction: column;
     align-items: flex-start;
   }
+
   .visit_site_links li {
     padding: 0.2em;
     list-style: circle;
     margin-bottom: 1em;
     font-size: 1em;
   } 
+
    .btn_up {
     font-size: 1.6em !important;
     color: white;
   }
+
   .btn_home {
     text-decoration: none;
     font-size: 1.4em;
   } 
+
   .schedule_day{
 font-size: 1.6em;
   }
+
   .schedule_time{
     font-size: 1.2em!important;
   }
+
   .text_block_p {
     font-size: 1.3em !important;
     color: rgb(226, 223, 223) !important;
   } 
+
    .schedule_list {
     min-width: 140px;
     padding-top: 10px;
   }
+
   #comment_content,
   #comment_mark,
   #comment_commentator
   {
     font-size: 1em!important;
   }
+
   .comm_all_txt
   {
     font-size: 1.2em!important;
@@ -983,61 +1100,60 @@ font-size: 1.6em;
 letter-spacing: 3px;
     font-size: 1.6em;
       }
-
+/* car.index */
   #carPosts_block {
     display: flex;
     flex-direction: row;
     position: relative;
     margin-top: 3%;
-    justify-content: space-between; 
-    width: 100%;
   }
-  .main_car_img{
-    width: 350px; 
-    height:240px;
+
+  .form-range{
+    width: 300px;
   }
- 
-  .card_body{
-    min-width: 350px;
-  }
- 
+
   .bestCommBlock {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-left: 10%!important;
-   
   }
+
   .p_sec{
     font-size: 1.3em;
   }
+
   .adr_p{
     font-size: 1.7em!important;
    }
+
    .footer-copyright{
     font-size: 1.2em;
    }
+
    #btn_rdv{
     margin-top: -2%;
    }
+
    #commentNew{
     width: 94%;
     height: 50%;
     left: 1%; 
   }
+
    /* page car new */
  .car_new_container{
   height: auto!important;
   width: 75%;
   margin-bottom: 10%;
  }
+
   /* ****page car.show *1024px** */
   .gallery_img{
-  
-  
     width: 765px!important;
     height: 650px!important;
   }
+
   .show_block_titles span{
     display: flex;
     justify-content: center;
@@ -1045,32 +1161,45 @@ letter-spacing: 3px;
     margin-top: 10px;
    width: 100px;
   }
+
   .contact_content{
     width: 650px;
   }
+
   .cont_txt{
     font-size: 1.8em;
   }
+
   .car_info{
     margin-top: 10px;
   }
+
   #btn_rdv a{
     font-size: 2em!important;
   }
+
   .badge{
     width: 180px!important;
-  
   }
+
   .badge_caract{
     width: 250px!important;
     font-size: 1.6em;
-  
   }
 
+  #equip_block,
+  #opt_block{
+    width: 500px!important;
+   }
+
+   #contactForm{
+    width: 500px;
+   }
+
   .car_info_show{
-    display: flex!important;
-    flex-direction: column!important;
-    align-items: center!important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 #btn_comments,
@@ -1080,31 +1209,32 @@ letter-spacing: 3px;
 {
   font-size: 1.4em!important;
 }
+
 .down_link{
- 
   font-size: 1.7em;
-
-
 }
+
 .login_page_container{
   height: 460px;
 }
+
   /* car.edit 768px */
   .img_edit_block{
-      flex-direction: row;
+    flex-direction: row;
     justify-content: space-between;
-  
-  
    }
+
    .img_edit{
     margin: 10px;
    }
+
    .equip_edit,
    .opt_edit{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
    }
+
    .main_car_img_edit img{
     width: 700px; 
     height: auto;
@@ -1132,7 +1262,6 @@ letter-spacing: 3px;
     border: 1px solid rgb(183, 12, 12);
     width: 460px;
     margin-right: 20px;
-
   }
 
   .drop_user{
@@ -1140,7 +1269,6 @@ letter-spacing: 3px;
     font-size: 1em;
     margin-top: -1%;
     margin-left: 25%;
-   
   }
 
 #bg_homepage {
@@ -1149,9 +1277,11 @@ letter-spacing: 3px;
   margin-top: -0.2em; 
   z-index: -1;
 } 
+
 .service_and_img{
   height: 700px;
 }
+
 .services_title_page{
   margin-bottom: 10px;
   font-size: 2.5em;
@@ -1162,7 +1292,6 @@ letter-spacing: 3px;
 
 .services_title{
   font-size: 2em!important;
-
 }
 
 #block_services p{
@@ -1180,18 +1309,22 @@ padding: 10px;
   height: 80px;
   font-size: 1.3em;
 }
+
 .navbar a,
 footer a {
   color: white;
   font-size: 2em !important;
 }
+
 .nav-link {
   font-size: 1.3em !important;
   padding: 10px;
 }
+
 .nav-item {
   padding-top: 0.5em;
 }
+
 .dropdown-item,
 #username {
   font-size: 1.2em !important;
@@ -1200,6 +1333,7 @@ footer a {
  .footer-link {
   font-size: 1em !important;
 }
+
 .text_block_p {
   font-size: 2em !important;
 }
@@ -1208,18 +1342,22 @@ footer a {
   display: flex;
   flex-direction: column;
 }
+
 .visit_site_links li {
   padding: 0.2em;
   list-style: circle;
   margin-bottom: 1em;
 } 
+
  .btn_up {
   font-size: 1.6em !important;
 }
+
 .btn_home {
   text-decoration: none;
   font-size: 1.4em;
 } 
+
  #btn_rdv {
   width: 300px;
   font-size: 2em;
@@ -1230,37 +1368,43 @@ footer a {
   padding: 20px;
   border: 2px solid #ccc;
 }
+
 #btn_rdv a {
   font-size: 1.1em!important;
 }
+
 .text_block_p {
   font-size: 1.3em !important;
   color: rgb(226, 223, 223) !important;
 } 
+
  .schedule_list {
   min-width: 140px;
   padding-top: 10px;
 }
+
+/* car.index */
 #carPosts_block {
   position: relative;
   margin-top: 3%;
-  width: 100%;
-}
-.main_car_img{
-  width: 300px; 
-  height:220px;
 }
 
-.car_info{
-  width: 350px;
+.main_car_img{
+  width: 350px; 
+  height:250px;
 }
+
+.form-range{
+  width: 400px;
+}
+
 /* *****car.show 1440********/
 
 .gallery_img{
-
   width: 850px!important;
   height: 650px!important;
 }
+
 .show_block_titles {
   display: flex;
   justify-content: space-between;
@@ -1268,25 +1412,31 @@ footer a {
   margin-top: 10px;
  width: 300px;
 }
+
 .login_page_container{
   height: 260px;
 }
+
 .table_schedule{
   width: 70%;
 }
+
 .car_new_container{
   height: auto!important;
   width: 50%;
   margin-bottom: 10%;
  }
+
  .main_car_img_edit img{
   width: 650px; 
   height: auto;
 }
+
 #commentNew{
   width: 40%;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
+
 }  

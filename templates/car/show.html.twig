@@ -102,7 +102,7 @@
 			<button type="button rounded mb-4" id="opt_btn">Options</button>
 			<div id="opt_block" class="d-flex flex-column align-items-center mt-4">
 							{% for carOption in car.carOptions %}
-						<p class="border mt-1 p-3 text-light opt hidden w-auto fs-4">
+						<p class="border mt-1 p-3 text-light opt hidden w-100 fs-4">
 				{{ carOption.name }} </p>
 				{% endfor %}
 				</div>
@@ -112,7 +112,7 @@
 			<button type="button rounded" id="equip_btn">Équipement</button>
 			<div id="equip_block" class="d-flex flex-column align-items-center mt-4">
 							{% for equipment in car.equipments %}
-						<p class="border mt-1 p-3 text-light equip hidden w-50 text-center fs-4">
+						<p class="border mt-1 p-3 text-light equip hidden w-100 text-center fs-4">
 				{{ equipment.name }} </p>
 				{% endfor %}
 				</div>
@@ -166,7 +166,7 @@
 				
 		<div class="func mt-4">
 			<button type="button rounded" id="contact_btn" class=" mb-4 fs-4">Contacter le vendeur</button>
-				<div class="hidden text-light border w-100" id="contactForm">
+				<div class="hidden text-light border " id="contactForm">
 
 							{{ form_start(contactForm) }}
 

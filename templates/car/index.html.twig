@@ -22,62 +22,66 @@
 
 		{# ******************range start****************** #}
 		<div class="range_block d-flex justify-content-between">
-		<div class="px-4">
-		<label for="rangeKm" class="form-label fw-bold">Kilométrage</label>
-<input type="range" class="form-range" min="10000" max="250000" step="500" id="rangeKm" name="rangeKm">
-<div class="fw-bold">
-<span id="rangeKmMin"></span><span id="rangeKmVal"></span>
-</div>
-<br>
-<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
-</div>
-<div class="px-4">
-<label for="rangePrice" class="form-label fw-bold">Prix</label>
-<input type="range" class="form-range" min="500" max="30000" step="100" id="rangePrice" width="300px;">
-<div class="fw-bold">
-<span id="rangePriceMin"></span><span id="rangePriceVal"></span>
-</div>
-<br>
-<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
-</div>
-<div class="px-4">
-<label for="rangeYear" class="form-label fw-bold">Année</label>
-<input type="range" class="form-range" min="1980" max="2023" step="1" id="rangeYear">
-<div class="fw-bold">
-<span id="rangeYearMin" ></span><span id="rangeYearVal"></span>
-</div>
-<br>
-<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
-</div>
+	<div class="d-flex flex-column">
+		<label for="rangeKm" class="form-label fw-bold range_ttl">Kilométrage</label>
+		<input type="range" class="form-range" min="10000" max="250000" step="500" id="rangeKm" name="rangeKm">
+		<div class="fw-bold range_val">
+		<span id="rangeKmMin"></span><span id="rangeKmVal"></span>
+		</div>
+		<br>
+
+		<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
+		</div>
+		<div class="d-flex flex-column">
+		<label for="rangePrice" class="form-label fw-bold range_ttl">Prix</label>
+		
+				<input type="range" class="form-range" min="500" max="30000" step="100" id="rangePrice">
+		<div class="fw-bold range_val">
+		<span id="rangePriceMin"></span><span id="rangePriceVal"></span>
+		</div>
+		<br>
+
+		<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
+		</div>
+	<div class="d-flex flex-column">
+		<label for="rangeYear" class="form-label fw-bold range_ttl">Année</label>
+		<input type="range" class="form-range" min="1980" max="2023" step="1" id="rangeYear">
+		<div class="fw-bold range_val">
+		<span id="rangeYearMin" ></span><span id="rangeYearVal"></span>
+		</div>
+		<br>
+
+		<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
+		</div>
 
 </div>
 
 {# ******************range end****************** #}
-<div class="d-flex flex-wrap text-center"  id="carPosts_block">
+<div class="d-flex flex-wrap text-center row"  id="carPosts_block">
 			{% for car in pagination %}
-				<div class="card-body mb-3 text-xs-center car_info border rounded mx-3"
-				style="display: block;">
+			<div class="col-xs-12 col-sm-6 col-lg-4">
+			<div class="card-body mb-3 text-xs-center car_info border rounded" style="display: block;">
 				<input type="hidden" value="{{ car.id|raw }}">
 						<div class="car__image card-image">
 						<p class="card-text text-light bg-dark rounded w-25 car_price_span">{{ car.price|raw }} €</p>
 							<img class="main_car_img mb-3" src="{{ vich_uploader_asset(car, 'imageFile') }}">
 						</div>
 						<h4 class="card-title">{{ car.title }}</h4>
-					<span class="fs-2">Année : </span><p class="card-text fw-bold  car_year" value=""> {{ car.year|raw }}</p>
+					<p class="card-text fw-bold  car_year" value=""> {{ car.year|raw }}</p>
           <p class="card-text fw-bold">{{ car.fuelType|raw }}</p>
        	  <p class="card-text fw-bold car_km" value="">{{ car.km|raw }}<span> km</span></p>
 					<hr>
 					<p class="card-text text-black fw-bold car_price" value="">{{ car.price|raw }}<span> €</span></p>
 					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: underscore;" 
 					class="fw-bold mt-3 link_details">Details</a></p>	
-					</div>
+			</div></div>
 				<br>
 					{% endfor %}
 				
 	</div>
-		<div>
+		{# <div> #}
 					{{ knp_pagination_render(pagination) }}
-					</div>
+	</div>
 <div class="row mt-4 mb-4">
 			<div class="col-12">
 				{% include "partials/_btn_up.html.twig" %}

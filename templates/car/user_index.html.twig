@@ -4,9 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<div class="container mt-4 d-flex flex-xs-column align-items-center
-	{# justify-content-center #}
-	" 
+	<div class="container mt-4 d-flex flex-xs-column align-items-center" 
 	style="height: auto;"
 	>{% if app.user %}
 		<h1 class="text-center bg-light d-1 fw-bold p-2 rounded" id="h1_car_index">Mes annonces</h1>
@@ -24,7 +22,6 @@
 	
 <div class="d-flex flex-xs-column flex-lg-row flex-wrap"  id="carPosts_block">
 
-		{# {% for car in pagination %} #}
     {% if app.user.cars %}
 					{% for car in app.user.cars %}
 			
@@ -55,11 +52,6 @@
 					{% include "partials/_comment.html.twig" %}
 				</div>
 				</div>
-      {# <div class="text-center fs-5" style="margin-left: 16%;">
-{{ knp_pagination_render(pagination) }}
-</div> #}
-	
-
 </div></div></div>
 <div>
 
