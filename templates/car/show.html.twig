@@ -5,7 +5,7 @@
 
 {% block body %}
 	{% for message in app.flashes('success') %}
-		<div class="alert alert-success">
+		<div class="alert alert-success fs-4 text-center">
 			{{ message }}
 		</div>
 	{% endfor %}
@@ -132,22 +132,21 @@
 									<h4 class=" mt-1 px-4  pt-2 show_content_btn border cursor">Demande de contact numéro {{ contact.id }}</h4>
 									<div class="contact_content hidden  border">
 										<p class="cont_txt text-light  mt-4">Author : {{ contact.fullName }}</p>
-										<p class="text-light">E-mail : 
+										<p class="text-light cont_txt">E-mail : 
 											{{ contact.email|raw }}
 										</p>
 										<p class="cont_txt text-light">Sujet : 
 											{{ contact.subject|raw }}
 										</p>
-										<p class="cont_txt text-light px-4">Message : 
+										<p class="cont_txt text-light px-4"min="2" max="300">Message : 
 											{{ contact.message|raw }}
 										</p>
 										<p class="cont_txt text-light">Téléphone : 
 											{{ contact.phoneNumber|raw }} 
 										</p>
-										<div class="d-flex justify-content-around">
+										<div class="d-flex justify-content-center">
 											<a href="{{ path('delete_contact', { id: contact.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ contact.id) }}" class="link_delete link_del_car_sh fs-5 my-4">Supprimer</a>
 											<br>
-											<button class="btn-light border close fs-5 cursor my-2">Fermer</button>
 									</div></div>
 									</div>
 								</div>

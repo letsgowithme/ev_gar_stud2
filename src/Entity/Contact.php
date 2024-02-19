@@ -29,7 +29,7 @@ class Contact
     private ?string $subject = null;
 
     #[ORM\Column(type: 'text', length: 300)]
-    #[Assert\Length(min: 1, max: 300)]
+    #[Assert\Length(min: 1, max: 300, maxMessage: "Le message est trop long")]
     #[Assert\NotBlank(message: "Ce champ ne doit pas être vide")]
     private ?string $message = null;
 

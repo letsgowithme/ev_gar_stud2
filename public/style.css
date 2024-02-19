@@ -21,6 +21,10 @@
   width: 100%;
 }
 
+/* .alert {
+font-size: 1.3em;
+} */
+
 h1,
 h2,
 h3,
@@ -614,6 +618,9 @@ transition: 0.3s ease-in-out;
 .carousel-control-next-icon{
   background-color: rgb(33, 33, 135)!important;
 }
+.cont_txt{
+  font-size: 1.4em;
+}
 
 .gallery_img{
   position:relative;
@@ -1164,11 +1171,11 @@ letter-spacing: 3px;
   }
 
   .contact_content{
-    width: 650px;
+    width: 900px;
   }
 
   .cont_txt{
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
 
   .car_info{
@@ -1443,5 +1450,11 @@ footer a {
   left: 50%;
   transform: translateX(-50%);
 }
-
+.contact_content{
+  width: 600px;
+  height: auto;
+}
+.dem_cont_th{
+  font-size: 1.2em;
+}
 }  
