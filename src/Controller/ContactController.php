@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'contact.index')]
+    #[Route('/contact/new', name: 'contact.index')]
     public function index(
         Request $request,
         EntityManagerInterface $manager,
@@ -25,12 +25,15 @@ class ContactController extends AbstractController
     {
         $contact = new Contact();
         $formContact=$this->createForm(ContactType::class, $contact);
+       
         $formContact->handleRequest($request);
         if ($formContact->isSubmitted() && $formContact->isValid()) {
 
              $contact = $formContact->getData();
+           
              $manager->persist($contact);
              $manager->flush();
+            
              //Email
              $mailService->sendEmail(
                 $contact->getEmail(),
@@ -42,7 +45,7 @@ class ContactController extends AbstractController
                 'success',
                 'Votre message a été envoyé avec succès !'
             );
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('car.index');
         }
 
         return $this->render('contact/index.html.twig', [

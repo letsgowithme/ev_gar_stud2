@@ -1,38 +1,48 @@
-	<div class="text-center d-flex flex-column align-items-center ">
+<div class="text-center d-flex flex-column align-items-center ">
 	<div class="comments">
 		<div class="comments__new">
 			<div class="w-100 ms-4">
 				{{ form_start(commentForm) }}
 				{{ form_errors(commentForm) }}
+
 				<div class="mb-3">
 					{{ form_row(commentForm.subject) }}
 				</div>
+
 				<div class="mb-3">
 					{{ form_row(commentForm.content) }}
 				</div>
+
 				<div class="mb-3">
 					{{ form_row(commentForm.commentator) }}
 				</div>
+
 				<div class="mb-3">
-				<h5>Note :</h5>
+					<h5 class="text-light">Note :</h5>
 					{{ form_widget(commentForm.mark) }}
 				</div>
+
 				{% if app.user%}
 					{% if app.user.roles is same as "ROLE_ADMIN" %}
 						<div class="mb-3">
-				<h5>Approuver :</h5>
-					{{ form_widget(commentForm.isApproved) }}
-				</div>
-				<div class="mb-3">
-				<h5>Traiter :</h5>
-					{{ form_widget(commentForm.isProcessed) }}
-				</div>
-				{% endif %}
+							<h5>Approuver :</h5>
+							{{ form_widget(commentForm.isApproved) }}
+						</div>
+
+						<div class="mb-3">
+							<h5>Traiter :</h5>
+							{{ form_widget(commentForm.isProcessed) }}
+						</div>
+
+					{% endif %}
 				{% endif %}
 				<div class="mb-3">
 					{{ form_row(commentForm.submit) }}
 				</div>
+
 				<div class="mb-3">
 					{{ form_end(commentForm) }}
 				</div>
-			</div>
+
+			</div>	</div>	</div>	</div>
+

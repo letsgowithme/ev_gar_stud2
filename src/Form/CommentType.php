@@ -26,7 +26,7 @@ class CommentType extends AbstractType
             ],
             'label' => 'Sujet',
             'label_attr' => [
-                'class' => 'form-label mt-4 text-light fs-6 fw-bold',
+                'class' => 'form-label mt-4 text-light fs-5 fw-bold',
                 'minLength' => '2',
                 'maxLength' => '50'
             ],
@@ -43,7 +43,7 @@ class CommentType extends AbstractType
                     ],
                     'label' => 'Contenu',
                     'label_attr' => [
-                        'class' => 'form-label inline-block mb-2  text-light fw-bold'
+                        'class' => 'form-label inline-block mb-2 fs-5 text-light fw-bold'
                     ],
                     'constraints' => [
                         new Assert\Length(['min' => 1, 'max' => 255]),
@@ -57,7 +57,7 @@ class CommentType extends AbstractType
                 ],
                 'label' => 'Nom/Prénom',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-6  fw-bold',
+                    'class' => 'form-label mt-4 text-light fs-5  fw-bold',
                     'minLength' => '1',
                     'maxLength' => '50'
                 ],
@@ -68,7 +68,7 @@ class CommentType extends AbstractType
             ])
             ->add('mark', ChoiceType::class, [
                 'attr' => [
-                    'class' => 'form-select  mb-4 fs-6'
+                    'class' => 'form-select  mb-4 fs-5'
                 ],
                 'choices' => [
                     'Choisir' => "",
@@ -80,9 +80,9 @@ class CommentType extends AbstractType
    
                 ],
                 
-                'label' => 'Note:',
+                'label' => 'Note :',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-6 fw-bold'
+                    'class' => 'form-label mt-4 text-light fs-5 fw-bold'
                 ],
                 'multiple' => false,
                 'required' => true,
@@ -96,7 +96,7 @@ class CommentType extends AbstractType
             // ])
             ->add('isApproved', ChoiceType::class,[
                 'attr' => [
-                    'class' => 'form-select  mb-4 fs-6 hidden'
+                    'class' => 'form-select  mb-4 fs-5 hidden'
                 ],
                 "choices" => [
                 'Non approuvé' => '0',
@@ -104,12 +104,12 @@ class CommentType extends AbstractType
                 ],
                 'label' => 'Approuver:',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-6 fw-bold hidden'
+                    'class' => 'form-label mt-4 text-light fs-5 fw-bold hidden'
                 ],
             ])
             ->add('isProcessed', ChoiceType::class,[
                 'attr' => [
-                    'class' => 'form-select  mb-4 fs-6 hidden'
+                    'class' => 'form-select  mb-4 fs-5 hidden'
                 ],
                 "choices" => [
                 'Non traité' => '0',
@@ -117,7 +117,7 @@ class CommentType extends AbstractType
                 ],
                 'label' => 'Traiter:',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-6 fw-bold hidden'
+                    'class' => 'form-label mt-4 text-light fs-5 fw-bold hidden'
                 ],
             ])
 

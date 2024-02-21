@@ -13,66 +13,50 @@
 		<div>
 			{% include "partials/_main_title.html.twig" %}
 		</div>
-		<div
-			class="row mb-4 service_and_img">
+		<div class="row mb-4 service_and_img">
 			<div class="col-xs-12 col-lg-6">
 				{% include "partials/_services_line.html.twig" %}
 			</div>
 			<div class="col-xs-12 col-lg-6 mt-3 d-flex flex-column">
 				{% include "partials/_header_img.html.twig" %}
-				{# <br> #}
+
 				{% include "partials/_btn_rdv.html.twig" %}
 			</div>
 		</div>
 		<br>
-			</div></div>
-		{# ****************best comments********** #}
-			<div class="row mt-1 text-center"  id="bestComments">
-			<div class="col-12">
-
-				<h2 class="comm_title my-4 bg-light text-dark">Témoignage</h2>
-				<div class="visible 
-				d-flex justify-content-around ms-lg-5 
-				bestCommBlock">
-					{% include "partials/_bestComments.html.twig" %}
-				</div>
-				<h3 class="my-4">
-			<button type="button rounded" id="btn_comments">Voir tous les témoignages</button>
-				</h3>
-				<div class="col-12 px-4 text-center hidden" id="commentsAll">
-					{% include "partials/_commentsAll.html.twig" %}
-		</div>
-				<h3 class="my-4">
-					<button type="button rounded" id="btn_comment">Ajouter un témoignage</button>
-				</h3>
-				<div class="hidden " id="commentNew">
-					{% include "partials/_comment.html.twig" %}
-				</div>
+	</div>
 </div>
-			</div>
+{# ****************best comments********** #}
+<div class="row mt-1 text-center" id="bestComments">
+	<div class="col-12">
+		<h2 class="comm_title my-4 bg-light text-dark">Témoignage</h2>
+		<div class="visible
+								d-flex justify-content-around ms-lg-5
+								bestCommBlock">
+			{% include "partials/_bestComments.html.twig" %}
 		</div>
-		<br>
-				{# ****************************** #}
-		<div class="row mt-4 mb-4">
-			<div class="col-12">
-				{% include "partials/_btn_up.html.twig" %}
-				{% include "partials/_btn_home.html.twig" %}
-			</div>
+		<h3 class="my-4">
+			<button type="button rounded" id="btn_comments">Voir tous les témoignages</button>
+		</h3>
+		<div class="col-12 px-4 text-center hidden" id="commentsAll">
+			{% include "partials/_commentsAll.html.twig" %}
 		</div>
-			</div>
+		<h3 class="my-4">
+			<button type="button rounded" id="btn_comment">Ajouter un témoignage</button>
+		</h3>
+		<div class="hidden " id="commentNew">
+			{% include "partials/_comment.html.twig" %}
+		</div>
+	</div>
+</div>
 {# </div> #}
-
-<div class="row mt-4">
-			<div class="col-12">
-				{% include "partials/_liens_schedule_address.html.twig" %}
-			</div>
-		</div>
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
-<script>
-	$(document).ready(function () {
+<br>
+{# ****************************** #}
+<div class="row mt-4 mb-4">
+<div class="col-12">
+	{% include "partials/_btn_up.html.twig" %}
+	{% include "partials/_btn_home.html.twig" %}
+</div></div></div></div><div class="row mt-4"><div class="col-12">{% include "partials/_liens_schedule_address.html.twig" %}</div></div><script src="https://code.jquery.com/jquery-3.6.0.js"></script><script>$(document).ready(function () {
 $("#btn_comment").click(function () {
 $("#commentNew").removeClass("hidden");
 });
@@ -81,6 +65,5 @@ $("#btn_comments").click(function () {
 $("#commentsAll").removeClass("hidden");
 $("#btn_comments").text("Tous les témoignages");
 });
-});
-</script>
-{% endblock %} 
+});</script>{% endblock %}
+

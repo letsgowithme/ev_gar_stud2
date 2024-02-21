@@ -27,22 +27,8 @@ class CarRepository extends ServiceEntityRepository
                  ->orderBy('c.id', 'ASC')
                   ->getQuery()
                  ;
-       
-         
-         
-       
     }
-    // public function paginationQuery($page, $limit, $filters = null)
-    // {
-    //     $query = $this->createQueryBuilder('c');
-    //      if($filters != null){
-    //         $query->andWhere('c.cars IN(:cars)')
-    //               ->setParameter(':cars', array_values($filters));
-    //         $query->orderBy('c.id', 'ASC')
-    //               ->getQuery()
-    //               ->setMaxResults($limit);
-    //      }
-         
+      
          
     //      return $query->getQuery()->getResult();
     // }

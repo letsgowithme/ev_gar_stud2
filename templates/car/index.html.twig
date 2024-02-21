@@ -22,7 +22,7 @@
 
 		{# ******************range start****************** #}
 		<div class="range_block d-flex justify-content-between">
-	<div class="d-flex flex-column">
+	<div class="km_block d-flex flex-column">
 		<label for="rangeKm" class="form-label fw-bold range_ttl">Kilométrage</label>
 		<input type="range" class="form-range" min="10000" max="250000" step="500" id="rangeKm" name="rangeKm">
 		<div class="fw-bold range_val">
@@ -60,7 +60,7 @@
 <div class="d-flex flex-wrap text-center row"  id="carPosts_block">
 			{% for car in pagination %}
 			{# <div class="cadre col-xs-12 col-sm-6 col-lg-4" style="display: block;"> #}
-			<div class="card-body mb-3 text-xs-center car_info border rounded" style="display: block;">
+			<div class="card-body mb-3 text-xs-center car_info border rounded  col-xs-12 col-sm-6 col-lg-4" style="display: block;">
 				<input type="hidden" value="{{ car.id|raw }}">
 						<div class="car__image card-image">
 						<p class="card-text text-light bg-dark rounded w-25 car_price_span">{{ car.price|raw }} €</p>
@@ -73,7 +73,7 @@
 					<hr>
 					<p class="card-text text-black fw-bold car_price" value="">{{ car.price|raw }}<span> €</span></p>
 					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: underscore;" 
-					class="fw-bold mt-3 link_details">Details</a></p>	
+					class="fw-bold link_details">Details</a></p>	
 			</div>
 			{# </div> #}
 				<br>
