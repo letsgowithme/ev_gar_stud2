@@ -31,38 +31,10 @@
 	<div class="col-12">
 		<h2 class="comm_title my-4 bg-light text-dark">Témoignage</h2>
 		<div class="visible
-								d-flex 
-								bestCommBlock  rounded">
-
-<div id="carouselExampleSlidesOnly" style="position: relative; left: -5%; "class="carousel slide p-2" data-bs-ride="carousel">
-  <div class="carousel-inner  text-light">
-    <div class="carousel-item active">
-		<div class="d-flex flex-column w-100  " >
-      		<p class="fw-bold">J'aime bien</p>
-					<p>"Les prix sont très agréables et bon accueil"</p>
-					<p>Note: 5/5</p>
-					<p>François Penier</p>
-    </div>
+								d-flex justify-content-around ms-lg-5
+								bestCommBlock">
+			{% include "partials/_bestComments.html.twig" %}
 		</div>
-    <div class="carousel-item">
-				<div class="d-flex flex-column w-100">
-      		<p class="fw-bold ">Super</p>
-				<p>Les prix sont très agréables et bon accueil</p>
-					<p>Note: 5/5</p>
-					<p>Laure Menier</p>
-    </div>
-    </div>
-    <div class="carousel-item">
-     				<div class="d-flex flex-column w-100">
-      		<p class="fw-bold ">Coup de coeur</p>
-				<p>Les prix sont très agréables et bon accueil</p>
-					<p>Note: 5/5</p>
-				<p>Lola Garenier</p>
-    </div>
-    </div>
-  </div>
-</div></div>
-
 		<h3 class="my-4">
 			<button type="button rounded" id="btn_comments">Voir tous les témoignages</button>
 		</h3>

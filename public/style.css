@@ -103,7 +103,9 @@ color: white;
   .services_txt{
     font-size: 1.8em;
   }
-
+.bg_serv{
+background-color: #be080886;
+}
 .services_title_page{
   font-size: 2.8em!important;
   font-weight: bold;
@@ -502,7 +504,29 @@ border:1px solid white;
 .link_details{
   font-size: 0.8em;
 }
+/* **services page */
+.serv_page_ttl{
+  text-shadow: 2px 2px white; 
+  color: #D92332; 
+  width: auto;
+  background-color: #c8ccb3bb;
+  font-size: 1.7em!important;
+ 
+}
+.serv_ttl_list{
+  margin-left: 5px;
+  font-size: 1.3em;
+}
+.btn_up_serv{
+  background-color: white;
+  color:  #D92332;
+  font-size: 1em;
+  border-radius: 50%!important;
+  text-decoration: none;
+  height:40px!important;
 
+ 
+}
 /* *****************page car.index**************** */
 .main_car_img{
   width: 350px;
@@ -1070,6 +1094,11 @@ margin-bottom: 20px;
   .services_txt{
     font-size: 1.8em;
     margin: 0 10%;
+    color: white;
+  }
+  .serv_ttl_list{
+    margin-left: 5px;
+    font-size: 1.7em;
   }
 
   #block_services p{
@@ -1118,7 +1147,11 @@ margin-bottom: 20px;
   .nav-item {
     padding-top: 0.5em;
   }
-
+  .nav-link-footer{
+   
+    font-size: 1.4em!important;
+  }
+ 
   .dropdown-item,
   #username {
     font-size: 1.2em !important;
@@ -1313,7 +1346,11 @@ letter-spacing: 3px;
 .login_page_container{
   height: 460px;
 }
-
+  .serv_ttl_list{
+    margin-left: 5px;
+    font-size: 1.9em;
+   
+  }
   /* car.edit 768px */
   .img_edit_block{
     flex-direction: row;
@@ -1354,7 +1391,17 @@ letter-spacing: 3px;
     margin-top: 10px;
     max-width: 400px!important;
   }
+  .serv_page_ttl{
+    text-shadow: 2px 2px white; 
+    color: #D92332; 
+    width: auto;
+    background-color: #c8ccb3bb;
+    font-size: 4em!important;
+    padding: 5% 1%;
   
+   
+  }
+
   .call_us{
     right: 5%;
     transform: translateX(0%);
@@ -1382,13 +1429,7 @@ letter-spacing: 3px;
   height: 700px;
 }
 
-.services_title_page{
-  margin-bottom: 10px;
-  font-size: 2.5em;
-  color: var(--light);
-  text-shadow: -2px 1px 1px rgb(75, 68, 68);
-  padding: 2% 0;
-}
+
 
 .services_title{
   font-size: 2em!important;
