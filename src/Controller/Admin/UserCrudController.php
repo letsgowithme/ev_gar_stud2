@@ -16,6 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserCrudController extends AbstractCrudController
 {
+   
     public static function getEntityFqcn(): string
     {
         return User::class;
@@ -34,17 +35,19 @@ return $crud
             ->setPageTitle(pageName:Crud::PAGE_EDIT, title: 'Modifier l\'employé');
 }
 
-public function configureActions(Actions $actions): Actions
-{
+ public function configureActions(Actions $actions): Actions
+ {
+  
     $linkExterne = Action::new('linkExterne', 'Générer le mot de passe', 'fa fa-glob')
         ->linkToUrl("https://www.motdepasse.xyz/")
         ->setHtmlAttributes([
             'target' => '_blank'
         ])
+        
         ->addCssClass('btn btn-success');
     return $actions
     ->add(Crud::PAGE_NEW, $linkExterne);
-}
+ }
 
 public function configureFields(string $pageName): iterable
 {
@@ -72,6 +75,11 @@ public function persistEntity(EntityManagerInterface $entityManager, $entityInst
     $this->encodePassword($entityInstance);
     parent::persistEntity($entityManager, $entityInstance);
 }
+
+// public function passGenerator(AdminContext $context):Response
+// {
+//  $password = $context->getEntity()->getInstance('password');
+// }
 
 public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
 {

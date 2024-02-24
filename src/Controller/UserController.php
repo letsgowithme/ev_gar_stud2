@@ -28,7 +28,10 @@ class UserController extends AbstractController
 
     #[Route('/new', name: 'user.new', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_ADMIN')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request,
+     EntityManagerInterface $entityManager,
+    
+     ): Response
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -38,12 +41,15 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+       
+
             return $this->redirectToRoute('user.index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('user/new.html.twig', [
             'user' => $user,
             'form' => $form,
+          
         ]);
     }
 

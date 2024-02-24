@@ -747,6 +747,13 @@ padding: 2px 8px;
 .img_edit_main{
   width: 100px !important;
 }
+/* ****error */
+.error_img{
+  margin-top: 3%;
+  width: 50%; 
+  min-height: 20vh;  
+  
+}
 }
 @media screen and (min-width: 512px) {
 /* *****************page car.index 512px**************** */
@@ -1078,9 +1085,10 @@ margin-bottom: 20px;
      margin-top: 0;
      border-radius: 0 0 0 0;
      margin-bottom: 2%;
+     height: 44%;
   } 
 
-  .service_and_img{
+  .srv_plus_img{
     height: 550px;
   }
 
@@ -1429,8 +1437,6 @@ letter-spacing: 3px;
   height: 700px;
 }
 
-
-
 .services_title{
   font-size: 2em!important;
 }
@@ -1439,6 +1445,10 @@ letter-spacing: 3px;
 font-size: 1.6em;
 padding: 10px;
 } 
+
+#block_services {
+  height: 74%;
+  } 
 
 .navbar-toggler-icon {
   font-size: 1.4em;
@@ -1586,5 +1596,10 @@ footer a {
 }
 .dem_cont_th{
   font-size: 1.2em;
+}
+.error_img{
+  width: 25%; 
+  min-height: 20vh;  
+
 }
 }  
