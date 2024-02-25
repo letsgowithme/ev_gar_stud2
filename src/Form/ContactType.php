@@ -28,7 +28,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Nom/Prénom',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-4'
+                    'class' => 'form-label mt-2 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -44,7 +44,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Email',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-4'
+                    'class' => 'form-label mt-3 text-light fs-5'
 
                 ],
                 'constraints' => [
@@ -62,7 +62,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Sujet',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-4'
+                    'class' => 'form-label mt-3 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\Length(['min' => 2, 'max' => 50])
@@ -77,7 +77,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Message',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-4'
+                    'class' => 'form-label mt-3 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -92,7 +92,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Numéro de téléphone',
                 'label_attr' => [
-                    'class' => 'form-label mt-4 text-light fs-4'
+                    'class' => 'form-label mt-3 text-light fs-5'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),                   
@@ -107,7 +107,7 @@ class ContactType extends AbstractType
 
             ->add('submit', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary mt-4 fs-3'
+                    'class' => 'btn btn-primary mt-3 fs-5'
                 ],
                 'label' => 'Envoyer'
             ]);

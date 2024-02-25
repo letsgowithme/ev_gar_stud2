@@ -101,13 +101,13 @@ color: white;
   }
 
   .services_txt{
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
 .bg_serv{
 background-color: #be080886;
 }
 .services_title_page{
-  font-size: 2.8em!important;
+  font-size: 2em!important;
   font-weight: bold;
 }
 
@@ -189,12 +189,11 @@ background-color: #be080886;
   .navbar a,
   footer a {
     color: white;
-    font-size: 2.8em;
+    font-size: 2em;
   }
 
   .nav-link-name {
     font-family: 'Rajdhani', sans-serif!important;
-    font-size: 2.6em!important;
     margin-top: -20px;
     
   }
@@ -330,15 +329,27 @@ background-color: #be080886;
     transition: 0.3s ease-in-out;
   }
 
-  #btn_up {
+  /* #btn_up {
     color: var(--dark);
     background: var(--bg_base);
+    background: black;
     text-decoration: underline;
     font-weight: bold;
     font-size: 1.4em;
     padding: 5px;
+    position: absolute;
+    position: fixed;
+    top: 90%;
+    right: 1%;
+  } */
+  #btn_up {
+ 
+   width: 70px;
+    position: absolute;
+    position: fixed;
+    top: 90%;
+    right: 1%;
   }
-
 #btn_home {
   text-decoration: none;
   font-size: 1.2em;
@@ -433,7 +444,7 @@ background-color: #be080886;
 
 #btn_comments,
 #btn_comment,
-#btn_up,
+
 #btn_home
 {
   font-size: 1.1em!important;
@@ -456,12 +467,11 @@ background-color: #be080886;
 }
 
 #btn_up:hover{
-  background-color: var(--main_bg_color);
-  color: var(--light);
-  padding: 5px;
-  font-weight: bold;
+ 
+  width: 78px;
   transition: 0.3s ease-in-out;
-  border:1px solid white;
+  border:3px solid rgb(122, 5, 5);
+  border-radius: 50%;
 
 }
 
@@ -1085,7 +1095,7 @@ margin-bottom: 20px;
      margin-top: 0;
      border-radius: 0 0 0 0;
      margin-bottom: 2%;
-     height: 44%;
+     height: 42%;
   } 
 
   .srv_plus_img{
@@ -1094,19 +1104,19 @@ margin-bottom: 20px;
 
   .services_title_page{
     margin-bottom: 10px;
-    font-size: 2.9em!important;
+    font-size: 2em!important;
     color: var(--light);
     text-shadow: -2px 1px 1px rgb(75, 68, 68);
   }
 
   .services_txt{
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin: 0 10%;
     color: white;
   }
   .serv_ttl_list{
     margin-left: 5px;
-    font-size: 1.7em;
+    font-size: 1.3em;
   }
 
   #block_services p{
@@ -1142,13 +1152,13 @@ margin-bottom: 20px;
   }
 
   #navbarColor01 a {
-    font-size: 1.5em !important;
+    font-size: 1.3em!important;
     padding: 10px;
   }
 
   .nav-link-name {
     font-family: 'Rajdhani', sans-serif!important;
-    font-size: 2.7em!important;
+    /* font-size: 1.2em!important; */
     margin-top: -20px;
   }
 
@@ -1186,10 +1196,7 @@ margin-bottom: 20px;
     font-size: 1em;
   } 
 
-   .btn_up {
-    font-size: 1.6em !important;
-    color: white;
-  }
+  
 
   .btn_home {
     text-decoration: none;
@@ -1341,7 +1348,7 @@ letter-spacing: 3px;
 
 #btn_comments,
 #btn_comment,
-#btn_up,
+
 #btn_home
 {
   font-size: 1.1em!important;
@@ -1425,52 +1432,54 @@ letter-spacing: 3px;
     margin-top: -1%;
     margin-left: 25%;
   }
-
+#contact_submit{
+  font-size: 1.1em;
+}
 #bg_homepage {
   width: 100%; 
   height: 76vh!important; 
   margin-top: -0.2em; 
   z-index: -1;
 } 
-
+.services_title_page_home{
+  font-size: 2em;
+}
 .service_and_img{
   height: 700px;
+ 
 }
 
 .services_title{
-  font-size: 2em!important;
+  font-size: 1.6em!important;
 }
 
 #block_services p{
 font-size: 1.6em;
-padding: 10px;
+padding: 15px;
 } 
 
 #block_services {
-  height: 74%;
+  height: 77%;
   } 
 
-.navbar-toggler-icon {
+/* .navbar-toggler-icon {
   font-size: 1.4em;
   color: white;
-} 
+}  */
 
 #navbarColor01{
   width: 100%;
-  height: 80px;
-  font-size: 1.3em;
+  height: 70px!important;
+  
 }
 
-.navbar a,
+.navbar-nav a,
 footer a {
   color: white;
-  font-size: 2em !important;
+
 }
 
-.nav-link {
-  font-size: 1.3em !important;
-  padding: 10px;
-}
+
 
 .nav-item {
   padding-top: 0.5em;
@@ -1478,15 +1487,15 @@ footer a {
 
 .dropdown-item,
 #username {
-  font-size: 1.2em !important;
+  font-size: 1em !important;
 } 
 
  .footer-link {
-  font-size: 1em !important;
+  font-size: 1em!important;
 }
 
 .text_block_p {
-  font-size: 2em !important;
+  font-size: 2em!important;
 }
 
 .visit_site_links {
@@ -1500,9 +1509,7 @@ footer a {
   margin-bottom: 1em;
 } 
 
- #btn_up {
-  font-size: 1.6em!important;
-}
+
 
 #btn_home {
   text-decoration: none;
