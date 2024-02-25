@@ -1538,7 +1538,9 @@ footer a {
 #carPosts_block {
   position: relative;
   margin-top: 3%;
-  min-width: 1300px;
+  left: 50%;
+  transform: translateX(-47%);
+  min-width: 1340px;
 }
 
 .main_car_img{
