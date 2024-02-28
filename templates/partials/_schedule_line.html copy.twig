@@ -1,17 +1,17 @@
 <div class="mt-4 d-flex flex-column  align-items-center  text-light text-center">
-	<h3 class="down_line_names py-3 text-center w-auto" >Nos horaires</h3>
-<div class="table d-flex flex-column align-items-center">
+	<h3 class="down_line_names py-3 text-center" >Nos horaires</h3>
+<div class="table d-flex justify-content-center flex-wrap table_schedule">
 				{% for schedule in schedules %}
-				<div class="d-flex schedule_list text-capitalize fs-5 text-light">
-					
-						 {{ schedule.day }} :
+				<div class="d-flex flex-column schedule_list">
+						 <div class="fw-bold text-center text-capitalize text-light schedule_day">{{ schedule.day }}</div>
+						<div class="text-center text-light schedule_time fs-2" style="max-width: 250px; min-height: 50px; padding: 10px;">
 						{% if schedule.openingTimeMorning %}
 						{{ schedule.openingTimeMorning }}
 							{% endif %}
 							{% if schedule.closingTimeMorning %}
 								- {{ schedule.closingTimeMorning }}
 							{% endif %}
-							
+							<br>
 							{% if schedule.openingTimeEvening %}
 							{{ schedule.openingTimeEvening }}
 			
@@ -19,8 +19,7 @@
 							{% if schedule.openingTimeEvening %}
 							- {{ schedule.closingTimeEvening }}
 								{% endif %}
-								
-							
+							</div> 
 							</div>
 	 {% endfor %} 
 	</div>

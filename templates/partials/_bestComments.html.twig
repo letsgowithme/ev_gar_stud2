@@ -1,24 +1,20 @@
-
+<div class="col-12">
+	<div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+		<div class="carousel-inner">
 			{% for comment in bestComments %}
 				{% if comment.isApproved %}
-					<div class="comment mb-4"
-					 style="width: 370px;">
-						<div>
-							<div class="block p-6">
-								<div class="ms-6">
-                <h3 class="rounded bg-light text-dark fs-2">{{ comment.subject|raw }}</h3>
-                  <p class="text-light mb-3 fs-3">
-										{{ comment.content|raw }}
-									</p>
-										<p class="text-light p_sec" >{{ comment.commentator }}</p>
-                  <p class=" mb-3 text-light p_sec">Note: {{ comment.mark }}/5</p>									
-								</div>
-							</div>
-						</div>
+					<div class="carousel-item {{ (loop.first ) ? 'active' : '' }}  text-center">
+					 <img src="/assets/images/devis.png" alt="citation"
+class="img-fluid mb-4" style="width: 40px;"/>
+						<p class="fw-bold">{{ comment.subject|raw }}</p>
+						<p>{{ comment.content|raw }}</p>
+						<p>Note:
+							{{ comment.mark }}/5</p>
+						<p>{{ comment.commentator }}</p>
 					</div>
-					<hr class="mx-4">
 				{% endif %}
 			{% endfor %}
-            
 
+		</div>
+	</div>
 

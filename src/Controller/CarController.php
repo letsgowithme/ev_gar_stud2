@@ -76,13 +76,11 @@ class CarController extends AbstractController
                 'Votre témoignage a bien été prise en compte'
             );
         }
-        $pagination = $paginator->paginate(
-            $carRepository->paginationQuery('page', 1, 
-           
-        ),
-            $request->query->get('page', 1),
-            5
-        );
+        // $pagination = $paginator->paginate(
+        //     $carRepository->paginationQuery(),
+        //     $request->query->get('page', 1),
+        //     6
+        // );
         
       
      
@@ -90,7 +88,7 @@ class CarController extends AbstractController
         return $this->render('car/user_index.html.twig', [
             'cars' => $cars,
             'schedules' => $scheduleRepository->findAll(),
-            'pagination' => $pagination,
+            // 'pagination' => $pagination,
             'commentForm' => $commentForm,
             'comments' => $comments
         

@@ -311,7 +311,7 @@ background-color: #be080886;
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 2.4em;
+    font-size: 1.3em;
   }
 
   .down_line_names {
@@ -322,26 +322,15 @@ background-color: #be080886;
     width:200px;
     font-size: 1.8em;
   }
-  
+  .container_contact{
+    width: 100%;
+  }
   .down_link:hover{
-    background-color: var(--rose);
-    color: var(--dark);
+    background-color: silver;
+    color: Red;
     transition: 0.3s ease-in-out;
   }
 
-  /* #btn_up {
-    color: var(--dark);
-    background: var(--bg_base);
-    background: black;
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 1.4em;
-    padding: 5px;
-    position: absolute;
-    position: fixed;
-    top: 90%;
-    right: 1%;
-  } */
   #btn_up {
  
    width: 70px;
@@ -681,7 +670,7 @@ transition: 0.3s ease-in-out;
 }
 
 .adr_p{
-  font-size: 1.9em!important;
+  font-size: 1.3em!important;
  }
 
  #caracter_btn,
@@ -712,11 +701,11 @@ padding: 2px 8px;
  .visit_site_links {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
 }
 
 .visit_site_links a{
- font-size: 1.6em;
+ font-size: 1.3em;
 }
 
 .call_us_txt{
@@ -865,18 +854,12 @@ margin-bottom: 20px;
     font-size: 1.2em;
   }
 
-  .visit_site_links {
-    display: flex;
-  }
-
+ 
   .address_line{
     display: flex;
   }
 
-  .adr_p{
-   font-size: 1.9em!important;
-  }
-
+  
   #bg_homepage {
     width: 100%; 
     height: 55vh!important; 
@@ -927,10 +910,7 @@ margin-bottom: 20px;
   align-items: center;
 }
 
-.visit_site_links {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .range_block{
   display: flex;
@@ -1183,18 +1163,8 @@ margin-bottom: 20px;
     font-size: 2em !important;
   }
 
-  .visit_site_links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  
 
-  .visit_site_links li {
-    padding: 0.2em;
-    list-style: circle;
-    margin-bottom: 1em;
-    font-size: 1em;
-  } 
 
   
 
@@ -1267,9 +1237,7 @@ letter-spacing: 3px;
     font-size: 1.3em;
   }
 
-  .adr_p{
-    font-size: 1.7em!important;
-   }
+  
 
    .footer-copyright{
     font-size: 1.2em;
@@ -1339,7 +1307,10 @@ letter-spacing: 3px;
    #contactForm{
     width: 500px;
    }
-
+   .container_contact{
+    width: 50%;
+    height: auto;
+  }
   .car_info_show{
     display: flex;
     flex-direction: column;
@@ -1498,10 +1469,7 @@ footer a {
   font-size: 2em!important;
 }
 
-.visit_site_links {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .visit_site_links li {
   padding: 0.2em;
@@ -1611,4 +1579,5 @@ footer a {
   min-height: 20vh;  
 
 }
+
 }  
