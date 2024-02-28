@@ -336,8 +336,8 @@ background-color: #be080886;
    width: 70px;
     position: absolute;
     position: fixed;
-    top: 90%;
-    right: 1%;
+    top: 83%;
+    right: 0%;
   }
 #btn_home {
   text-decoration: none;
@@ -656,6 +656,16 @@ transition: 0.3s ease-in-out;
 
 .contact_content{
   width: 375px;
+}
+#btn_address{
+  color: white;
+  background-color: var(--rose);
+}
+
+#btn_address:hover{
+  color: rgb(235, 7, 7);
+  background-color: var(--bg_base);
+  font-weight: bold;
 }
 
 #carouselExampleIndicators{

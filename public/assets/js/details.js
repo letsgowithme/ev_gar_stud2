@@ -1,5 +1,13 @@
 $(function () {
+  $("#address").addClass("hidden");
+  $("#address_show_car").addClass("hidden");
 
+  $("#btn_address").on("click", function () {
+    $("#address_show_car").removeClass("hidden");
+    
+  });
+
+ 
 $("#equip_btn").on("click", function () {
   $("#equip_btn").css("background", "#d94350");
   $("#equip_btn").css("color", "white");
