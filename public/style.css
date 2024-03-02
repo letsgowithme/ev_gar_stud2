@@ -766,6 +766,15 @@ padding: 2px 8px;
   min-height: 20vh;  
   
 }
+/* my space page */
+.p_user_btns{
+  display: flex;
+  flex-direction: column !important;
+}
+
+#btn_comm_close{
+  position: relative;
+}
 }
 @media screen and (min-width: 512px) {
 /* *****************page car.index 512px**************** */
@@ -849,6 +858,32 @@ width: 450px;
     width: 220px!important;
     font-size: 0.8em;
   }
+  /* my space page */
+.p_user_btns{
+  display: flex;
+  flex-direction: column !important;
+}
+
+#btn_comm_close{
+  position: relative;
+}
+.car_info_p_user{
+  position: relative;
+  left: 36%;
+  transform: translateX(-50%);
+}
+.comment_p_user{
+  position: relative;
+  left: 8%;
+}
+#commentNew_p_us{
+  position: relative;
+ top: 0;
+ left: 35%;
+ transform: translateX(-50%);
+ width: 508px;
+
+}
 }
 
 /******************768px************** */
@@ -1000,11 +1035,7 @@ margin-bottom: 20px;
       align-items: center;
      }
 
-     #commentNew{
-      position: relative;
-     top: 0;
-    
-    }
+   
     .suppl_info_block{
       display: flex;
       flex-direction: column;
@@ -1014,6 +1045,35 @@ margin-bottom: 20px;
       width: 320px!important;
       font-size: 0.8em;
     }
+      /* my space page */
+.p_user_btns{
+  display: flex;
+  flex-direction: row!important;
+}
+ /* my space page */
+
+
+#btn_comm_close{
+  position: relative;
+}
+.car_info_p_user{
+  position: relative;
+  left: 20%;
+  transform: translateX(-50%);
+}
+.comment_p_user{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#commentNew_p_us{
+  position: relative;
+ top: 0;
+ left: 35%;
+ transform: translateX(-50%);
+ width: 500px;
+
+}
 }
 /* @media screen and (min-width: 800px) */
 @media screen and (min-width: 800px) {
@@ -1379,6 +1439,12 @@ letter-spacing: 3px;
     width: 700px; 
     height: auto;
   }
+  /* my space page*/
+  .comment_p_user{
+    position: relative;
+    left: 20%;
+    transform: translateX(-50%);
+  }
  }  
  /* ************************1440px***************************************** */
  @media screen and (min-width: 1440px) {
@@ -1599,6 +1665,13 @@ footer a {
   width: 25%; 
   min-height: 20vh;  
 
+}
+/* my space page*/
+.comment_p_user{
+  position: relative;
+  margin: 1% 10%;
+  
+  
 }
 
 }  

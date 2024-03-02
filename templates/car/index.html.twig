@@ -59,7 +59,6 @@
 {# ******************range end****************** #}
 <div class="d-flex flex-wrap text-center row"  id="carPosts_block">
 			{% for car in pagination %}
-			{# <div class="cadre col-xs-12 col-sm-6 col-lg-4" style="display: block;"> #}
 			<div class="card-body mb-3 text-xs-center car_info border rounded  col-xs-12 col-sm-6 col-lg-4" style="display: block;">
 		
 			<input type="hidden" class="carKmVal" value="{{ car.km|raw }}">
@@ -79,7 +78,7 @@
 					<p><a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: underscore;" 
 					class="fw-bold link_details">Details</a></p>	
 			</div>
-			{# </div> #}
+			
 				<br>
 					{% endfor %}
 				
