@@ -39,8 +39,6 @@ function kmChoice(){
 						$("#rangeKm").on("input", function(){
 							$(".car_km").css("display", "block");
 							$(".car_info").css("display", "block");
-								// priceChoice();
-								// yearChoice();
 						});
 			}
 			}); 
@@ -87,17 +85,11 @@ $("#rangeYear").on("input", function(){
 			}); 
 });
 }
-
-
 $("#rangeKm").on("change", kmChoice);
 $("#rangePrice").on("change", priceChoice);
 $("#rangeYear").on("change", yearChoice);
-
 $(".btn_reload").on("click", function(){
 location.reload(true);
 });
-
-
-
 });
 

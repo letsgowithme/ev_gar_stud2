@@ -805,7 +805,7 @@ padding: 2px 8px;
 
 #carPosts_block {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
 left:50%;
 transform: translateX(-45%);
   margin-top: 3%;
@@ -829,6 +829,7 @@ transform: translateX(-45%);
 .car_info{
 min-height: auto;
 margin-bottom: 20px;
+width: 450px;
 }
 
 .range_block{
@@ -836,7 +837,10 @@ margin-bottom: 20px;
   flex-direction: row;
  
 }
-
+#carPosts_block {
+  
+  width: 400px;
+}
 #equip_block,
   #opt_block{
     width: 480px!important;
@@ -846,6 +850,7 @@ margin-bottom: 20px;
     font-size: 0.8em;
   }
 }
+
 /******************768px************** */
   @media screen and (min-width: 768px) {
     .container {
@@ -1187,11 +1192,6 @@ margin-bottom: 20px;
     font-size: 2em !important;
   }
 
-  
-
-
-  
-
   .btn_home {
     text-decoration: none;
     font-size: 1.4em;
@@ -1260,8 +1260,6 @@ letter-spacing: 3px;
   .p_sec{
     font-size: 1.3em;
   }
-
-  
 
    .footer-copyright{
     font-size: 1.2em;
@@ -1343,7 +1341,6 @@ letter-spacing: 3px;
 
 #btn_comments,
 #btn_comment,
-
 #btn_home
 {
   font-size: 1.1em!important;
