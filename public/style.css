@@ -1649,6 +1649,7 @@ footer a {
 }
 
 #commentNew{
+  position: relative;
   width: 40%;
   height: auto;
   left: 50%;

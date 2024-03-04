@@ -5,8 +5,13 @@
 
 {% block body %}
 	<div class="container mt-4 d-flex flex-xs-column align-items-center" 
-	style="height: auto;"
-	>{% if app.user %}
+	style="height: auto;">
+	{% for message in app.flashes('success') %}
+			<div class="alert alert-success text-center fw-bold w-auto fs-4" style="z-index: 9;">
+				{{ message }}
+			</div>
+		{% endfor %} 
+	{% if app.user %}
 		<h1 class="text-center bg-light d-1 fw-bold p-2 rounded" id="h1_car_index">Mes annonces</h1>
 			<div class="d-flex justify-content-between p_user_btns">
          <button type="button" class="btn_create btn_p_user mt-4 text-center fw-bold rounded mb-3 me-2 fs-5" 

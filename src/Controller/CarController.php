@@ -76,13 +76,7 @@ class CarController extends AbstractController
                 'Votre témoignage a bien été prise en compte'
             );
         }
-        // $pagination = $paginator->paginate(
-        //     $carRepository->paginationQuery(),
-        //     $request->query->get('page', 1),
-        //     6
-        // );
         
-      
      
         $cars = $carRepository->findAll();
         return $this->render('car/user_index.html.twig', [
@@ -128,13 +122,12 @@ class CarController extends AbstractController
     
             $entityManager->persist($car);
             $entityManager->flush();
-
             $this->addFlash(
                 'success',
                 'Votre annonce a été créée avec succès !'
             );
 
-            return $this->redirectToRoute('car.index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('car.user_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('car/new.html.twig', [
