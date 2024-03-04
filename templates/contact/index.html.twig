@@ -3,7 +3,10 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-<div class="container container_contact  p-4 rounded" style="background: #D92332;">
+<div class="container container_contact  p-4 rounded" style="background: #D92332;" data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="200"
+     data-aos-offset="0">
  {% for message in app.flashes('success') %}
         <div class="alert alert-success">
             {{ message }}
@@ -11,7 +14,7 @@
     {% endfor %}
    
 <h1 class="text-light fs-1">Contactez-nous</h1>
-<div class="contact_form">
+<div class="contact_form" >
 {{ form(formContact) }}
 </div>
 </div>

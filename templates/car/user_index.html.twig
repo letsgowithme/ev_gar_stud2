@@ -49,12 +49,13 @@
 				<br>
 			{% endfor %}
       {% endif %}
+</div>
 			<div class="hidden p-4" id="commentNew_p_us">
 					{% include "partials/_comment.html.twig" %}
 					<button type="button" id="btn_comm_close" class="btn btn-danger border">Fermer</button>
 				</div>
 				</div>
-</div></div></div>
+</div></div>
 <div>
 
 <div class="text-center d-flex flex-wrap 
@@ -110,9 +111,14 @@
 
 $("#commentNew_p_us").addClass("hidden");
 $("#btn_comment_p_user").click(function () {
+	
+	$("#carPosts_block").css("opacity","0.3");
 $("#commentNew_p_us").removeClass("hidden");
+	$("#commentNew_p_us").css("opacity","1");
 $("#commentNew_p_us").css("position","absolute");
 $("#commentNew_p_us").css("background-color","#d94350");
+
+
 });
 $("#btn_comm_close").click(function () {
 			$("#commentNew_p_us").addClass("hidden");

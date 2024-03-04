@@ -10,7 +10,9 @@
 	{% endfor %}
 
 	<div class="body_home w-100 text-center d-flex flex-column mb-1 px-sm-2 px-lg-4">
-		<div>
+		<div data-aos="fade-up"
+     data-aos-easing="linear"
+     data-aos-duration="1000">
 			{% include "partials/_main_title.html.twig" %}
 		</div>
 		<div class="row mb-4 service_and_img">
@@ -54,7 +56,9 @@
 <div class="col-12">
 	{% include "partials/_btn_up.html.twig" %}
 	{% include "partials/_btn_home.html.twig" %}
-</div></div></div></div><div class="row mt-4"><div class="col-12">{% include "partials/_liens_schedule_address.html.twig" %}</div></div>
+</div></div></div></div>
+<div class="row mt-4"><div class="col-12"
+>{% include "partials/_liens_schedule_address.html.twig" %}</div></div>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 <script>$(document).ready(function () {

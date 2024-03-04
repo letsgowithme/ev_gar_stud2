@@ -503,6 +503,15 @@ border:1px solid white;
 .link_details{
   font-size: 0.8em;
 }
+/* user page */
+#commentNew_p_us{
+  position: relative;
+ top: 17%;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 375px;
+
+}
 /* **services page */
 .serv_page_ttl{
   text-shadow: 2px 2px white; 
@@ -878,8 +887,8 @@ width: 450px;
 }
 #commentNew_p_us{
   position: relative;
- top: 0;
- left: 35%;
+ top: 17%;
+ left: 50%;
  transform: translateX(-50%);
  width: 508px;
 
@@ -1068,8 +1077,8 @@ margin-bottom: 20px;
 }
 #commentNew_p_us{
   position: relative;
- top: 0;
- left: 35%;
+ top: 10%;
+ left: 50%;
  transform: translateX(-50%);
  width: 500px;
 
@@ -1517,7 +1526,7 @@ padding: 15px;
 } 
 
 #block_services {
-  height: 77%;
+  height: 75vh;
   } 
 
 /* .navbar-toggler-icon {
@@ -1667,12 +1676,14 @@ footer a {
   min-height: 20vh;  
 
 }
-/* my space page*/
-.comment_p_user{
-  position: relative;
-  margin: 1% 10%;
+ /* page user */
+  #commentNew_p_us{
+    position: relative;
+   top: 30%;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 500px;
   
-  
-}
+  }
 
 }  
