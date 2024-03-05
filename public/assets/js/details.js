@@ -1,5 +1,6 @@
 $(function () {
   $("#address").addClass("hidden");
+  $("#address_footer").addClass("visible");
   $("#address_show_car").addClass("hidden");
 
   $("#btn_address").on("click", function () {

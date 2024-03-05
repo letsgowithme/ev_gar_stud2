@@ -512,6 +512,9 @@ border:1px solid white;
  width: 375px;
 
 }
+.comment_p_user{
+  width: 350px;
+}
 /* **services page */
 .serv_page_ttl{
   text-shadow: 2px 2px white; 
@@ -622,12 +625,14 @@ transition: 0.3s ease-in-out;
   flex-direction: column;
 }
 
-#carPosts_block {
+#carPosts_block,
+#carPosts_block_p_user {
   display: flex;
-  flex-direction: row;
-  position: relative;
-  margin-top: 3%;
-  justify-content: center; 
+  flex-direction: column;
+  /* position: relative;
+  margin-top: 3%; */
+  align-items: center;
+  text-align: center;
 }
 
 .hidden{
@@ -668,6 +673,15 @@ transition: 0.3s ease-in-out;
 }
 .contact_content{
   width: 375px;
+}
+.call_addr{
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
 }
 #btn_address{
   color: white;
@@ -734,6 +748,7 @@ padding: 2px 8px;
   border-radius: 8px;
   color: #0c1e94;
   background-color: #fff;
+  
 }
 
  /* page car new */
@@ -760,22 +775,21 @@ padding: 2px 8px;
 #bg_homepage {
   width: 100%; 
   height: 40vh!important; 
- 
 }
-
 
 /* car eidt */
 .img_edit_main{
   width: 100px !important;
 }
+
 /* ****error */
 .error_img{
   margin-top: 3%;
   width: 50%; 
-  min-height: 20vh;  
-  
+  min-height: 20vh;    
 }
-/* my space page */
+
+/* user page */
 .p_user_btns{
   display: flex;
   flex-direction: column !important;
@@ -783,6 +797,17 @@ padding: 2px 8px;
 
 #btn_comm_close{
   position: relative;
+}
+
+ #approvement_corps{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* max-width: 1000px;  */
+  /* position: relative;
+  left: 20%;
+  transform: translateX(-50%); */
 }
 }
 @media screen and (min-width: 512px) {
@@ -821,15 +846,10 @@ padding: 2px 8px;
   font-size: 0.8em;
 }
 
-#carPosts_block {
-  display: flex;
-  flex-direction: column;
-left:50%;
-transform: translateX(-45%);
-  margin-top: 3%;
+#carPosts_block,
+#carPosts_block_p_user {
   margin-bottom: 0;
-
-  width: 300px;
+  width: 450px;
 }
 .card-title
 {
@@ -876,14 +896,11 @@ width: 450px;
 #btn_comm_close{
   position: relative;
 }
-.car_info_p_user{
-  position: relative;
-  left: 36%;
-  transform: translateX(-50%);
-}
+
 .comment_p_user{
-  position: relative;
-  left: 8%;
+    width: 450px;
+  }
+ 
 }
 #commentNew_p_us{
   position: relative;
@@ -1054,22 +1071,14 @@ margin-bottom: 20px;
       width: 320px!important;
       font-size: 0.8em;
     }
-      /* my space page */
-.p_user_btns{
-  display: flex;
-  flex-direction: row!important;
-}
- /* my space page */
+      /* user page */
+
 
 
 #btn_comm_close{
   position: relative;
 }
-.car_info_p_user{
-  position: relative;
-  left: 20%;
-  transform: translateX(-50%);
-}
+
 .comment_p_user{
   position: relative;
   left: 50%;
@@ -1113,7 +1122,10 @@ margin-bottom: 20px;
     width: 550px; 
     height: auto;
   }
- 
+  .p_user_btns{
+    display: flex;
+    flex-direction: row!important;
+  }
 }
 
 /* ************************1024px****************** */
@@ -1448,12 +1460,26 @@ letter-spacing: 3px;
     width: 700px; 
     height: auto;
   }
-  /* my space page*/
-  .comment_p_user{
-    position: relative;
-    left: 20%;
-    transform: translateX(-50%);
+  /* user page*/
+   #approvement_corps{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
   }
+  .car_info_p_user{
+    max-width: 330px;
+    height: 630px;
+  }
+  
+#carPosts_block_p_user {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+ justify-content: space-between;
+ width: 1000px;
+  
+}
  }  
  /* ************************1440px***************************************** */
  @media screen and (min-width: 1440px) {
@@ -1472,7 +1498,9 @@ letter-spacing: 3px;
   .car_info{
     margin-top: 10px;
     max-width: 400px!important;
+   
   }
+ 
   .serv_page_ttl{
     text-shadow: 2px 2px white; 
     color: #D92332; 
@@ -1529,23 +1557,15 @@ padding: 15px;
   height: 75vh;
   } 
 
-/* .navbar-toggler-icon {
-  font-size: 1.4em;
-  color: white;
-}  */
-
 #navbarColor01{
   width: 100%;
-  height: 70px!important;
-  
+  height: 70px!important; 
 }
 
 .navbar-nav a,
 footer a {
   color: white;
-
 }
-
 
 
 .nav-item {
@@ -1565,15 +1585,11 @@ footer a {
   font-size: 2em!important;
 }
 
-
-
 .visit_site_links li {
   padding: 0.2em;
   list-style: circle;
   margin-bottom: 1em;
 } 
-
-
 
 #btn_home {
   text-decoration: none;
@@ -1607,11 +1623,8 @@ footer a {
 
 /* car.index */
 #carPosts_block {
-  position: relative;
-  margin-top: 3%;
-  left: 50%;
-  transform: translateX(-47%);
-  min-width: 1340px;
+   width: 1340px;
+  justify-content: space-between; 
 }
 
 .main_car_img{
@@ -1684,6 +1697,18 @@ footer a {
    transform: translateX(-50%);
    width: 500px;
   
+  }
+  .car_info_p_user{
+    max-width: 330px;
+    height: 630px;
+  }
+  #carPosts_block_p_user {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+   justify-content: space-between;
+   width: 1300px;
+    
   }
 
 }  
