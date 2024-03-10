@@ -19,6 +19,7 @@
 
 .body {
   width: 100%;
+  overflow-x: hidden;
 }
 
 /* .alert {
@@ -55,7 +56,7 @@ color: white;
   background: var(--nav_bg_color);
 }
 /* **********@media screen and (min-width: 375px)*****/
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 200px) {
   .container {
     display: flex;
     flex-direction: column;
@@ -478,6 +479,11 @@ border:1px solid white;
 .form-label{
   font-size: 2em;
 }
+#rangeKm,
+#rangePrice,
+#rangeYear{
+  width:100%;
+}
 
 #rangeKmMin,
 #rangeKmVal,
@@ -674,15 +680,7 @@ transition: 0.3s ease-in-out;
 .contact_content{
   width: 375px;
 }
-.call_addr{
-  display: flex;
-  flex-direction: column;
-  width: 375px;
-  align-items: center;
-  text-align: center;
-  position: relative;
 
-}
 #btn_address{
   color: white;
   background-color: var(--rose);
@@ -829,9 +827,9 @@ padding: 2px 8px;
 #rangeYearVal{
   font-size: 1em!important;
 }
-.form-range{
+/* .form-range{
   width: 100%!important;
-}
+} */
 .range_ttl{
   font-size: 1em;
 }
@@ -842,14 +840,20 @@ padding: 2px 8px;
   width: 160px;
 }
 .btn_reload{
-  width: auto;
+  width: 160px;
   font-size: 0.8em;
 }
 
 #carPosts_block,
 #carPosts_block_p_user {
   margin-bottom: 0;
-  width: 450px;
+  width: 400px;
+ 
+}
+#carPosts_block{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .card-title
 {
@@ -868,17 +872,10 @@ padding: 2px 8px;
 min-height: auto;
 margin-bottom: 20px;
 width: 450px;
+max-width: 450px;
 }
 
-.range_block{
-  display: flex;
-  flex-direction: row;
- 
-}
-#carPosts_block {
-  
-  width: 400px;
-}
+
 #equip_block,
   #opt_block{
     width: 480px!important;
@@ -901,7 +898,7 @@ width: 450px;
     width: 450px;
   }
  
-}
+
 #commentNew_p_us{
   position: relative;
  top: 17%;
@@ -968,21 +965,24 @@ width: 450px;
   height: auto;
 }
 
-.form-range{
+/* .form-range{
   width: 200px!important;
-}
+} */
 
 #btn_reload {
   font-size: 1.3em;
-  margin-top: 1.2em !important;
+  margin-top: 1.2em!important;
   width: 260px;
 }
 .btn_reload{
-  width: auto;
+  width: 160px!important;
   font-size: 1.1em;
 }
 
 #carPosts_block {
+  /* position: inherit; */
+  /* left: 0;
+  transform: translateX(0); */
   display: flex;
   flex-direction: row;
   margin-top: 3%;
@@ -991,31 +991,14 @@ width: 450px;
   
 }
 
-.range_block{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-
-.range_block{
-  display: flex;
-  flex-direction: row;
-}
-
 .car_info{
   margin-top: 10px;
-  max-width: 350px!important;
+  width: 330px!important;
+ max-width: 330px!important;
 }
 
 .range_ttl{
   font-size: 1.2em;
-}
-
-.range_val span{
-
-  width:200px;
 }
 
 #rangeKmMin,
@@ -1026,6 +1009,10 @@ width: 450px;
 #rangeYearVal{
   font-size:1.2em!important;
 }
+.range_block_item{
+  width:12rem;
+}
+
  /**page car.show* 768px*** */
  .car_show_container {
 height: 100vh;
@@ -1322,9 +1309,11 @@ letter-spacing: 3px;
   #carPosts_block {
     display: flex;
     flex-direction: row;
-    position: relative;
+    justify-content: center;
+    margin-left: 10px;
+    /* position: relative; */
     margin-top: 3%;
-    width: 980px;
+    width: 1000px;
   }
 
   .form-range{
@@ -1387,6 +1376,7 @@ letter-spacing: 3px;
 
   .car_info{
     margin-top: 10px;
+    max-width: 300px;
   }
 
   #btn_rdv a{
@@ -1525,7 +1515,7 @@ letter-spacing: 3px;
     margin-right: 7rem;
     font-size: 1em;
     margin-top: -1%;
-    margin-left: 25%;
+    margin-left: 5%;
   }
 #contact_submit{
   font-size: 1.1em;

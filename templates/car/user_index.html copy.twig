@@ -30,7 +30,37 @@
 		{% endif %}
 
 		<div id="carPosts_block_p_user">
-
+{% if app.user.roles is same as 'ROLE_ADMIN' %}
+{% for car in cars %}
+{% if car.author is same as 'Parrot' %}
+	<div class="card-body mb-3 text-xs-center car_info car_info_p_user border rounded  col-xs-12 col-sm-6 col-lg-4" style="display: block;">
+						<div class="car__image card-image">
+							<p class="card-text text-light bg-dark rounded w-50 car_price_span">{{ car.price|raw }}
+								€</p>
+							<img class="main_car_img mb-3" src="{{ vich_uploader_asset(car, 'imageFile') }}">
+						</div>
+						<h4 class="card-title text-center">
+							{{ car.title }}</h4>
+						<span>Année :
+						</span>
+						<p class="card-text fw-bold  car_year" value="">
+							{{ car.year|raw }}</p>
+						<p class="card-text fw-bold">{{ car.fuelType|raw }}</p>
+						<p class="card-text fw-bold car_km" value="">{{ car.km|raw }}<span>
+								km</span>
+						</p>
+						<hr>
+						<p class="card-text text-black fw-bold car_price" value="">{{ car.price|raw }}<span>
+								€</span>
+						</p>
+						<p>
+							<a href="{{ path('car.show', {id: car.id}) }}" style="text-decoration: underscore;" class="fs-2 fw-bold text-light mt-3">Details</a>
+						</p>
+					</div>
+					<br>
+					{% endif %}
+				{% endfor %}
+	
 			{% if app.user.cars %}
 				{% for car in app.user.cars %}
 					<div class="card-body mb-3 text-xs-center car_info car_info_p_user border rounded  col-xs-12 col-sm-6 col-lg-4" style="display: block;">
@@ -60,8 +90,9 @@
 					<br>
 				{% endfor %}
 			{% endif %}
+			{% endif %}
 		</div>
-		<div class="hidden p-4" id="commentNew_p_us" style="z-index: 9999;">
+		<div class="hidden p-4" id="commentNew_p_us">
 			{% include "partials/_comment.html.twig" %}
 			<button type="button" id="btn_comm_close" class="btn btn-danger border">Fermer</button>
 		</div>
@@ -133,7 +164,6 @@ $("#commentNew_p_us").removeClass("hidden");
 $("#commentNew_p_us").css("opacity", "1");
 $("#commentNew_p_us").css("position", "absolute");
 $("#commentNew_p_us").css("background-color", "#d94350");
-$("#approvement_corps").css("opacity", "0");
 
 
 });

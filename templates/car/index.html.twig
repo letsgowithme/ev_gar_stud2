@@ -24,8 +24,8 @@
 		<button type="button" class="btn_reload mb-4 fw-bold" id="btn_reload">Réinitialiser les filtres</button>
 
 		{# ******************range start****************** #}
-		<div class="range_block d-flex justify-content-between">
-	<div class="km_block d-flex flex-column">
+		<div class="range_block d-flex flex-xs-column flex-lg-row justify-content-between">
+	<div class="km_block range_block_item d-flex flex-column">
 		<label for="rangeKm" class="form-label fw-bold range_ttl">Kilométrage</label>
 		<input type="range" class="form-range" min="10000" max="200000" step="1000" id="rangeKm" name="rangeKm">
 		<div class="fw-bold range_val">
@@ -35,7 +35,7 @@
 		<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
 		</div>
 
-		<div class="d-flex flex-column">
+		<div class="d-flex flex-column range_block_item">
 		<label for="rangePrice" class="form-label fw-bold range_ttl">Prix</label>
 		
 				<input type="range" class="form-range" min="1000" max="30000" step="500" id="rangePrice">
@@ -46,7 +46,7 @@
 
 		<button type="button" class="mb-4 fw-bold btn_reload">Réinitialiser</button>
 		</div>
-	<div class="d-flex flex-column">
+	<div class="d-flex flex-column range_block_item">
 		<label for="rangeYear" class="form-label fw-bold range_ttl">Année</label>
 		<input type="range" class="form-range" min="2000" max="2023" step="1" id="rangeYear">
 		<div class="fw-bold range_val">

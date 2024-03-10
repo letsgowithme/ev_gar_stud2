@@ -53,11 +53,7 @@ class CarCrudController extends AbstractCrudController
             ->setLabel('Image')
             ->hideOnForm()
             ->hideOnIndex(),
-            ImageField::new('images')
-            ->setFormType(FileUploadType::class)
-            ->setFormTypeOption('by_reference', false)
-            ->setUploadDir('/public/assets/uploads')
-            ->setBasePath('/assets/uploads')
+            AssociationField::new('images')
             ->setRequired(false)
             ->hideOnIndex()
             ->setLabel('Ajouter plus d\'images'),
