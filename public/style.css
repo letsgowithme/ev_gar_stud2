@@ -55,12 +55,21 @@ color: white;
 #bnt_contact{
   background: var(--nav_bg_color);
 }
+#close_all_comments{
+  background-color: rgb(44, 27, 131);
+  color: white;
+  transition: 0.3s;
+}
+#close_all_comments:hover{
+  background-color: white;
+  color: rgb(44, 27, 131);
+}
 /* **********@media screen and (min-width: 375px)*****/
-@media screen and (min-width: 200px) {
+@media screen and (min-width: 300px) {
   .container {
     display: flex;
     flex-direction: column;
-   
+   overflow-x: hidden;
   }
   .call_us_lg{
     display: none;
@@ -512,7 +521,7 @@ border:1px solid white;
 /* user page */
 #commentNew_p_us{
   position: relative;
- top: 17%;
+ top: 8%;
  left: 50%;
  transform: translateX(-50%);
  width: 375px;
@@ -797,15 +806,15 @@ padding: 2px 8px;
   position: relative;
 }
 
- #approvement_corps{
+ #comm_to_appr{
+  /* display: none; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* max-width: 1000px;  */
-  /* position: relative;
-  left: 20%;
-  transform: translateX(-50%); */
+  min-width: 100%;
+  text-align: center;
+
 }
 }
 @media screen and (min-width: 512px) {
@@ -901,7 +910,7 @@ max-width: 450px;
 
 #commentNew_p_us{
   position: relative;
- top: 17%;
+ top: 8%;
  left: 50%;
  transform: translateX(-50%);
  width: 508px;
@@ -1060,21 +1069,24 @@ margin-bottom: 20px;
       font-size: 0.8em;
     }
       /* user page */
-
+      #comm_to_appr{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 100%;
+        text-align: center;
+      
+      }
 
 
 #btn_comm_close{
   position: relative;
 }
 
-.comment_p_user{
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
 #commentNew_p_us{
   position: relative;
- top: 10%;
+ top: 8%;
  left: 50%;
  transform: translateX(-50%);
  width: 500px;
@@ -1457,11 +1469,17 @@ letter-spacing: 3px;
     height: auto;
   }
   /* user page*/
-   #approvement_corps{
+    #comm_to_appr{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items:flex-start;
     
+  } 
+  .comment_p_user{
+    width: 400px;
+    height: 400px;
   }
   .car_info_p_user{
     max-width: 330px;
@@ -1691,7 +1709,7 @@ footer a {
  /* page user */
   #commentNew_p_us{
     position: relative;
-   top: 30%;
+   top: 20%;
    left: 50%;
    transform: translateX(-50%);
    width: 500px;
