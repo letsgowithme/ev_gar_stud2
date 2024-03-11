@@ -42,7 +42,7 @@ class HomeController extends AbstractController
             $manager->flush();
             $this->addFlash(
                 'success',
-                'Votre témoignage a bien été prise en compte'
+                'Votre témoignage a bien été pris en compte'
             );
             return $this->redirectToRoute('home', ['id' => $comment->getId()]);
         }

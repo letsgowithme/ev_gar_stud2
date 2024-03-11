@@ -26,17 +26,7 @@ class CommentController extends AbstractController
             'schedules' => $scheduleRepository->findAll()
         ]);
     }
-    // #[Route('/commentsAll', name: 'comment.index', methods: ['GET'])]
-    // public function indexAll(
-    //     CommentRepository $commentRepository,
-    //     ScheduleRepository $scheduleRepository
-    //     ): Response
-    // {
-    //     return $this->render('comment/index.html.twig', [
-    //         'comments' => $commentRepository->findAll(),
-    //         'schedules' => $scheduleRepository->findAll()
-    //     ]);
-    // }
+
 
     #[Route('/new', name: 'partials._comment', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager,
@@ -50,7 +40,10 @@ class CommentController extends AbstractController
         if ($commentForm->isSubmitted() && $commentForm->isValid()) {
             $entityManager->persist($comment);
             $entityManager->flush();
-
+            $this->addFlash(
+                'success',
+                'Votre témoignage a été pris en compte. Il sera publié après approbation du modérateur !'
+            );
             return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
         }
 

@@ -212,6 +212,10 @@ class CarController extends AbstractController
 
             $entityManager->persist($car);
             $entityManager->flush();
+            $this->addFlash(
+                'success',
+                'Votre annonce a été modifiée avec succès !'
+            );
             return $this->redirectToRoute('car.show', [
                 'id' => $car->getId()
             ]);

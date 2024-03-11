@@ -1010,7 +1010,8 @@ max-width: 450px;
   font-size:1.2em!important;
 }
 .range_block_item{
-  width:12rem;
+ 
+  width:10rem;
 }
 
  /**page car.show* 768px*** */
@@ -1165,6 +1166,7 @@ margin-bottom: 20px;
   }  
  
     #block_services{
+      background-color: var(--main_bg_color);
     width: 50%;
     color: var(--light)!important;
     position: absolute;
@@ -1172,12 +1174,12 @@ margin-bottom: 20px;
      margin-top: 0;
      border-radius: 0 0 0 0;
      margin-bottom: 2%;
-     height: 42%;
+     height: 82%;
   } 
 
-  .srv_plus_img{
-    height: 550px;
-  }
+  /* .srv_plus_img{
+    height: 1246px;
+  } */
 
   .services_title_page{
     margin-bottom: 10px;
@@ -1309,16 +1311,20 @@ letter-spacing: 3px;
   #carPosts_block {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     margin-left: 10px;
     /* position: relative; */
     margin-top: 3%;
-    width: 1000px;
+    width: 930px;
   }
-
-  .form-range{
-    width: 300px!important;
+  .range_block{
+    width:900px;
   }
+  .range_block_item{
+    width: 270px!important;
+  }
+  
+ 
 
   .bestCommBlock {
     display: flex;
@@ -1487,7 +1493,8 @@ letter-spacing: 3px;
   }
   .car_info{
     margin-top: 10px;
-    max-width: 400px!important;
+    max-width: 350px!important;
+    margin-right: 10px;
    
   }
  
@@ -1621,9 +1628,11 @@ footer a {
   width: 350px; 
   height:250px;
 }
-
-.form-range{
-  width: 400px!important;
+.range_block{
+  width: 1240px;
+}
+.range_block_item{
+  width: 350px!important;
 }
 
 /* *****car.show 1440********/
@@ -1700,5 +1709,7 @@ footer a {
    width: 1300px;
     
   }
-
+.car_index{
+  width: 100%;
+}
 }  
