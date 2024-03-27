@@ -70,7 +70,7 @@
 			<input type="hidden" value="{{ car.id|raw }}">
 						<div class="car__image card-image">
 						<p class="card-text text-light bg-dark rounded w-25 car_price_span">{{ car.price|raw }} €</p>
-							<img class="main_car_img mb-3" src="{{ vich_uploader_asset(car, 'imageFile') }}">
+							<img class="main_car_img mb-3" src="{{ vich_uploader_asset(car, 'imageFile') }}" alt="voiture">
 						</div>
 						<h4 class="card-title">{{ car.title }}</h4>
 					<p class="card-text fw-bold  car_year" value=""> {{ car.year|raw }}</p>
